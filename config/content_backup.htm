@@ -171,14 +171,16 @@ document &lt;= svg
 <h3>w13_hw</h3>
 <p>&lt;！-- 導入 brython 程式庫--&gt;</p>
 <script src="/static/brython.js"></script>
-<p>«script src="/static/brython_stdlib.js"&gt;</p>
-<!-- Ex) Brython ->
+<script src="/static/brython_stdlib.js">
+/script>
+<!-- 啟動  Brython -->
 <script>
 - window.onload=function< brython ({debug:1, pythonpath:['/static/',./../downloads/py/']});
-</ script>
-<！-- 畫布定位點--＞
+}
+</script>
+&lt;！-- 畫布定位點--＞
 <div id="brython_div1"></div>
-<！-- 利用 Brython 繪圖-->
+&lt;！-- 利用 Brython 繪圖--&gt;
 <script type="text/python">
 from browser import html
 from browser import document as doc
@@ -205,8 +207,7 @@ ctx.moveTo(10, 10)
 ctx.lineTo(210, 210)
 ctx.stroke()</pre>
 <p></p>
-</script>
-<p></p><h1>HW 2</h1>
+</script><h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
 <hr/>
