@@ -169,18 +169,18 @@ document &lt;= svg
 </li>
 </ol>
 <h3>w13_hw</h3>
-<p><i- brython=""> &lt;р&gt;
+<p>&lt;！-- 導入 brython 程式庫--&gt;</p>
 <script src="/static/brython.js"></script>
-«script src="/static/brython_stdlib.js"&gt;</i-></p>
-<pre class="brush:py;auto-links:false; toolbar false" contenteditable="false">&lt;!- Ek) Brython
--&gt;</pre>
-<p>«script&gt;/| &lt;[CDATAI window.onload=function(X brython ({debug:1, pythonpath: ['/static/','./../downloads/py/'}): &gt;</p>
-<p><img alt="" height="750" src="/images/截圖 2024-12-05 下午3.16.42.png" width="800"/></p>
-<div id="brython div1"></div>
-<p><i- brython=""></i-></p>
-<p>
+<p>«script src="/static/brython_stdlib.js"&gt;</p>
+<!-- Ex) Brython ->
+<script>
+- window.onload=function< brython ({debug:1, pythonpath:['/static/',./../downloads/py/']});
+</ script>
+<！-- 畫布定位點--＞
+<div id="brython_div1"></div>
+<！-- 利用 Brython 繪圖-->
 <script type="text/python">
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import html
 from browser import document as doc
 
 # 利用 html 建立 canvas 超文件物件
@@ -206,7 +206,6 @@ ctx.lineTo(210, 210)
 ctx.stroke()</pre>
 <p></p>
 </script>
-</p>
 <p></p><h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
