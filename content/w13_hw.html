@@ -142,6 +142,19 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">w12_hw << <a href='w12_hw.html'>Previous</a> <a href='w14_hw.html'>Next</a> >> w14_hw<br /><h1>w13_hw</h1>
+<p>解題思考: 透過點座標的掃瞄, 先採用尺寸較大格點 (如每 10 pixel 掃描一點), 即可判定點群位於那一個特定區域並進行著色. 當掃描細至單一 pixel 時, 就可以完成區域著色.</p>
+<p>另外, 透過 if 判定各點所在區域的條件組合, 可以就是否:</p>
+<p>位於第一個圓內部</p>
+<p>位於第二個圓內部</p>
+<p>位於第一個正方形內部</p>
+<p>位於第二個正方形內部第一個正方形上方、下方、左方、右方</p>
+<p>位於第二個正方形上方、下方、左方、右方</p>
+<p>位於對角線上方範圍</p>
+<p>位於對角線下方範圍</p>
+<p>等條件<a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/5eca62565d509668d731720f1994e127/raw/c885949528f12bfa567ebbd2474d13ef4b5c1e46/if_append_brython.py">區分各區域的不同屬性</a>, 並設法利用這些區域屬性進行<a href="https://stackoverflow.com/questions/50528954/give-each-shape-on-html5-canvas-a-random-colour">顏色運算</a>.</p>
+<p><a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/5eca62565d509668d731720f1994e127/raw/676c6f27ab33fd18873284c51b4c2c008d312c01/almost_right_brython.py">接近正確</a>以及<a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/5eca62565d509668d731720f1994e127/raw/cb369d190d0e69a48e4d44dea5fcab660f4c0f18/almost_right2_brython.py">更細化</a>的著色範例.</p>
+<p><a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/5eca62565d509668d731720f1994e127/raw/25a616bb5e60e5ca9003d954bb10772d0ab86ae8/rect_fill_color_1_brython.py">rect_fill_1</a></p>
+<p><a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/5eca62565d509668d731720f1994e127/raw/25a616bb5e60e5ca9003d954bb10772d0ab86ae8/rect_fill_color_2_brython.py">rect_fill_2</a></p>
 <p><!-- 導入 brython 程式庫 --></p>
 <script src="./../cmsimde/static/brython.js"></script>
 <script src="./../cmsimde/static/brython_stdlib.js"></script>
@@ -152,7 +165,74 @@ window.onload = function() {
 };
 </script>
 <!-- 畫布定位點 -->
-<br />w12_hw << <a href='w12_hw.html'>Previous</a> <a href='w14_hw.html'>Next</a> >> w14_hw</div>
+<div id="brython_div1"></div>
+<!-- 利用 Brython 繪圖 -->
+<script type="text/python">
+from browser import html
+from browser import document as doc
+import math
+import random
+
+# 建立畫布
+canvas = html.CANVAS(width=500, height=500)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+ctx = canvas.getContext("2d")
+ctx.lineWidth = 4
+
+# 隨機顏色函數
+def random_color():
+    return f"rgb({random.randint(0, 255)}, {random.randint(0, 255)}, {random.randint(0, 255)})"
+
+# 畫布背景
+ctx.fillStyle = "white"
+ctx.fillRect(0, 0, 500, 500)
+
+# 畫分段圓形
+def draw_segmented_circle(x, y, radius, segments):
+    for i in range(segments):
+        start_angle = (i / segments) * 2 * math.pi
+        end_angle = ((i + 1) / segments) * 2 * math.pi
+        ctx.beginPath()
+        ctx.arc(x, y, radius, start_angle, end_angle)
+        ctx.lineTo(x, y)
+        ctx.closePath()
+        ctx.fillStyle = random_color()
+        ctx.fill()
+        ctx.strokeStyle = "black"
+        ctx.stroke()
+
+# 畫三角形
+def draw_triangle(vertices, color="red"):
+    ctx.beginPath()
+    ctx.moveTo(*vertices[0])
+    for vertex in vertices[1:]:
+        ctx.lineTo(*vertex)
+    ctx.closePath()
+    ctx.fillStyle = color
+    ctx.fill()
+    ctx.strokeStyle = "black"
+    ctx.stroke()
+
+# 畫斜線
+def draw_line(start, end, color="blue"):
+    ctx.strokeStyle = color
+    ctx.beginPath()
+    ctx.moveTo(*start)
+    ctx.lineTo(*end)
+    ctx.stroke()
+
+# 繪製內容
+draw_segmented_circle(160, 160, 100, 6)  # 第一個圓
+draw_segmented_circle(300, 300, 100, 6)  # 第二個圓
+
+# 繪製三角形區域
+draw_triangle([(50, 50), (50, 250), (250, 250)], random_color())
+draw_triangle([(150, 150), (350, 150), (350, 350)], random_color())
+
+# 繪製藍色斜線
+draw_line((50, 50), (250, 250))
+</script><br />w12_hw << <a href='w12_hw.html'>Previous</a> <a href='w14_hw.html'>Next</a> >> w14_hw</div>
         
     <!-- footer -->
       <div class="container">
