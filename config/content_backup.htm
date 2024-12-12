@@ -168,45 +168,72 @@ document &lt;= svg
 </ul>
 </li>
 </ol>
-<h3>w13_hw</h3>
-<p>&lt;！-- 導入 brython 程式庫--&gt;</p>
+<h3>w13 hw</h3>
+<!-- 引入 Brython 程式庫 -->
 <script src="/static/brython.js"></script>
-<script src="/static/brython_stdlib.js">
-/script>
-<!-- 啟動  Brython -->
+<script src="/static/brython_stdlib.js"></script>
+<!-- 啟動 Brython -->
 <script>
-- window.onload=function< brython ({debug:1, pythonpath:['/static/',./../downloads/py/']});
+window.onload = function() {
+    brython({debug:1, pythonpath:['/static/', '../../downloads/py/']});
 }
 </script>
-&lt;！-- 畫布定位點--＞
-<div id="brython_div1"></div>
-&lt;！-- 利用 Brython 繪圖--&gt;
+<!-- 設置容器 -->
+<div id="brython div1"></div>
+<!-- 利用 Brython 繪圖 -->
 <script type="text/python">
 from browser import html
 from browser import document as doc
 
-# 利用 html 建立 canvas 超文件物件
-canvas = html.CANVAS(width=400, height=400)
-brython_div = doc["brython_div1"]
-brython_div &lt;= canvas
-
+# 利用 HTML 建立 canvas 並定義特性
+canvas = html.CANVAS(width=600, height=600)
+brython_div = doc["brython div1"]
+brython_div <= canvas
 ctx = canvas.getContext("2d")
-ctx.lineWidth = 1
 
-# 繪製兩個矩形
-ctx.strokeStyle = 'red'  # 設定矩形顏色為紅色
-ctx.beginPath() 
-ctx.rect(10, 10, 200, 200)
-ctx.rect(110, 110, 200, 200)
+# 繪製矩形 (紅色邊框)
+ctx.strokeStyle = 'red'
+ctx.beginPath()
+ctx.rect(100, 100, 200, 200)
+ctx.rect(200, 200, 200, 200)
 ctx.stroke()
 
-# 繪製對角線，顏色設定為藍色
-ctx.strokeStyle = 'blue'  # 設定對角線顏色為藍色
-ctx.beginPath() 
-ctx.moveTo(10, 10)
-ctx.lineTo(210, 210)
-ctx.stroke()</pre>
-<p></p>
+# 繪製對角線 (藍色)
+ctx.strokeStyle = 'blue'
+ctx.beginPath()
+ctx.moveTo(100, 100)
+ctx.lineTo(300, 300)
+ctx.stroke()
+
+# 繪製第一個外切圓（黃色填充，避開矩形內部）
+ctx.fillStyle = 'yellow'
+ctx.strokeStyle = 'black'
+
+# 保存當前繪圖狀態
+ctx.save()
+
+# 定義剪裁區域，避開矩形內部
+ctx.beginPath()
+ctx.arc(200, 200, 141.4, 0, 2 * 3.14)  # 第一個圓
+ctx.rect(100, 100, 200, 200)  # 第一個矩形
+ctx.closePath()
+ctx.clip('evenodd')  # 使用 "evenodd" 排除矩形內部
+ctx.fill()  # 填充圓形部分
+ctx.stroke()  # 繪製圓的外框
+
+# 恢復繪圖狀態，避免影響後續繪圖
+ctx.restore()
+
+# 繪製第二個外切圓（同樣處理）
+ctx.save()
+ctx.beginPath()
+ctx.arc(300, 300, 141.4, 0, 2 * 3.14)
+ctx.rect(200, 200, 200, 200)
+ctx.closePath()
+ctx.clip('evenodd')
+ctx.fill()
+ctx.stroke()
+ctx.restore()
 </script><h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
