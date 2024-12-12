@@ -168,72 +168,84 @@ document &lt;= svg
 </ul>
 </li>
 </ol>
-<h3>w13 hw</h3>
-<!-- 引入 Brython 程式庫 -->
+<h3>w13_hw</h3>
+<p><!-- 導入 brython 程式庫 --></p>
 <script src="/static/brython.js"></script>
 <script src="/static/brython_stdlib.js"></script>
-<!-- 啟動 Brython -->
+<p><!-- 啟動 Brython --></p>
 <script>
 window.onload = function() {
-    brython({debug:1, pythonpath:['/static/', '../../downloads/py/']});
-}
+    brython({debug: 1, pythonpath: ['/static/', './../downloads/py/']});
+};
 </script>
-<!-- 設置容器 -->
-<div id="brython div1"></div>
+<!-- 畫布定位點 -->
+<div id="brython_div1"></div>
 <!-- 利用 Brython 繪圖 -->
 <script type="text/python">
 from browser import html
 from browser import document as doc
+import math
+import random
 
-# 利用 HTML 建立 canvas 並定義特性
-canvas = html.CANVAS(width=600, height=600)
-brython_div = doc["brython div1"]
+# 建立畫布
+canvas = html.CANVAS(width=500, height=500)
+brython_div = doc["brython_div1"]
 brython_div <= canvas
 ctx = canvas.getContext("2d")
+ctx.lineWidth = 4
 
-# 繪製矩形 (紅色邊框)
-ctx.strokeStyle = 'red'
-ctx.beginPath()
-ctx.rect(100, 100, 200, 200)
-ctx.rect(200, 200, 200, 200)
-ctx.stroke()
+# 隨機顏色函數
+def random_color():
+    return f"rgb({random.randint(0, 255)}, {random.randint(0, 255)}, {random.randint(0, 255)})"
 
-# 繪製對角線 (藍色)
-ctx.strokeStyle = 'blue'
-ctx.beginPath()
-ctx.moveTo(100, 100)
-ctx.lineTo(300, 300)
-ctx.stroke()
+# 畫布背景
+ctx.fillStyle = "white"
+ctx.fillRect(0, 0, 500, 500)
 
-# 繪製第一個外切圓（黃色填充，避開矩形內部）
-ctx.fillStyle = 'yellow'
-ctx.strokeStyle = 'black'
+# 畫分段圓形
+def draw_segmented_circle(x, y, radius, segments):
+    for i in range(segments):
+        start_angle = (i / segments) * 2 * math.pi
+        end_angle = ((i + 1) / segments) * 2 * math.pi
+        ctx.beginPath()
+        ctx.arc(x, y, radius, start_angle, end_angle)
+        ctx.lineTo(x, y)
+        ctx.closePath()
+        ctx.fillStyle = random_color()
+        ctx.fill()
+        ctx.strokeStyle = "black"
+        ctx.stroke()
 
-# 保存當前繪圖狀態
-ctx.save()
+# 畫三角形
+def draw_triangle(vertices, color="red"):
+    ctx.beginPath()
+    ctx.moveTo(*vertices[0])
+    for vertex in vertices[1:]:
+        ctx.lineTo(*vertex)
+    ctx.closePath()
+    ctx.fillStyle = color
+    ctx.fill()
+    ctx.strokeStyle = "black"
+    ctx.stroke()
 
-# 定義剪裁區域，避開矩形內部
-ctx.beginPath()
-ctx.arc(200, 200, 141.4, 0, 2 * 3.14)  # 第一個圓
-ctx.rect(100, 100, 200, 200)  # 第一個矩形
-ctx.closePath()
-ctx.clip('evenodd')  # 使用 "evenodd" 排除矩形內部
-ctx.fill()  # 填充圓形部分
-ctx.stroke()  # 繪製圓的外框
+# 畫斜線
+def draw_line(start, end, color="blue"):
+    ctx.strokeStyle = color
+    ctx.beginPath()
+    ctx.moveTo(*start)
+    ctx.lineTo(*end)
+    ctx.stroke()
 
-# 恢復繪圖狀態，避免影響後續繪圖
-ctx.restore()
+# 繪製內容
+draw_segmented_circle(160, 160, 100, 6)  # 第一個圓
+draw_segmented_circle(300, 300, 100, 6)  # 第二個圓
 
-# 繪製第二個外切圓（同樣處理）
-ctx.save()
-ctx.beginPath()
-ctx.arc(300, 300, 141.4, 0, 2 * 3.14)
-ctx.rect(200, 200, 200, 200)
-ctx.closePath()
-ctx.clip('evenodd')
-ctx.fill()
-ctx.stroke()
-ctx.restore()
+# 繪製三角形區域
+draw_triangle([(50, 50), (50, 250), (250, 250)], random_color())
+draw_triangle([(150, 150), (350, 150), (350, 350)], random_color())
+
+# 繪製藍色斜線
+draw_line((50, 50), (250, 250))
 </script><h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
