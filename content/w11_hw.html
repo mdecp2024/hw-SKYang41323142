@@ -130,7 +130,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li class='has-children'><a href='HW 1 Exam.html'>HW 1 Exam</a><ul class='dropdown'><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a><li><a href='w11_hw.html'>w11_hw</a><li><a href='w12.html'>w12</a></li></li></ul></ul><li class='has-children'><a href='HW 2.html'>HW 2</a><ul class='dropdown'><li><a href='HW 2 Exam.html'>HW 2 Exam</a></li></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li><a href='HW 3 Exam.html'>HW 3 Exam</a></li></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li><a href='HW 4 Exam.html'>HW 4 Exam</a></li></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li class='has-children'><a href='HW 1 Exam.html'>HW 1 Exam</a><ul class='dropdown'><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a><li><a href='w11.html'>w11</a><li><a href='w11_hw.html'>w11_hw</a><li><a href='w12_hw.html'>w12_hw</a><li><a href='w13_hw.html'>w13_hw</a><li><a href='w14_hw.html'>w14_hw</a></li></li></ul></ul><li class='has-children'><a href='HW 2.html'>HW 2</a><ul class='dropdown'><li><a href='HW 2 Exam.html'>HW 2 Exam</a></li></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li><a href='HW 3 Exam.html'>HW 3 Exam</a></li></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li><a href='HW 4 Exam.html'>HW 4 Exam</a></li></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -141,14 +141,74 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w10 << <a href='w10.html'>Previous</a> <a href='w12.html'>Next</a> >> w12<br /><h1>w11_hw</h1>
+    <div id="tipue_search_content">w11 << <a href='w11.html'>Previous</a> <a href='w12_hw.html'>Next</a> >> w12_hw<br /><h1>w11_hw</h1>
 <p>1.  已知可以用 Python 程式<a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/5e6eda7a004c15fa7262b9a80bfa4af6/raw/c2225ac22f32ee8485a630b42cf3f4d8567bb661/up_to_down_pyramid.py">由上往下列印三角形 *</a>, 或<a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/5e6eda7a004c15fa7262b9a80bfa4af6/raw/56793c72d4495d564e3cc6214ed5fb68dbd2b21d/left_to_right_pyramid.py">由左往右列印三角形 *</a>, 請將此程式延伸到可以在 10x10 的字元區域中, 以 "*" 字元列印出圓型區域. 完成後請將程式碼存入個人 Gist 後, 直接在個人作業網站中的 Brython 頁面中執行. (提示: ?src=gist_script_URL)</p>
 <p>2. 已知可以在網頁中利用 Brython 繪製方格與塗色, 如下連結, 請設法修改此一程式, 直接將程式存入個人的 Gist, 並利用黑色方塊圍出一個圓形區域.</p>
 <p><a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/5705fc2a67aa1db0c0d44d6d0478b08b/raw/f95909804a1f134963cade8463eeb9bd32129ea8/grid_line_and_fill_in_Brython.py">網頁上的方格與塗色</a></p>
 <p>3. 完成上列題目後, 請利用 Youtube 影片<span>簡報</span>個人的解題過程與心得.</p>
-<p><strong>在 10x10 的字元區域中, 以 "*" 字元列印出圓型區域</strong></p>
+<p><strong>1.在 10x10 的字元區域中, 以 "*" 字元列印出圓型區域</strong></p>
+<p>code:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 列印 10x10 的圓形
+size = 10
+radius = 4
+center_x, center_y = 5, 5
+
+for y in range(size):
+for x in range(size):
+if (x - center_x)**2 + (y - center_y)**2 &lt;= radius**2:
+print("*", end="")
+else:
+print(" ", end="")
+print()</pre>
+<p></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/slg37RfC3Qw?si=iox9rYXESjrwcJ75" title="YouTube video player" width="560"></iframe></p>
-<br />w10 << <a href='w10.html'>Previous</a> <a href='w12.html'>Next</a> >> w12</div>
+<h4><span>2.使用 Brython 圍出圓形方格區域</span></h4>
+<p>code :</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
+from browser.svg import *
+
+# 創建 SVG 以模擬方格畫布
+grid_size = 10  # 方格數
+box_size = 20   # 單格大小（像素）
+radius = 4.5    # 圓的半徑（格子為單位）
+center_x, center_y = 5, 5  # 圓心位置
+
+# 創建 SVG 容器
+svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
+svg.setAttribute("width", str(grid_size * box_size))
+svg.setAttribute("height", str(grid_size * box_size))
+svg.setAttribute("style", "border:1px solid black")
+
+# 繪製方格
+for y in range(grid_size):
+    for x in range(grid_size):
+        # 判斷該格是否在圓形內
+        if (x - center_x)**2 + (y - center_y)**2 &lt;= radius**2:
+            color = "black"  # 圓內
+        else:
+            color = "white"  # 圓外
+
+        # 創建矩形 (代表格子)
+        rect = document.createElementNS("http://www.w3.org/2000/svg", "rect")
+        rect.setAttribute("x", str(x * box_size))
+        rect.setAttribute("y", str(y * box_size))
+        rect.setAttribute("width", str(box_size))
+        rect.setAttribute("height", str(box_size))
+        rect.setAttribute("fill", color)
+        rect.setAttribute("stroke", "gray")
+        svg.appendChild(rect)
+
+# 將 SVG 添加到網頁
+document &lt;= svg
+</pre>
+<p><strong>邏輯說明</strong></p>
+<ol>
+<li>修改 Brython 程式，根據圓的公式判斷每個方格是否位於圓形區域內。</li>
+<li>使用黑色塊填充圓形的方格。</li>
+</ol>
+<p><strong><span>My gist : <a href="https://gist.githubusercontent.com/SKYang41323142/de4bb8df9f1f2bf07f8457f9b5cf1f6b/raw/35a443b5542301f4f76013595a0bd045ad1123fe/gistfile1.txt">使用 Brython 圍出圓形方格區域</a></span></strong></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/sqQt2O9nHzM?si=hwv7uEVXXkyHA4su" title="YouTube video player" width="560"></iframe></p>
+<br />w11 << <a href='w11.html'>Previous</a> <a href='w12_hw.html'>Next</a> >> w12_hw</div>
         
     <!-- footer -->
       <div class="container">
