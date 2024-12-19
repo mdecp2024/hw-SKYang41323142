@@ -261,8 +261,7 @@ draw_triangle([(150, 150), (350, 150), (350, 350)], random_color())
 
 # 繪製藍色斜線
 draw_line((50, 50), (250, 250))
-</script>
-<h3>w14_hw</h3>
+</script><h3>w14_hw</h3>
 <p><strong><span>My gist : <a href="https://gist.githubusercontent.com/SKYang41323142/532f3b3c8a34a98c6d66d95e85e2f575/raw/9b8d80f4a6b57cc07b014e9b954913347a9dd806/gistfile1.txt">最終程式</a></span></strong></p>
 <p><span>根據兩個圓繪圖所圍成的</span><a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/5eca62565d509668d731720f1994e127/raw/0e370b2ad0c429ab4c8905244022c27cfca8cfba/two_cicle_fill_ex1.py">區域</a><span>(目前圍成三個區域, 但若圓心移動可能彼此獨立)進行不同顏色著色, 條件是當各圓半徑與圓心座標變動時, 程式只需輸入兩個圓的圓心座標與半徑, 就可以完成各區域的著色任務.</span></p>
 <p><!-- 導入 Brython 程式庫 -->
@@ -278,10 +277,66 @@ draw_line((50, 50), (250, 250))
 </script>
 <!-- 畫布定位點 --></p>
 <h3>w15</h3>
-<p>題目一: 請利用 Gist 與 Brython 程式環境, 在個人的課程網站中新增一個頁面, 標題為 w15, 以"<a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/2900287172b6672ca9e10019cd5850d8/raw/ce473737d739ddb66047166e338c464f2c5bb819/w15.py">從 1 累加到 100</a>"作為 anchor 的連結標題, 使用者點擊該連結之後, 可從各自的 Brython 頁面執行程式.</p>
-<p>題目二: 延伸上題, 設計一個函式 addto(1, 100), 可以完成上述的累加結果. (以"addto"作為連結標題)</p>
-<p>題目三: 延伸上題, 設計一個函式 add_only_even(1, 100), 可以完成從第一個輸入整數, 累加到第二個輸入變數的累加結果. 頁面中請以 <span>add_only_even 作為連結標題.</span></p>
-<p><span>題目四: 延伸上題, 設計一個函式 add_avoid_8(1, 100), 可以完成從第一個輸入整數, 累加到第二個輸入變數的累加過程, 必須避開數字出現"8"的整數, 頁面中請以 add_avoid_8 作為連結標題.</span></p>
+<p>題目一: 請利用 Gist 與 Brython 程式環境, 在個人的課程網站中新增一個頁面, 標題為 w15, 以"<a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/2900287172b6672ca9e10019cd5850d8/raw/b7fa1f6a7c51836a4cecdf278b4c63000a5bc9ae/w15.py">從 1 累加到 100</a>"作為 anchor 的連結標題, 使用者點擊該連結之後, 可從各自的 Brython 頁面執行程式.</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 初始化變數 sum，用來累計總和，初始值設為 0
+sum = 0
+
+# 使用 for 迴圈，從 0 遍歷到 100（包含 100）
+for i in range(0, 101):  # range(0, 101) 會產生從 0 到 100 的整數序列
+    sum += i  # 將當前的數字 i 累加到 sum 中
+
+# 輸出最終累加的結果
+print(sum)  # 輸出結果：5050</pre>
+<p>題目二: 延伸上題, 設計一個函式 <a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/6f7be141b5e187f68758aac88b322869/raw/b4994abbee0451a8e4c781ae636ef22f51e4bb70/w15-2.py">addto(1, 100)</a>, 可以完成上述的累加結果. (以"<a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/6f7be141b5e187f68758aac88b322869/raw/b4994abbee0451a8e4c781ae636ef22f51e4bb70/w15-2.py">addto</a>"作為連結標題)</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def addto(start, end):
+    """
+    計算從 start 到 end 之間所有整數的總和。
+     
+    參數：
+    start: 開始的整數
+    end: 結束的整數（包含在內）
+ 
+    返回：
+    整數總和
+    """
+    sum = 0  # 初始化總和為 0
+    for i in range(start, end + 1):  # 從 start 累加到 end，包含 end
+        sum += i  # 將當前數字加入總和
+    return sum  # 返回計算的總和
+ 
+# 測試函式
+result = addto(1, 100)  # 計算 1 到 100 的總和
+print(result)  # 輸出結果
+</pre>
+<p>題目三: 延伸上題, 設計一個函式 <a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/6f7be141b5e187f68758aac88b322869/raw/b4994abbee0451a8e4c781ae636ef22f51e4bb70/w15-2.py">add_only_even(1, 100)</a>, 可以完成從第一個輸入整數, 累加到第二個輸入變數的累加結果. 頁面中請以 <a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/6f7be141b5e187f68758aac88b322869/raw/b4994abbee0451a8e4c781ae636ef22f51e4bb70/w15-2.py">add_only_even</a><span> 作為連結標題.</span></p>
+<p><span>題目四: 延伸上題, 設計一個函式 <a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/c540a0a7855eb9c0b75443087ba7959d/raw/b39b2aa9d12530b702bccbc15e0cfafbc7502ec5/w15-4.py">add_avoid_8</a>(1, 100), 可以完成從第一個輸入整數, 累加到第二個輸入變數的累加過程, 必須避開數字出現"8"的整數, 頁面中請以 <a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/c540a0a7855eb9c0b75443087ba7959d/raw/b39b2aa9d12530b702bccbc15e0cfafbc7502ec5/w15-4.py">add_avoid_8 </a>作為連結標題.</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義 add_avoid_8 函式，接受兩個參數 start 和 end
+def add_avoid_8(start, end):
+    """
+    計算從 start 到 end（包含 end）之間所有不包含數字 '8' 的數字總和
+    """
+    total_sum = 0  # 初始化總和為 0
+    # 遍歷從 start 到 end 之間的所有數字
+    for i in range(start, end + 1):
+        # 將數字轉換為字符串並檢查是否包含 '8'
+        if '8' not in str(i):
+            total_sum += i  # 如果不包含 '8'，將其加到總和中
+    return total_sum  # 返回最終的累加和
+
+# 呼叫 add_avoid_8 函式，計算從 1 到 100 之間不包含數字 '8' 的數字總和
+result = add_avoid_8(1, 100)
+
+# 輸出結果
+print(result)  # 預期輸出結果： exclude numbers containing '8'</pre>
+<p><span>心得與收穫</span></p>
+<p><span></span></p>
+<ul>
+<li>使用 Brython 的動態特性可以快速生成互動式網頁。</li>
+<li>函式化設計讓程式易於擴展，例如新增其他累加規則。</li>
+<li>HTML 與 Brython 的結合提高了程式的可讀性與可操作性。</li>
+<li>理解了如何使用條件篩選與 Python 的字串操作來實現複雜功能。</li>
+</ul>
+<p></p>
 <p><!-- 利用 Brython 繪圖 -->
 <script type="text/python">
 from browser import html
