@@ -351,6 +351,25 @@ result = add_avoid_8(1, 100)
 
 # 輸出結果
 print(result)  # 預期輸出結果： exclude numbers containing '8'</pre>
+<h4>延伸第四題：<a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/77736df54b7c3e6cdaa80c8887f2123e/raw/f89a86b62e0b0a8e6a2844c43cbbec935e2b4de4/w15-5(extra%2520topic).py"><span class="hljs-title function_">add_avoid_8_and_3</span><span>(1</span><span class="hljs-params">, 100</span><span>)</span></a></h4>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def add_avoid_8_and_3(start, end):
+    """
+    計算從 start 到 end（包含 end）之間所有不包含數字 '8' 或 '3' 的數字總和
+    """
+    total_sum = 0  # 初始化總和為 0
+    # 遍歷從 start 到 end 之間的所有數字
+    for i in range(start, end + 1):
+        # 將數字轉換為字符串並檢查是否包含 '8' 或 '3'
+        if '8' not in str(i) and '3' not in str(i):
+            total_sum += i  # 如果不包含 '8' 或 '3'，將其加到總和中
+    return total_sum  # 返回最終的累加和
+
+# 呼叫 add_avoid_8_and_3 函式，計算從 1 到 100 之間不包含數字 '8' 或 '3' 的數字總和
+result = add_avoid_8_and_3(1, 100)
+
+# 輸出結果
+print(result)
+</pre>
 <h4><span>心得與收穫</span></h4>
 <ul>
 <li>使用 Brython 的動態特性可以快速生成互動式網頁。</li>
@@ -449,7 +468,7 @@ draw_three_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)
 <h2>HW 2 Exam</h2>
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 2 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
-<h1>HW 3</h1>
+<h3><span>w16_exam1</span></h3><h1>HW 3</h1>
 <h4>主題: Python 的數字、演算法與迴圈 (20%)</h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 4 and Part 5</p>
 <p>完成上述流程整理後, 請將 HW3 自評分數輸入 cp2024 自評表單中.</p>
