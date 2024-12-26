@@ -468,7 +468,25 @@ draw_three_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)
 <h2>HW 2 Exam</h2>
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 2 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
-<h3>w16_exam1</h3><h1>HW 3</h1>
+<h3>w16_exam1</h3>
+<p>sol:<a href="https://gist.githubusercontent.com/SKYang41323142/c70b109bffc53cbc516899ea72e6d312/raw/aed301c7d38b038442ecbbea6ca170501b95e1f4/hw2-w16_exam1-sol.py">code</a></p>
+<p>Brython:<a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/c70b109bffc53cbc516899ea72e6d312/raw/aed301c7d38b038442ecbbea6ca170501b95e1f4/hw2-w16_exam1-sol.py">code</a></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/QNRUJxcYsu4?si=8vFvuNMleH2DG1_G" title="YouTube video player" width="560"></iframe></p>
+<p><!-- 導入 brython 程式庫 --></p>
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+<p><!-- 啟動 Brython --></p>
+<script>
+window.onload = function() {
+        brython({debug: 1, pythonpath: ['/static/', './../downloads/py/']});
+    }
+</script>
+<!-- 畫布定位點 -->
+<div id="brython_div1"></div>
+<!-- 利用 Brython 繪圖 -->
+<script type="text/python">
+from browser import document, html import math # 初始化 HTML，確保 canvas 元素存在 def setup_canvas(): if not document.querySelector("#my_canvas"): canvas = html.CANVAS(id="my_canvas", width=800, height=600) document <= canvas setup_canvas() # Set up canvas canvas = document["my_canvas"] ctx = canvas.getContext("2d") # Set origin (31, 12) origin_x, origin_y = 31, 12 # 修改座標為 (31, 12) # Draw X-axis ctx.beginPath() ctx.moveTo(origin_x, origin_y) ctx.lineTo(500, origin_y) ctx.strokeStyle = "black" ctx.lineWidth = 2 ctx.stroke() # Draw Y-axis ctx.beginPath() ctx.moveTo(origin_x, origin_y) ctx.lineTo(origin_x, 300) ctx.stroke() # Label origin ctx.font = "12px Arial" ctx.fillStyle = "black" ctx.fillText("(31, 12)", origin_x + 5, origin_y - 5) # Draw shapes # Hexagon (Red) hex_x, hex_y = 100, 100 ctx.beginPath() for i in range(6): angle = i * (2 * math.pi / 6) x = hex_x + 30 * math.cos(angle) y = hex_y + 30 * math.sin(angle) if i == 0: ctx.moveTo(x, y) else: ctx.lineTo(x, y) ctx.closePath() ctx.fillStyle = "red" ctx.fill() # Diamond (Green) ctx.beginPath() ctx.moveTo(160, 70) ctx.lineTo(180, 100) ctx.lineTo(160, 130) ctx.lineTo(140, 100) ctx.closePath() ctx.fillStyle = "green" ctx.fill() # Triangle (Purple) ctx.beginPath() ctx.moveTo(165, 130) ctx.lineTo(205, 130) ctx.lineTo(185, 100) ctx.closePath() ctx.fillStyle = "purple" ctx.fill() # Circle (Yellow) ctx.beginPath() ctx.arc(230, 100, 30, 0, 2 * math.pi) ctx.fillStyle = "yellow" ctx.fill() # Square (Pink) ctx.beginPath() ctx.rect(265, 75, 50, 50) ctx.fillStyle = "pink" ctx.fill() # Rectangle (Cyan) ctx.beginPath() ctx.rect(320, 90, 60, 20) ctx.fillStyle = "cyan" ctx.fill()
+</script><h1>HW 3</h1>
 <h4>主題: Python 的數字、演算法與迴圈 (20%)</h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 4 and Part 5</p>
 <p>完成上述流程整理後, 請將 HW3 自評分數輸入 cp2024 自評表單中.</p>
@@ -485,7 +503,7 @@ draw_three_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)
 <p style="padding-left: 60px;"><a href="/downloads/cd2023_pj3ag4_zmq_football_4.7.7z">cd2023_pj3ag4_zmq_football_4.7.7z</a></p>
 <p style="padding-left: 60px;"><a href="https://localhost:9446/downloads/cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z">cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z</a></p>
 <p>完成上述流程整理後, 請將 HW4 自評分數輸入 cp2024 自評表單中.</p>
-<h3><span>w16_exam3</span></h3><h2>HW 4 Exam</h2>
+<h3>w16_exam3</h3><h2>HW 4 Exam</h2>
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 4 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
 <h1>Final Report</h1>
