@@ -469,23 +469,213 @@ draw_three_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 2 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
 <h3>w16_exam1</h3>
+<p>結構化設計 代碼結構清晰，層次分明，每段程式碼都專注於實現特定的圖形繪製功能，有助於後續的維護和修改。 透過使用 offset_x 和 offset_y，讓圖形定位以基準點為參考，使得排列與重新調整更加直觀與簡單。 多樣化形狀 示範了利用 Canvas API 繪製多種類型的幾何圖形，包括六邊形、菱形、三角形和圓形等。 使用鮮明的色彩區分不同形狀，進一步提升了視覺效果。 座標系統應用 通過繪製 X、Y 軸並標記原點，提供了明確的參考框架，方便後續進行圖形定位與設計調整。</p>
 <p>sol:<a href="https://gist.githubusercontent.com/SKYang41323142/c70b109bffc53cbc516899ea72e6d312/raw/aed301c7d38b038442ecbbea6ca170501b95e1f4/hw2-w16_exam1-sol.py">code</a></p>
 <p>Brython:<a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/c70b109bffc53cbc516899ea72e6d312/raw/aed301c7d38b038442ecbbea6ca170501b95e1f4/hw2-w16_exam1-sol.py">code</a></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/QNRUJxcYsu4?si=8vFvuNMleH2DG1_G" title="YouTube video player" width="560"></iframe></p>
-<p><!-- 導入 brython 程式庫 --></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/t6QUcKAVNkM?si=NehG3w8eGbrjSO32" title="YouTube video player" width="560"></iframe></p>
+<p><!-- 導入 Brython 程式庫 --></p>
 <script src="/static/brython.js"></script>
 <script src="/static/brython_stdlib.js"></script>
 <p><!-- 啟動 Brython --></p>
 <script>
 window.onload = function() {
-        brython({debug: 1, pythonpath: ['/static/', './../downloads/py/']});
-    }
+    brython();  // 初始化 Brython
+};
 </script>
 <!-- 畫布定位點 -->
-<div id="brython_div1"></div>
+<div id="brython_div1">
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html  # 匯入 Brython 的 html 模組，用於操作 HTML 元素
+from browser import document as doc  # 匯入 Brython 的 document 物件，操作網頁中的 DOM
+
+# 創建畫布 (canvas)，並設置其大小為 2000x150 像素
+canvas = html.CANVAS(width=2000, height=150)
+# 取得 HTML 中 id 為 brython_div1 的元素，這樣可以把畫布放置到這個元素中
+brython_div = doc["brython_div1"]
+# 將畫布添加到 HTML 頁面中的指定元素中
+brython_div &lt;= canvas
+
+# 取得畫布的 2D 繪圖上下文，這樣我們才能在畫布上繪製圖形
+ctx = canvas.getContext("2d")
+
+# 設置畫筆的寬度為 2 像素，這樣我們畫的線會較粗
+ctx.lineWidth = 2
+# 設置畫筆的顏色為黑色
+ctx.strokeStyle = "black"
+
+# 繪製 X 軸 (從原點 (31, 42) 向右延伸到 (88, 42))
+ctx.beginPath()  # 開始繪製新的路徑
+ctx.moveTo(31, 42)  # 將畫筆移動到 X 軸起始點 (31, 42)
+ctx.lineTo(88, 42)  # 畫一條線到 X 軸終點 (88, 42)
+ctx.stroke()  # 完成繪製並顯示這條線
+
+# 繪製 Y 軸 (從原點 (31, 42) 向下延伸到 (31, 134))
+ctx.beginPath()  # 開始繪製新的路徑
+ctx.moveTo(31, 42)  # 將畫筆移動到 Y 軸起始點 (31, 42)
+ctx.lineTo(31, 134)  # 畫一條線到 Y 軸終點 (31, 134)
+ctx.stroke()  # 完成繪製並顯示這條線
+
+# 設置字體樣式為 20px 的 Arial 字型，並設置文字顏色為黑色
+ctx.font = "20px Arial"  # 設定字型為 Arial，大小為 20px
+ctx.fillStyle = "black"  # 設定填充文字的顏色為黑色
+
+# 在畫布上 (90, 64) 位置添加文字 "+X"
+ctx.fillText("+X", 90, 64)  # 在 X 軸正方向添加標籤 "+X"
+
+# 在畫布上 (20, 150) 位置添加文字 "+Y"
+ctx.fillText("+Y", 20, 150)  # 在 Y 軸正方向添加標籤 "+Y"
+
+# 更改字體樣式為 12px 的 Arial 字型，用來標示原點座標
+ctx.font = "12px Arial"  # 設定字型為 Arial，大小為 12px
+ctx.fillStyle = "black"  # 設定填充文字的顏色為黑色
+# 在 (35, 59) 位置顯示文字 "(31, 42)"
+ctx.fillText("(31, 42)", 35, 59)  # 在原點旁邊顯示座標 "(31, 42)"
+
+# 設置位移偏移量，x 和 y 變數對應新原點座標 (31, 42)
+x = 31  # 定義 x 為原點的 X 座標
+y = 42  # 定義 y 為原點的 Y 座標
+
+# 繪製橙色六邊形
+ctx.beginPath()  # 開始繪製六邊形
+ctx.fillStyle = "#EBB000"  # 設置填充顏色為橙色
+ctx.moveTo(x + 40, y + 70)  # 六邊形的第一個頂點
+ctx.lineTo(x + 60, y + 40)  # 第二個頂點
+ctx.lineTo(x + 90, y + 40)  # 第三個頂點
+ctx.lineTo(x + 110, y + 70)  # 第四個頂點
+ctx.lineTo(x + 90, y + 100)  # 第五個頂點
+ctx.lineTo(x + 60, y + 100)  # 第六個頂點
+ctx.closePath()  # 關閉路徑，使六邊形封閉
+ctx.fill()  # 填充六邊形的顏色
+
+# 繪製綠色菱形
+ctx.beginPath()  # 開始繪製菱形
+ctx.fillStyle = "#2CB05F"  # 設置填充顏色為綠色
+ctx.moveTo(x + 130, y + 70)  # 菱形的第一個頂點
+ctx.lineTo(x + 150, y + 40)  # 第二個頂點
+ctx.lineTo(x + 170, y + 70)  # 第三個頂點
+ctx.lineTo(x + 150, y + 100)  # 第四個頂點
+ctx.closePath()  # 關閉路徑，將菱形閉合
+ctx.fill()  # 填充菱形的顏色
+
+# 繪製藍色三角形
+ctx.beginPath()  # 開始繪製三角形
+ctx.fillStyle = "#73B7FF"  # 設置填充顏色為藍色
+ctx.moveTo(x + 174, y + 70)  # 三角形的第一個頂點
+ctx.lineTo(x + 154, y + 100)  # 第二個頂點（左下角）
+ctx.lineTo(x + 194, y + 100)  # 第三個頂點（右下角）
+ctx.closePath()  # 關閉路徑，將三角形閉合
+ctx.fill()  # 填充三角形的顏色
+
+# 繪製粉紅色圓形
+ctx.beginPath()  # 開始繪製圓形
+ctx.fillStyle = "#FF458C"  # 設置填充顏色為粉紅色
+ctx.arc(x + 220, y + 70, 20, 0, 2 * 3.14159)  # 定義圓形的圓心和半徑
+ctx.fill()  # 填充圓形的顏色
+
+# 繪製黃色正方形
+ctx.beginPath()  # 開始繪製正方形
+ctx.fillStyle = "#EBDF00"  # 設置填充顏色為黃色
+ctx.rect(x + 260, y + 43, 40, 40)  # 定義正方形的左上角和邊長
+ctx.fill()  # 填充正方形的顏色
+
+# 繪製藍色矩形
+ctx.beginPath()  # 開始繪製矩形
+ctx.fillStyle = "#004A99"  # 設置填充顏色為藍色
+ctx.rect(x + 320, y + 53, 60, 20)  # 定義矩形的左上角和寬高
+ctx.fill()  # 填充矩形的顏色
+</pre>
+</div>
 <!-- 利用 Brython 繪圖 -->
 <script type="text/python">
-from browser import document, html import math # 初始化 HTML，確保 canvas 元素存在 def setup_canvas(): if not document.querySelector("#my_canvas"): canvas = html.CANVAS(id="my_canvas", width=800, height=600) document <= canvas setup_canvas() # Set up canvas canvas = document["my_canvas"] ctx = canvas.getContext("2d") # Set origin (31, 12) origin_x, origin_y = 31, 12 # 修改座標為 (31, 12) # Draw X-axis ctx.beginPath() ctx.moveTo(origin_x, origin_y) ctx.lineTo(500, origin_y) ctx.strokeStyle = "black" ctx.lineWidth = 2 ctx.stroke() # Draw Y-axis ctx.beginPath() ctx.moveTo(origin_x, origin_y) ctx.lineTo(origin_x, 300) ctx.stroke() # Label origin ctx.font = "12px Arial" ctx.fillStyle = "black" ctx.fillText("(31, 12)", origin_x + 5, origin_y - 5) # Draw shapes # Hexagon (Red) hex_x, hex_y = 100, 100 ctx.beginPath() for i in range(6): angle = i * (2 * math.pi / 6) x = hex_x + 30 * math.cos(angle) y = hex_y + 30 * math.sin(angle) if i == 0: ctx.moveTo(x, y) else: ctx.lineTo(x, y) ctx.closePath() ctx.fillStyle = "red" ctx.fill() # Diamond (Green) ctx.beginPath() ctx.moveTo(160, 70) ctx.lineTo(180, 100) ctx.lineTo(160, 130) ctx.lineTo(140, 100) ctx.closePath() ctx.fillStyle = "green" ctx.fill() # Triangle (Purple) ctx.beginPath() ctx.moveTo(165, 130) ctx.lineTo(205, 130) ctx.lineTo(185, 100) ctx.closePath() ctx.fillStyle = "purple" ctx.fill() # Circle (Yellow) ctx.beginPath() ctx.arc(230, 100, 30, 0, 2 * math.pi) ctx.fillStyle = "yellow" ctx.fill() # Square (Pink) ctx.beginPath() ctx.rect(265, 75, 50, 50) ctx.fillStyle = "pink" ctx.fill() # Rectangle (Cyan) ctx.beginPath() ctx.rect(320, 90, 60, 20) ctx.fillStyle = "cyan" ctx.fill()
+from browser import document, html
+import math
+
+# 初始化畫布，確保 canvas 元素存在
+def setup_canvas():
+    if not document.querySelector("#my_canvas"):
+        canvas = html.CANVAS(id="my_canvas", width=800, height=600)
+        document["brython_div1"] <= canvas  # 將畫布加到指定的 div 中
+
+setup_canvas()
+
+# 設定 canvas 繪圖上下文
+canvas = document["my_canvas"]
+ctx = canvas.getContext("2d")
+
+# 設定座標原點 (31, 12)
+origin_x, origin_y = 31, 12
+
+# 繪製 X 軸
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)
+ctx.lineTo(500, origin_y)
+ctx.strokeStyle = "black"
+ctx.lineWidth = 2
+ctx.stroke()
+
+# 繪製 Y 軸
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)
+ctx.lineTo(origin_x, 300)
+ctx.stroke()
+
+# 標記原點
+ctx.font = "12px Arial"
+ctx.fillStyle = "black"
+ctx.fillText("(31, 12)", origin_x + 5, origin_y - 5)
+
+# 繪製形狀
+
+# 六邊形 (紅色)
+hex_x, hex_y = 100, 100
+ctx.beginPath()
+for i in range(6):
+    angle = i * (2 * math.pi / 6)
+    x = hex_x + 30 * math.cos(angle)
+    y = hex_y + 30 * math.sin(angle)
+    if i == 0:
+        ctx.moveTo(x, y)
+    else:
+        ctx.lineTo(x, y)
+ctx.closePath()
+ctx.fillStyle = "red"
+ctx.fill()
+
+# 菱形 (綠色)
+ctx.beginPath()
+ctx.moveTo(160, 70)  # 上頂點
+ctx.lineTo(180, 100)  # 右頂點
+ctx.lineTo(160, 130)  # 下頂點
+ctx.lineTo(140, 100)  # 左頂點
+ctx.closePath()
+ctx.fillStyle = "green"
+ctx.fill()
+
+# 三角形 (紫色)
+ctx.beginPath()
+ctx.moveTo(165, 130)
+ctx.lineTo(205, 130)
+ctx.lineTo(185, 100)
+ctx.closePath()
+ctx.fillStyle = "purple"
+ctx.fill()
+
+# 圓形 (黃色)
+ctx.beginPath()
+ctx.arc(230, 100, 30, 0, 2 * math.pi)
+ctx.fillStyle = "yellow"
+ctx.fill()
+
+# 正方形 (粉紅色)
+ctx.beginPath()
+ctx.rect(265, 75, 50, 50)
+ctx.fillStyle = "pink"
+ctx.fill()
+
+# 長方形 (青色)
+ctx.beginPath()
+ctx.rect(320, 90, 60, 20)
+ctx.fillStyle = "cyan"
+ctx.fill()
 </script><h1>HW 3</h1>
 <h4>主題: Python 的數字、演算法與迴圈 (20%)</h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 4 and Part 5</p>
@@ -494,7 +684,69 @@ from browser import document, html import math # 初始化 HTML，確保 canvas 
 <h2>HW 3 Exam</h2>
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 3 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
-<h3>w16_exam2</h3><h1>HW 4</h1>
+<h3>w16_exam2</h3>
+<p><strong>程式學習收穫：</strong></p>
+<p><strong>改進方向與延伸運用：</strong></p>
+<ol>
+<li>
+<p><strong>互動式迷宮：</strong></p>
+<ul>
+<li>
+<p>添加用戶輸入功能，例如使用鍵盤方向鍵控制迷宮中的移動。</p>
+</li>
+<li>
+<p>在迷宮起點和終點設置指示點，用不同顏色或標誌表示，增強迷宮的互動性。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>自動生成迷宮：</strong></p>
+<ul>
+<li>
+<p>實現一個算法（如深度優先搜索或Prim's Algorithm），動態生成迷宮路徑，避免手動編碼迷宮結構。</p>
+</li>
+<li>
+<p>將生成的迷宮數據存儲為陣列結構，然後根據數據繪製圖形。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>色彩與動態：</strong></p>
+<ul>
+<li>
+<p>在迷宮中使用不同的顏色表示牆壁、路徑和探索進度。</p>
+</li>
+<li>
+<p>添加動畫效果，逐步展示迷宮的解路徑。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>擴展功能：</strong></p>
+<ul>
+<li>
+<p>將迷宮保存為圖像文件（例如 <code>.png</code>）。</p>
+</li>
+<li>
+<p>添加計時器，讓用戶挑戰解迷宮的速度。</p>
+</li>
+<li>
+<p>設置障礙或陷阱增加挑戰難度。</p>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>
+<p><strong>Canvas API 的應用：</strong> 深入學習 <code>beginPath()</code>、<code>moveTo()</code> 和 <code>lineTo()</code> 等核心方法，掌握如何控制圖形繪製過程。</p>
+</li>
+<li>
+<p><strong>代碼可讀性提升：</strong> 系統性地添加註解，讓代碼不僅對自己而且對團隊成員更容易理解和修改。</p>
+</li>
+<li>
+<p><strong>邏輯規劃：</strong> 將迷宮分段繪製，條理清晰，提升了程式設計的規劃能力。</p>
+</li>
+</ul><h1>HW 4</h1>
 <h4>主題: 利用 Python 控制機電模擬系統 (20%)</h4>
 <p style="padding-left: 30px;">利用 <a href="https://solvespace.com/">https://solvespace.com/</a> 建立機械系統零組件</p>
 <p style="padding-left: 30px;">利用 <a href="https://www.coppeliarobotics.com/">CoppeliaSim</a> 建立機電模擬系統</p>
