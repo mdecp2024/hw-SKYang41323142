@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,10 +141,164 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">HW 1 << <a href='HW 1.html'>Previous</a> <a href='w7.html'>Next</a> >> w7<br /><h1>HW 1 Exam</h1>
-<p>每六人為一組進行協同程式練習</p>
-<p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 Topic 1 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
-<br />HW 1 << <a href='HW 1.html'>Previous</a> <a href='w7.html'>Next</a> >> w7</div>
+    <div id="tipue_search_content">HW 4 Exam << <a href='HW 4 Exam.html'>Previous</a> <a href='Final Report.html'>Next</a> >> Final Report<br /><h1>w16_exam3</h1>
+<p><span>一開始，我是透過ChatGPT了解如何繪製程式碼的功能和語法，接著自己進行計算並撰寫程式碼，尋找對應的色碼輸入，然後將程式碼上傳。這整個學期的過程，不僅讓我在課堂上學到了計算機程式的知識，也讓我學會了如何更有效地利用GPT來進行學習。我不再只是簡單地複製，而是透過不斷提問來解決理解上的問題，補足我的知識盲點，也改善了我的英文能力。GPT還能針對我不理解的地方進行加強說明，讓我在未來再次閱讀時，依然能夠理解。</span></p>
+<p><span></span></p>
+<ul>
+<li><strong>靈活使用 HTML Canvas API</strong><br/>透過 <code>ctx.beginPath()</code> 等 API，可以有效管理繪圖路徑並避免線條相互干擾。此外，運用 <code>moveTo</code> 和 <code>lineTo</code> 等方法，清晰地描述迷宮的各部分結構，讓繪製過程井然有序。</li>
+<li><strong>模組化與參數化設計</strong><br/>在程式中利用變數（如 <code>origin_x</code> 和 <code>origin_y</code>），可以輕鬆調整整體迷宮的位置偏移，讓繪圖更靈活。這種參數化的設計有助於後續維護及擴展。</li>
+<li><strong>走迷宮邏輯的規劃</strong><br/>使用單獨的區塊繪製走迷宮路徑，將每一步都以簡單的線條指令表示，讓迷宮的解法可視化，直觀易懂。</li>
+<li><strong>色彩與線條設置</strong><br/>運用 <code>strokeStyle</code> 和 <code>lineWidth</code>，明確區分迷宮框架與解路徑，提升圖形的可讀性和視覺效果。</li>
+<li><strong>程式結構的清晰性</strong><br/>透過明確的註解，對程式的每個部分進行詳細解釋，這不僅方便日後檢視，也利於其他開發者理解。</li>
+<li><strong>學習與應用 Canvas API 的實踐</strong><br/>這次實現迷宮繪製的過程提供了全面操作 Canvas 的實踐機會，涵蓋了基本線條繪製、文字繪製、色彩管理等多方面內容。</li>
+<li><strong>改進空間</strong>
+<ul>
+<li>可以將迷宮的結構數據化，使用陣列或物件表示迷宮結構，進一步提高程式的可重用性。</li>
+<li>自動生成迷宮路徑，增強互動性與挑戰性。</li>
+<li>增加迷宮的動畫效果，讓視覺呈現更動態化。</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<p>sol:<a href="https://gist.githubusercontent.com/SKYang41323142/a7be9812f7e49923e52d7ae98b799dae/raw/a92eaa447225a7b352d4e94e43730eade0d15127/w16_exam3.py">code</a></p>
+<p>Bython:<a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/a7be9812f7e49923e52d7ae98b799dae/raw/a92eaa447225a7b352d4e94e43730eade0d15127/w16_exam3.py">code</a></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/kX3UBQtE-C8?si=hAWAFxypt6z9f8rj" title="YouTube video player" width="560"></iframe></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+
+# 創建 canvas 元素，並設置畫布的寬度和高度為 1000x300 像素
+canvas = html.CANVAS(width=1000, height=300)
+brython_div = doc["brython_div1"]  # 取得在 HTML 中 id 為 "brython_div1" 的元素
+brython_div &lt;= canvas  # 把 canvas 元素添加到指定的 div 中
+
+# 取得 canvas 元素的 2D 渲染上下文 (context)，這樣就能在畫布上進行繪圖操作
+ctx = canvas.getContext("2d")
+
+# 定義一個簡化的繪製直線的函數，這樣可以方便地多次使用
+def draw_line(x1, y1, x2, y2, line_width=2, stroke_style="black"):
+    """
+    繪製一條直線，從 (x1, y1) 到 (x2, y2)，可設定線條寬度和顏色
+    """
+    ctx.lineWidth = line_width  # 設定線條的寬度
+    ctx.strokeStyle = stroke_style  # 設定線條的顏色
+    ctx.beginPath()  # 開始繪製路徑
+    ctx.moveTo(x1, y1)  # 把畫筆移動到起始點 (x1, y1)
+    ctx.lineTo(x2, y2)  # 繪製一條線條，從 (x1, y1) 到 (x2, y2)
+    ctx.stroke()  # 進行繪製，顯示線條
+
+# 定義一個繪製文本的函數
+def draw_text(text, x, y, font="20px Arial", fill_style="black"):
+    """
+    在畫布上繪製文本，設定字體、顏色以及文本的位置
+    """
+    ctx.font = font  # 設定字體樣式
+    ctx.fillStyle = fill_style  # 設定文本顏色
+    ctx.fillText(text, x, y)  # 在 (x, y) 位置繪製文本
+    ctx.font = "12px Arial"
+    ctx.fillStyle = "red"
+    ctx.fillText("入口", 170, 110)  # 在指定位置繪製“入口”字樣
+    ctx.fillText("出口", 170, 260)  # 在指定位置繪製“出口”字樣
+
+# 繪製紅色線條的函數
+def draw_red_path():
+    """
+    繪製一條紅色路徑
+    """
+    # 繪製紅色路徑的每條線段
+    draw_line(180, 130, 180, 140, stroke_style="red")  # 繪製直線段
+    draw_line(180, 140, 220, 140, stroke_style="red")  # 繪製直線段
+    draw_line(220, 140, 220, 180, stroke_style="red")  # 繪製直線段
+    draw_line(220, 180, 200, 180, stroke_style="red")  # 繪製直線段
+    draw_line(200, 180, 200, 160, stroke_style="red")  # 繪製直線段
+    draw_line(200, 160, 180, 160, stroke_style="red")  # 繪製直線段
+    draw_line(180, 160, 180, 180, stroke_style="red")  # 繪製直線段
+    draw_line(180, 180, 140, 180, stroke_style="red")  # 繪製直線段
+    draw_line(140, 180, 140, 220, stroke_style="red")  # 繪製直線段
+    draw_line(140, 220, 160, 220, stroke_style="red")  # 繪製直線段
+    draw_line(160, 220, 160, 200, stroke_style="red")  # 繪製直線段
+    draw_line(160, 200, 200, 200, stroke_style="red")  # 繪製直線段
+    draw_line(200, 200, 200, 220, stroke_style="red")  # 繪製直線段
+    draw_line(200, 220, 180, 220, stroke_style="red")  # 繪製直線段
+    draw_line(180, 220, 180, 230, stroke_style="red")  # 繪製直線段
+
+# 繪製 L 形的線條，這是一條簡單的 L 形結構
+def draw_l_shape(x, y):
+    """
+    繪製 L 形的兩條線條
+    第一條線從 (x, y) 到 (x + 300, y) — 水平線
+    第二條線從 (x, y) 到 (x, y + 300) — 垂直線
+    """
+    draw_line(x, y, x + 300, y)  # 繪製水平線
+    draw_line(x, y, x, y + 300)  # 繪製垂直線
+
+# 繪製紅色短線，這兩條短線用來強調指定的點
+def draw_red_short_lines(x, y):
+    """
+    繪製兩條紅色的短線，用來標記 (x, y) 的位置
+    第一條是從 (x, y) 向下 1 像素的紅色短線
+    第二條是從 (x, y) 向右 1 像素的紅色短線
+    """
+    draw_line(x, y, x, y + 1, line_width=5, stroke_style="red")  # 繪製垂直的紅色短線
+    draw_line(x, y, x + 1, y, line_width=5, stroke_style="red")  # 繪製水平的紅色短線
+
+# 繪製藍色的六邊形多邊形
+def draw_blue_polygon():
+    """
+    繪製一個由 6 條藍色線條組成的封閉多邊形
+    這個多邊形的每一條邊都是黑色的
+    """
+    # 各條邊的坐標順序
+    draw_line(130, 130, 170, 130, stroke_style="black")  # 第一條邊
+    draw_line(190, 130, 230, 130, stroke_style="black")  # 第二條邊
+    draw_line(230, 130, 230, 230, stroke_style="black")  # 第三條邊
+    draw_line(230, 230, 190, 230, stroke_style="black")  # 第四條邊
+    draw_line(170, 230, 130, 230, stroke_style="black")  # 第五條邊
+    draw_line(130, 230, 130, 130, stroke_style="black")  # 第六條邊
+
+# 繪製矩形內部的藍色線條，這些線條在矩形內部創建更多的小區域
+def draw_inner_lines_in_rectangle():
+    """
+    繪製矩形內部的藍色線條，形成更多的小區域
+    """
+    # 這些線條是繪製在 (150, 150) 和 (210, 230) 之間的區域
+    draw_line(150, 150, 210, 150, stroke_style="black")  # 上邊
+    draw_line(210, 150, 210, 170, stroke_style="black")  # 右邊
+    draw_line(170, 150, 170, 170, stroke_style="black")  # 中間的垂直線
+    draw_line(170, 170, 130, 170, stroke_style="black")  # 下邊
+    draw_line(190, 170, 190, 190, stroke_style="black")  # 內部短垂直線
+    draw_line(190, 190, 210, 190, stroke_style="black")  # 內部短水平線
+    draw_line(210, 190, 210, 230, stroke_style="black")  # 右邊
+    draw_line(170, 170, 150, 170, stroke_style="black")  # 左邊
+    draw_line(150, 210, 150, 190, stroke_style="black")  # 內部左邊
+    draw_line(150, 190, 190, 190, stroke_style="black")  # 內部底部
+    draw_line(170, 230, 170, 210, stroke_style="black")  # 內部右邊
+    draw_line(170, 210, 190, 210, stroke_style="black")  # 內部右側底部
+
+# 主函數，負責調用所有繪圖函數來執行繪製操作
+def main():
+    """
+    主函數，負責調用各種繪圖函數來完成圖形的繪製
+    """
+    # 繪製 L 形線條，起始位置為 (31, 42)
+    draw_l_shape(31, 42)
+
+    # 繪製紅色短線條，強調 (31, 42) 的位置
+    draw_red_short_lines(31, 42)
+
+    # 繪製文本 "(31,42)"，並將其放置在適當的 y 位置，避免與其他圖形重疊
+    draw_text("(31,42)", 40, 35, font="20px Arial", fill_style="red")
+
+    # 繪製紅色路徑
+    draw_red_path()
+
+    # 繪製藍色的多邊形
+    draw_blue_polygon()
+
+    # 繪製矩形內部的藍色線條，創建更多的小區域
+    draw_inner_lines_in_rectangle()
+
+# 調用主函數，執行所有繪圖操作
+main()</pre><br />HW 4 Exam << <a href='HW 4 Exam.html'>Previous</a> <a href='Final Report.html'>Next</a> >> Final Report</div>
         
     <!-- footer -->
       <div class="container">

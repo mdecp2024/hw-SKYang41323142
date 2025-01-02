@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,10 +141,189 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">HW 1 << <a href='HW 1.html'>Previous</a> <a href='w7.html'>Next</a> >> w7<br /><h1>HW 1 Exam</h1>
-<p>每六人為一組進行協同程式練習</p>
-<p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 Topic 1 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
-<br />HW 1 << <a href='HW 1.html'>Previous</a> <a href='w7.html'>Next</a> >> w7</div>
+    <div id="tipue_search_content">w14_hw << <a href='w14_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2<br /><h1>w15</h1>
+<h4>題目一:</h4>
+<p>請利用 Gist 與 Brython 程式環境, 在個人的課程網站中新增一個頁面, 標題為 w15, 以"<a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/2900287172b6672ca9e10019cd5850d8/raw/b7fa1f6a7c51836a4cecdf278b4c63000a5bc9ae/w15.py">從 1 累加到 100</a>"作為 anchor 的連結標題, 使用者點擊該連結之後, 可從各自的 Brython 頁面執行程式.</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 初始化變數 sum，用來累計總和，初始值設為 0
+sum = 0
+
+# 使用 for 迴圈，從 0 遍歷到 100（包含 100）
+for i in range(0, 101):  # range(0, 101) 會產生從 0 到 100 的整數序列
+    sum += i  # 將當前的數字 i 累加到 sum 中
+
+# 輸出最終累加的結果
+print(sum)  # 輸出結果：5050</pre>
+<h4>題目二:</h4>
+<p>延伸上題, 設計一個函式 <a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/6f7be141b5e187f68758aac88b322869/raw/b4994abbee0451a8e4c781ae636ef22f51e4bb70/w15-2.py">addto(1, 100)</a>, 可以完成上述的累加結果. (以"<a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/6f7be141b5e187f68758aac88b322869/raw/b4994abbee0451a8e4c781ae636ef22f51e4bb70/w15-2.py">addto</a>"作為連結標題)</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def addto(start, end):
+    """
+    計算從 start 到 end 之間所有整數的總和。
+     
+    參數：
+    start: 開始的整數
+    end: 結束的整數（包含在內）
+ 
+    返回：
+    整數總和
+    """
+    sum = 0  # 初始化總和為 0
+    for i in range(start, end + 1):  # 從 start 累加到 end，包含 end
+        sum += i  # 將當前數字加入總和
+    return sum  # 返回計算的總和
+ 
+# 測試函式
+result = addto(1, 100)  # 計算 1 到 100 的總和
+print(result)  # 輸出結果
+</pre>
+<h4>題目三:</h4>
+<p>延伸上題, 設計一個函式 <a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/6f7be141b5e187f68758aac88b322869/raw/b4994abbee0451a8e4c781ae636ef22f51e4bb70/w15-2.py">add_only_even(1, 100)</a>, 可以完成從第一個輸入整數, 累加到第二個輸入變數的累加結果. 頁面中請以 <a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/6f7be141b5e187f68758aac88b322869/raw/b4994abbee0451a8e4c781ae636ef22f51e4bb70/w15-2.py">add_only_even</a><span> 作為連結標題.</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def addto(start, end):
+    """
+    計算從 start 到 end 之間所有整數的總和。
+      
+    參數：
+    start: 開始的整數
+    end: 結束的整數（包含在內）
+  
+    返回：
+    整數總和
+    """
+    sum = 0  # 初始化總和為 0
+    for i in range(start, end + 1):  # 從 start 累加到 end，包含 end
+        sum += i  # 將當前數字加入總和
+    return sum  # 返回計算的總和
+  
+# 測試函式
+    result = addto(1, 100)  # 計算 1 到 100 的總和
+    print(result)  # 輸出結果</pre>
+<h4><span>題目四: </span></h4>
+<p><span>延伸上題, 設計一個函式 <a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/c540a0a7855eb9c0b75443087ba7959d/raw/b39b2aa9d12530b702bccbc15e0cfafbc7502ec5/w15-4.py">add_avoid_8</a>(1, 100), 可以完成從第一個輸入整數, 累加到第二個輸入變數的累加過程, 必須避開數字出現"8"的整數, 頁面中請以 <a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/c540a0a7855eb9c0b75443087ba7959d/raw/b39b2aa9d12530b702bccbc15e0cfafbc7502ec5/w15-4.py">add_avoid_8 </a>作為連結標題.</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義 add_avoid_8 函式，接受兩個參數 start 和 end
+def add_avoid_8(start, end):
+    """
+    計算從 start 到 end（包含 end）之間所有不包含數字 '8' 的數字總和
+    """
+    total_sum = 0  # 初始化總和為 0
+    # 遍歷從 start 到 end 之間的所有數字
+    for i in range(start, end + 1):
+        # 將數字轉換為字符串並檢查是否包含 '8'
+        if '8' not in str(i):
+            total_sum += i  # 如果不包含 '8'，將其加到總和中
+    return total_sum  # 返回最終的累加和
+
+# 呼叫 add_avoid_8 函式，計算從 1 到 100 之間不包含數字 '8' 的數字總和
+result = add_avoid_8(1, 100)
+
+# 輸出結果
+print(result)  # 預期輸出結果： exclude numbers containing '8'</pre>
+<h4>延伸第四題：<a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/77736df54b7c3e6cdaa80c8887f2123e/raw/f89a86b62e0b0a8e6a2844c43cbbec935e2b4de4/w15-5(extra%2520topic).py"><span class="hljs-title function_">add_avoid_8_and_3</span><span>(1</span><span class="hljs-params">, 100</span><span>)</span></a></h4>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def add_avoid_8_and_3(start, end):
+    """
+    計算從 start 到 end（包含 end）之間所有不包含數字 '8' 或 '3' 的數字總和
+    """
+    total_sum = 0  # 初始化總和為 0
+    # 遍歷從 start 到 end 之間的所有數字
+    for i in range(start, end + 1):
+        # 將數字轉換為字符串並檢查是否包含 '8' 或 '3'
+        if '8' not in str(i) and '3' not in str(i):
+            total_sum += i  # 如果不包含 '8' 或 '3'，將其加到總和中
+    return total_sum  # 返回最終的累加和
+
+# 呼叫 add_avoid_8_and_3 函式，計算從 1 到 100 之間不包含數字 '8' 或 '3' 的數字總和
+result = add_avoid_8_and_3(1, 100)
+
+# 輸出結果
+print(result)
+</pre>
+<h4><span>心得與收穫</span></h4>
+<ul>
+<li>使用 Brython 的動態特性可以快速生成互動式網頁。</li>
+<li>函式化設計讓程式易於擴展，例如新增其他累加規則。</li>
+<li>HTML 與 Brython 的結合提高了程式的可讀性與可操作性。</li>
+<li>理解了如何使用條件篩選與 Python 的字串操作來實現複雜功能。</li>
+</ul>
+<p></p>
+<p><!-- 利用 Brython 繪圖 -->
+<script type="text/python">
+from browser import html
+from browser import document as doc
+import random
+import math
+
+# 初始化畫布的函式
+def initialize_canvas(canvas_width=400, canvas_height=400, id="brython_div1"):
+    canvas = html.CANVAS(width=canvas_width, height=canvas_height)
+    brython_div = doc[id]
+    brython_div <= canvas
+    ctx = canvas.getContext("2d")
+    return canvas, ctx
+
+# 生成隨機顏色
+def random_color_generator():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    return f"rgb({r}, {g}, {b})"
+
+# 判斷點是否在圓內
+def is_point_in_circle(px, py, cx, cy, r):
+    return (px - cx) ** 2 + (py - cy) ** 2 <= r ** 2
+
+# 繪製三個圓的區域塗色
+def draw_three_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3):
+    canvas, ctx = initialize_canvas(400, 400)
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    # 定義不同區域的顏色
+    color_dict = {}
+    for py in range(0, canvas.height):
+        for px in range(0, canvas.width):
+            # 判斷點是否在每個圓內
+            in_circle1 = is_point_in_circle(px, py, x1, y1, r1)
+            in_circle2 = is_point_in_circle(px, py, x2, y2, r2)
+            in_circle3 = is_point_in_circle(px, py, x3, y3, r3)
+            # 判斷區域類型
+            if in_circle1 and in_circle2 and in_circle3:
+                if "intersection_all" not in color_dict:
+                    color_dict["intersection_all"] = random_color_generator()
+                current_color = color_dict["intersection_all"]
+            elif in_circle1 and in_circle2:
+                if "intersection_1_2" not in color_dict:
+                    color_dict["intersection_1_2"] = random_color_generator()
+                current_color = color_dict["intersection_1_2"]
+            elif in_circle1 and in_circle3:
+                if "intersection_1_3" not in color_dict:
+                    color_dict["intersection_1_3"] = random_color_generator()
+                current_color = color_dict["intersection_1_3"]
+            elif in_circle2 and in_circle3:
+                if "intersection_2_3" not in color_dict:
+                    color_dict["intersection_2_3"] = random_color_generator()
+                current_color = color_dict["intersection_2_3"]
+            elif in_circle1:
+                if "circle1" not in color_dict:
+                    color_dict["circle1"] = random_color_generator()
+                current_color = color_dict["circle1"]
+            elif in_circle2:
+                if "circle2" not in color_dict:
+                    color_dict["circle2"] = random_color_generator()
+                current_color = color_dict["circle2"]
+            elif in_circle3:
+                if "circle3" not in color_dict:
+                    color_dict["circle3"] = random_color_generator()
+                current_color = color_dict["circle3"]
+            else:
+                current_color = "white"  # 背景色
+            # 填充當前像素
+            ctx.fillStyle = current_color
+            ctx.fillRect(px, py, 1, 1)
+
+# 測試參數
+x1, y1, r1 = 150, 200, 100  # 圓1
+x2, y2, r2 = 250, 200, 100  # 圓2
+x3, y3, r3 = 200, 300, 100  # 圓3
+draw_three_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)
+</script>
+</p>
+<br />w14_hw << <a href='w14_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
         
     <!-- footer -->
       <div class="container">

@@ -1,0 +1,481 @@
+<!DOCTYPE html><html>
+        <head>
+        <title>cp_hw</title>
+        <meta charset="utf-8">
+<meta property="head" content="H3">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <!-- for Wink3 客製化關閉 -->
+        <!--
+        <link rel="stylesheet" type="text/css" href="./../cmsimde/static/winkPlayer.css" />
+        <script type="text/javascript" src="./../cmsimde/static/winkPlayer.js"></script>
+        -->
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushRust.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container">
+                <div class="row align-items-center">
+                <h1>41323142 - cp2024 作業網站</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">41323142 - cp2024 作業網站</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">SMap</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li class='has-children'><a href='HW 1 Exam.html'>HW 1 Exam</a><ul class='dropdown'><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a><li><a href='w11.html'>w11</a><li><a href='w11_hw.html'>w11_hw</a><li><a href='w12_hw.html'>w12_hw</a><li><a href='w13_hw.html'>w13_hw</a><li><a href='w14_hw.html'>w14_hw</a><li><a href='w15.html'>w15</a></li></li></ul></ul><li class='has-children'><a href='HW 2.html'>HW 2</a><ul class='dropdown'><li class='has-children'><a href='HW 2 Exam.html'>HW 2 Exam</a><ul class='dropdown'><li><a href='w16_exam1.html'>w16_exam1</a></li></li></ul></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li class='has-children'><a href='HW 3 Exam.html'>HW 3 Exam</a><ul class='dropdown'><li><a href='w16_exam2.html'>w16_exam2</a></li></li></ul></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li class='has-children'><a href='HW 4 Exam.html'>HW 4 Exam</a><ul class='dropdown'><li><a href='w16_exam3.html'>w16_exam3</a></li></li></ul></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
+
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">HW 3 Exam << <a href='HW 3 Exam.html'>Previous</a> <a href='HW 4.html'>Next</a> >> HW 4<br /><h1>w16_exam2</h1>
+<p>Brython Canvas Demo
+<script src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js" type="text/javascript"></script>
+<!-- 畫布容器 --></p>
+<div id="brython_div1"></div>
+<!-- Brython 程式碼 -->
+<script type="text/python">
+from browser import html
+        from browser import document as doc
+
+        # 創建 canvas 元素，並設置畫布的寬度和高度為 1000x250 像素
+        canvas = html.CANVAS(width=1000, height=250)
+        brython_div = doc["brython_div1"]  # 取得在 HTML 中 id 為 "brython_div1" 的元素
+        brython_div <= canvas  # 把 canvas 元素添加到指定的 div 中
+
+        # 獲取 canvas 元素的 2D 渲染上下文 (context)，這樣就能在畫布上進行繪圖操作
+        ctx = canvas.getContext("2d")
+
+        # 定義一個簡化的繪製直線的函數，這樣可以方便地多次使用
+        def draw_line(x1, y1, x2, y2, line_width=2, stroke_style="black"):
+            """
+            繪製一條直線，從 (x1, y1) 到 (x2, y2)，可設置線條寬度和顏色
+            """
+            ctx.lineWidth = line_width  # 設定線條的寬度
+            ctx.strokeStyle = stroke_style  # 設定線條的顏色
+            ctx.beginPath()  # 開始繪製路徑
+            ctx.moveTo(x1, y1)  # 把畫筆移動到起始點 (x1, y1)
+            ctx.lineTo(x2, y2)  # 繪製一條線條，從 (x1, y1) 到 (x2, y2)
+            ctx.stroke()  # 進行繪製，顯示線條
+
+        # 定義一個繪製文本的函數
+        def draw_text(text, x, y, font="20px Arial", fill_style="black"):
+            """
+            在畫布上繪製文本，設置字體、顏色以及文本的位置
+            """
+            ctx.font = font  # 設置字體樣式
+            ctx.fillStyle = fill_style  # 設置文本顏色
+            ctx.fillText(text, x, y)  # 在 (x, y) 位置繪製文本
+
+        # 繪製 L 形的線條，這是一個簡單的 L 形結構
+        def draw_l_shape(x, y):
+            """
+            繪製 L 形的兩條線條
+            第一條線從 (x, y) 到 (x + 300, y) — 水平線
+            第二條線從 (x, y) 到 (x, y + 300) — 垂直線
+            """
+            draw_line(x, y, x + 300, y)  # 繪製水平線
+            draw_line(x, y, x, y + 300)  # 繪製垂直線
+
+        # 繪製紅色短線，這兩條短線用來強調指定的點
+        def draw_red_short_lines(x, y):
+            """
+            繪製兩條紅色的短線，用來標記 (x, y) 的位置
+            第一條是從 (x, y) 向下 1 像素的紅色短線
+            第二條是從 (x, y) 向右 1 像素的紅色短線
+            """
+            draw_line(x, y, x, y + 1, line_width=5, stroke_style="red")  # 繪製垂直的紅色短線
+            draw_line(x, y, x + 1, y, line_width=5, stroke_style="red")  # 繪製水平的紅色短線
+
+        # 繪製藍色的六邊形多邊形
+        def draw_blue_polygon():
+            """
+            繪製一個由 6 條藍色線條組成的封閉多邊形
+            這個多邊形的每一條邊都是藍色的
+            """
+            # 各條邊的坐標順序
+            draw_line(130, 130, 170, 130, stroke_style="blue")  # 第一條邊
+            draw_line(190, 130, 230, 130, stroke_style="blue")  # 第二條邊
+            draw_line(230, 130, 230, 230, stroke_style="blue")  # 第三條邊
+            draw_line(230, 230, 190, 230, stroke_style="blue")  # 第四條邊
+            draw_line(170, 230, 130, 230, stroke_style="blue")  # 第五條邊
+            draw_line(130, 230, 130, 130, stroke_style="blue")  # 第六條邊
+
+        # 繪製矩形內部的藍色線條，這些線條在矩形內部創建更多的小區域
+        def draw_inner_lines_in_rectangle():
+            """
+            繪製矩形內部的藍色線條，形成更多的小區域
+            """
+            # 這些線條是繪製在 (150, 150) 和 (210, 230) 之間的區域
+            draw_line(150, 150, 210, 150, stroke_style="blue")  # 上邊
+            draw_line(210, 150, 210, 170, stroke_style="blue")  # 右邊
+            draw_line(170, 150, 170, 170, stroke_style="blue")  # 中間的垂直線
+            draw_line(170, 170, 130, 170, stroke_style="blue")  # 下邊
+            draw_line(190, 170, 190, 190, stroke_style="blue")  # 內部短垂直線
+            draw_line(190, 190, 210, 190, stroke_style="blue")  # 內部短水平線
+            draw_line(210, 190, 210, 230, stroke_style="blue")  # 右邊
+            draw_line(170, 170, 150, 170, stroke_style="blue")  # 左邊
+            draw_line(150, 210, 150, 190, stroke_style="blue")  # 內部左邊
+            draw_line(150, 190, 190, 190, stroke_style="blue")  # 內部底部
+            draw_line(170, 230, 170, 210, stroke_style="blue")  # 內部右邊
+            draw_line(170, 210, 190, 210, stroke_style="blue")  # 內部右側底部
+
+        # 主函數，負責調用所有繪圖函數來執行繪製操作
+        def main():
+            """
+            主函數，負責調用各種繪圖函數來完成圖形的繪製
+            """
+            # 繪製 L 形線條，起始位置為 (31, 42)
+            draw_l_shape(31, 42)
+
+            # 繪製紅色短線條，強調 (31, 42) 的位置
+            draw_red_short_lines(31, 42)
+
+            # 繪製文本 "(31,42)"，並將其放置在適當的 y 位置，避免與其他圖形重疊
+            draw_text("(31,42)", 40, 35, font="20px Arial", fill_style="red")
+
+            # 繪製藍色的多邊形
+            draw_blue_polygon()
+
+            # 繪製矩形內部的藍色線條，創建更多的小區域
+            draw_inner_lines_in_rectangle()
+
+        # 調用主函數，執行所有繪圖操作
+        main()
+</script>
+<p><strong>程式學習收穫：</strong></p>
+<p><strong>改進方向與延伸運用：</strong><br/><strong></strong></p>
+<ol>
+<li>
+<p><strong>互動式迷宮：</strong></p>
+<ul>
+<li>
+<p>添加用戶輸入功能，例如使用鍵盤方向鍵控制迷宮中的移動。</p>
+</li>
+<li>
+<p>在迷宮起點和終點設置指示點，用不同顏色或標誌表示，增強迷宮的互動性。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>自動生成迷宮：</strong></p>
+<ul>
+<li>
+<p>實現一個算法（如深度優先搜索或Prim's Algorithm），動態生成迷宮路徑，避免手動編碼迷宮結構。</p>
+</li>
+<li>
+<p>將生成的迷宮數據存儲為陣列結構，然後根據數據繪製圖形。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>色彩與動態：</strong></p>
+<ul>
+<li>
+<p>在迷宮中使用不同的顏色表示牆壁、路徑和探索進度。</p>
+</li>
+<li>
+<p>添加動畫效果，逐步展示迷宮的解路徑。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>擴展功能：</strong></p>
+<ul>
+<li>
+<p>將迷宮保存為圖像文件（例如 <code>.png</code>）。</p>
+</li>
+<li>
+<p>添加計時器，讓用戶挑戰解迷宮的速度。</p>
+</li>
+<li>
+<p>設置障礙或陷阱增加挑戰難度。</p>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>
+<p><strong>Canvas API 的應用：</strong> 深入學習 <code>beginPath()</code>、<code>moveTo()</code> 和 <code>lineTo()</code> 等核心方法，掌握如何控制圖形繪製過程。</p>
+</li>
+<li>
+<p><strong>代碼可讀性提升：</strong> 系統性地添加註解，讓代碼不僅對自己而且對團隊成員更容易理解和修改。</p>
+</li>
+<li>
+<p><strong>邏輯規劃：</strong> 將迷宮分段繪製，條理清晰，提升了程式設計的規劃能力。</p>
+</li>
+</ul>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/6m1WKxhalWg?si=zHrVNMNfwjmSTGhf" title="YouTube video player" width="560"></iframe></p>
+<p>sol:<a href="https://gist.githubusercontent.com/SKYang41323142/7c3b43aca1c7e70a421c5d65b3d0d2ff/raw/cdb82f7fb5a0d2cffd20aee22b57ef16e71e35b1/w16_exam2.py">code</a></p>
+<p>Brython:<a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/7c3b43aca1c7e70a421c5d65b3d0d2ff/raw/cdb82f7fb5a0d2cffd20aee22b57ef16e71e35b1/w16_exam2.py">code</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+
+# 創建 canvas 元素，並設置畫布的寬度和高度為 1000x250 像素
+canvas = html.CANVAS(width=1000, height=250)
+brython_div = doc["brython_div1"]  # 取得在 HTML 中 id 為 "brython_div1" 的元素
+brython_div &lt;= canvas  # 把 canvas 元素添加到指定的 div 中
+
+# 獲取 canvas 元素的 2D 渲染上下文 (context)，這樣就能在畫布上進行繪圖操作
+ctx = canvas.getContext("2d")
+
+# 定義一個簡化的繪製直線的函數，這樣可以方便地多次使用
+def draw_line(x1, y1, x2, y2, line_width=2, stroke_style="black"):
+    """
+    繪製一條直線，從 (x1, y1) 到 (x2, y2)，可設置線條寬度和顏色
+    """
+    ctx.lineWidth = line_width  # 設定線條的寬度
+    ctx.strokeStyle = stroke_style  # 設定線條的顏色
+    ctx.beginPath()  # 開始繪製路徑
+    ctx.moveTo(x1, y1)  # 把畫筆移動到起始點 (x1, y1)
+    ctx.lineTo(x2, y2)  # 繪製一條線條，從 (x1, y1) 到 (x2, y2)
+    ctx.stroke()  # 進行繪製，顯示線條
+
+# 定義一個繪製文本的函數
+def draw_text(text, x, y, font="20px Arial", fill_style="black"):
+    """
+    在畫布上繪製文本，設置字體、顏色以及文本的位置
+    """
+    ctx.font = font  # 設置字體樣式
+    ctx.fillStyle = fill_style  # 設置文本顏色
+    ctx.fillText(text, x, y)  # 在 (x, y) 位置繪製文本
+
+# 繪製 L 形的線條，這是一個簡單的 L 形結構
+def draw_l_shape(x, y):
+    """
+    繪製 L 形的兩條線條
+    第一條線從 (x, y) 到 (x + 300, y) — 水平線
+    第二條線從 (x, y) 到 (x, y + 300) — 垂直線
+    """
+    draw_line(x, y, x + 300, y)  # 繪製水平線
+    draw_line(x, y, x, y + 300)  # 繪製垂直線
+
+# 繪製紅色短線，這兩條短線用來強調指定的點
+def draw_red_short_lines(x, y):
+    """
+    繪製兩條紅色的短線，用來標記 (x, y) 的位置
+    第一條是從 (x, y) 向下 1 像素的紅色短線
+    第二條是從 (x, y) 向右 1 像素的紅色短線
+    """
+    draw_line(x, y, x, y + 1, line_width=5, stroke_style="red")  # 繪製垂直的紅色短線
+    draw_line(x, y, x + 1, y, line_width=5, stroke_style="red")  # 繪製水平的紅色短線
+
+# 繪製藍色的六邊形多邊形
+def draw_blue_polygon():
+    """
+    繪製一個由 6 條藍色線條組成的封閉多邊形
+    這個多邊形的每一條邊都是藍色的
+    """
+    # 各條邊的坐標順序
+    draw_line(130, 130, 170, 130, stroke_style="blue")  # 第一條邊
+    draw_line(190, 130, 230, 130, stroke_style="blue")  # 第二條邊
+    draw_line(230, 130, 230, 230, stroke_style="blue")  # 第三條邊
+    draw_line(230, 230, 190, 230, stroke_style="blue")  # 第四條邊
+    draw_line(170, 230, 130, 230, stroke_style="blue")  # 第五條邊
+    draw_line(130, 230, 130, 130, stroke_style="blue")  # 第六條邊
+
+# 繪製矩形內部的藍色線條，這些線條在矩形內部創建更多的小區域
+def draw_inner_lines_in_rectangle():
+    """
+    繪製矩形內部的藍色線條，形成更多的小區域
+    """
+    # 這些線條是繪製在 (150, 150) 和 (210, 230) 之間的區域
+    draw_line(150, 150, 210, 150, stroke_style="blue")  # 上邊
+    draw_line(210, 150, 210, 170, stroke_style="blue")  # 右邊
+    draw_line(170, 150, 170, 170, stroke_style="blue")  # 中間的垂直線
+    draw_line(170, 170, 130, 170, stroke_style="blue")  # 下邊
+    draw_line(190, 170, 190, 190, stroke_style="blue")  # 內部短垂直線
+    draw_line(190, 190, 210, 190, stroke_style="blue")  # 內部短水平線
+    draw_line(210, 190, 210, 230, stroke_style="blue")  # 右邊
+    draw_line(170, 170, 150, 170, stroke_style="blue")  # 左邊
+    draw_line(150, 210, 150, 190, stroke_style="blue")  # 內部左邊
+    draw_line(150, 190, 190, 190, stroke_style="blue")  # 內部底部
+    draw_line(170, 230, 170, 210, stroke_style="blue")  # 內部右邊
+    draw_line(170, 210, 190, 210, stroke_style="blue")  # 內部右側底部
+
+# 主函數，負責調用所有繪圖函數來執行繪製操作
+def main():
+    """
+    主函數，負責調用各種繪圖函數來完成圖形的繪製
+    """
+    # 繪製 L 形線條，起始位置為 (31, 42)
+    draw_l_shape(31, 42)
+
+    # 繪製紅色短線條，強調 (31, 42) 的位置
+    draw_red_short_lines(31, 42)
+
+    # 繪製文本 "(31,42)"，並將其放置在適當的 y 位置，避免與其他圖形重疊
+    draw_text("(31,42)", 40, 35, font="20px Arial", fill_style="red")
+
+    # 繪製藍色的多邊形
+    draw_blue_polygon()
+
+    # 繪製矩形內部的藍色線條，創建更多的小區域
+    draw_inner_lines_in_rectangle()
+
+# 調用主函數，執行所有繪圖操作
+main()</pre>
+<p></p><br />HW 3 Exam << <a href='HW 3 Exam.html'>Previous</a> <a href='HW 4.html'>Next</a> >> HW 4</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        
