@@ -787,81 +787,80 @@ ctx.fill()
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 3 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
 <h3>w16_exam2</h3>
 <p></p>
-<p>Brython Canvas Example</p>
-<script src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js" type="text/javascript"></script>
+<p>Python Canvas Demo</p>
+<!-- 引入 Brython -->
+<script src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js"></script>
+<p></p>
+<!-- 用來放置畫布的容器 -->
 <div id="brython_div1"></div>
+<!-- 引入 Python 程式碼 -->
 <script type="text/python">
-        from browser import html
-        from browser import document as doc
+from browser import html
+from browser import document as doc
 
-        # 創建 canvas 元素，並設置畫布的寬度和高度為 1000x250 像素
-        canvas = html.CANVAS(width=1000, height=250)
-        brython_div = doc["brython_div1"]
-        brython_div <= canvas
+# 創建 canvas 元素，並設置畫布的寬度和高度
+canvas = html.CANVAS(width=1000, height=250)
+brython_div = doc["brython_div1"]  # 找到 HTML 中的 div 元素
+brython_div <= canvas  # 把 canvas 元素加入到 div
 
-        # 獲取 canvas 元素的 2D 渲染上下文
-        ctx = canvas.getContext("2d")
+# 獲取 2D 渲染上下文
+ctx = canvas.getContext("2d")
 
-        # 定義簡化的繪製直線函數
-        def draw_line(x1, y1, x2, y2, line_width=2, stroke_style="black"):
-            ctx.lineWidth = line_width
-            ctx.strokeStyle = stroke_style
-            ctx.beginPath()
-            ctx.moveTo(x1, y1)
-            ctx.lineTo(x2, y2)
-            ctx.stroke()
+# 繪製直線的函數
+def draw_line(x1, y1, x2, y2, line_width=2, stroke_style="black"):
+    ctx.lineWidth = line_width
+    ctx.strokeStyle = stroke_style
+    ctx.beginPath()
+    ctx.moveTo(x1, y1)
+    ctx.lineTo(x2, y2)
+    ctx.stroke()
 
-        # 定義繪製文本的函數
-        def draw_text(text, x, y, font="20px Arial", fill_style="black"):
-            ctx.font = font
-            ctx.fillStyle = fill_style
-            ctx.fillText(text, x, y)
+# 繪製文本的函數
+def draw_text(text, x, y, font="20px Arial", fill_style="black"):
+    ctx.font = font
+    ctx.fillStyle = fill_style
+    ctx.fillText(text, x, y)
 
-        # 繪製 L 形的線條
-        def draw_l_shape(x, y):
-            draw_line(x, y, x + 300, y)
-            draw_line(x, y, x, y + 300)
+# 繪製 L 形
+def draw_l_shape(x, y, length=300):
+    draw_line(x, y, x + length, y)
+    draw_line(x, y, x, y + length)
 
-        # 繪製紅色短線
-        def draw_red_short_lines(x, y):
-            draw_line(x, y, x, y + 1, line_width=5, stroke_style="red")
-            draw_line(x, y, x + 1, y, line_width=5, stroke_style="red")
+# 繪製紅色短線
+def draw_red_short_lines(x, y):
+    draw_line(x, y, x, y + 1, line_width=5, stroke_style="red")
+    draw_line(x, y, x + 1, y, line_width=5, stroke_style="red")
 
-        # 繪製藍色六邊形多邊形
-        def draw_blue_polygon():
-            draw_line(130, 130, 170, 130, stroke_style="blue")
-            draw_line(170, 130, 190, 130, stroke_style="blue")
-            draw_line(190, 130, 230, 130, stroke_style="blue")
-            draw_line(230, 130, 230, 230, stroke_style="blue")
-            draw_line(230, 230, 190, 230, stroke_style="blue")
-            draw_line(190, 230, 130, 230, stroke_style="blue")
-            draw_line(130, 230, 130, 130, stroke_style="blue")
+# 繪製藍色多邊形
+def draw_blue_polygon():
+    vertices = [(130, 130), (170, 130), (190, 130), (230, 130),
+                (230, 230), (190, 230), (170, 230), (130, 230)]
+    for i in range(len(vertices)):
+        x1, y1 = vertices[i]
+        x2, y2 = vertices[(i + 1) % len(vertices)]
+        draw_line(x1, y1, x2, y2, stroke_style="blue")
 
-        # 繪製矩形內部的藍色線條
-        def draw_inner_lines_in_rectangle():
-            draw_line(150, 150, 210, 150, stroke_style="blue")
-            draw_line(210, 150, 210, 170, stroke_style="blue")
-            draw_line(170, 150, 170, 170, stroke_style="blue")
-            draw_line(170, 170, 130, 170, stroke_style="blue")
-            draw_line(190, 170, 190, 190, stroke_style="blue")
-            draw_line(190, 190, 210, 190, stroke_style="blue")
-            draw_line(210, 190, 210, 230, stroke_style="blue")
-            draw_line(170, 170, 150, 170, stroke_style="blue")
-            draw_line(150, 210, 150, 190, stroke_style="blue")
-            draw_line(150, 190, 190, 190, stroke_style="blue")
-            draw_line(170, 230, 170, 210, stroke_style="blue")
-            draw_line(170, 210, 190, 210, stroke_style="blue")
+# 繪製矩形內部的線條
+def draw_inner_lines_in_rectangle():
+    lines = [
+        (150, 150, 210, 150), (210, 150, 210, 170), (170, 150, 170, 170),
+        (170, 170, 130, 170), (190, 170, 190, 190), (190, 190, 210, 190),
+        (210, 190, 210, 230), (170, 170, 150, 170), (150, 210, 150, 190),
+        (150, 190, 190, 190), (170, 230, 170, 210), (170, 210, 190, 210)
+    ]
+    for x1, y1, x2, y2 in lines:
+        draw_line(x1, y1, x2, y2, stroke_style="blue")
 
-        # 主函數
-        def main():
-            draw_l_shape(31, 42)
-            draw_red_short_lines(31, 42)
-            draw_text("(31,42)", 40, 35, font="20px Arial", fill_style="red")
-            draw_blue_polygon()
-            draw_inner_lines_in_rectangle()
+# 主函數
+def main():
+    draw_l_shape(31, 42)
+    draw_red_short_lines(31, 42)
+    draw_text("(31,42)", 40, 35, font="20px Arial", fill_style="red")
+    draw_blue_polygon()
+    draw_inner_lines_in_rectangle()
 
-        main()
-    
+# 執行主函數
+main()
 </script>
 <p><strong>程式學習收穫：</strong></p>
 <p><strong>改進方向與延伸運用：</strong><br/><strong></strong></p>
