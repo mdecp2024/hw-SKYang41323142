@@ -471,9 +471,10 @@ draw_three_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 2 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
 <h3>w16_exam1</h3>
-<p>Brython Canvas Demo
+<p></p>
+<p>Brython Canvas Demo</p>
 <script src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js" type="text/javascript"></script>
-<!-- 畫布容器 --></p>
+<!-- 畫布容器 -->
 <div id="brython_div1"></div>
 <!-- Brython 程式碼 -->
 <script type="text/python">
@@ -569,7 +570,6 @@ draw_three_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)
         ctx.fill()
     
 </script>
-<p></p>
 <p>結構化設計 代碼結構清晰，層次分明，每段程式碼都專注於實現特定的圖形繪製功能，有助於後續的維護和修改。 透過使用 offset_x 和 offset_y，讓圖形定位以基準點為參考，使得排列與重新調整更加直觀與簡單。 多樣化形狀 示範了利用 Canvas API 繪製多種類型的幾何圖形，包括六邊形、菱形、三角形和圓形等。 使用鮮明的色彩區分不同形狀，進一步提升了視覺效果。 座標系統應用 通過繪製 X、Y 軸並標記原點，提供了明確的參考框架，方便後續進行圖形定位與設計調整。</p>
 <p>sol:<a href="https://gist.githubusercontent.com/SKYang41323142/c70b109bffc53cbc516899ea72e6d312/raw/aed301c7d38b038442ecbbea6ca170501b95e1f4/hw2-w16_exam1-sol.py">code</a></p>
 <p>Brython:<a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/c70b109bffc53cbc516899ea72e6d312/raw/aed301c7d38b038442ecbbea6ca170501b95e1f4/hw2-w16_exam1-sol.py">code</a></p>
@@ -702,8 +702,8 @@ setup_canvas()
 canvas = document["my_canvas"]
 ctx = canvas.getContext("2d")
 
-# 設定座標原點 (31, 12)
-origin_x, origin_y = 31, 12
+# 設定座標原點 (31, 42)
+origin_x, origin_y = 31, 42
 
 # 繪製 X 軸
 ctx.beginPath()
@@ -722,7 +722,7 @@ ctx.stroke()
 # 標記原點
 ctx.font = "12px Arial"
 ctx.fillStyle = "black"
-ctx.fillText("(31, 12)", origin_x + 5, origin_y - 5)
+ctx.fillText("(31, 42)", origin_x + 5, origin_y - 5)
 
 # 繪製形狀
 
@@ -777,8 +777,7 @@ ctx.beginPath()
 ctx.rect(320, 90, 60, 20)
 ctx.fillStyle = "cyan"
 ctx.fill()
-</script>
-<h1>HW 3</h1>
+</script><h1>HW 3</h1>
 <h4>主題: Python 的數字、演算法與迴圈 (20%)</h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 4 and Part 5</p>
 <p>完成上述流程整理後, 請將 HW3 自評分數輸入 cp2024 自評表單中.</p>
@@ -787,9 +786,9 @@ ctx.fill()
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 3 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
 <h3>w16_exam2</h3>
-<p></p>
-<p></p>
-<!-- 畫布容器 -->
+<p>Brython Canvas Demo
+<script src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js" type="text/javascript"></script>
+<!-- 畫布容器 --></p>
 <div id="brython_div1"></div>
 <!-- Brython 程式碼 -->
 <script type="text/python">
@@ -1073,8 +1072,7 @@ def main():
 
 # 調用主函數，執行所有繪圖操作
 main()</pre>
-<p></p>
-<h1>HW 4</h1>
+<p></p><h1>HW 4</h1>
 <h4>主題: 利用 Python 控制機電模擬系統 (20%)</h4>
 <p style="padding-left: 30px;">利用 <a href="https://solvespace.com/">https://solvespace.com/</a> 建立機械系統零組件</p>
 <p style="padding-left: 30px;">利用 <a href="https://www.coppeliarobotics.com/">CoppeliaSim</a> 建立機電模擬系統</p>

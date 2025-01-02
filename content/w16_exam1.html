@@ -148,7 +148,7 @@ img.add_border {
 <div id="brython_div1"></div>
 <!-- Brython 程式碼 -->
 <script type="text/python">
-        from browser import html  # 匯入 Brython 的 html 模組，用於操作 HTML 元素
+from browser import html  # 匯入 Brython 的 html 模組，用於操作 HTML 元素
         from browser import document as doc  # 匯入 Brython 的 document 物件，操作網頁中的 DOM
         
         # 創建畫布 (canvas)，並設置其大小為 2000x150 像素
@@ -238,7 +238,6 @@ img.add_border {
         ctx.fillStyle = "#004A99"
         ctx.rect(x + 320, y + 53, 60, 20)
         ctx.fill()
-    
 </script>
 <p></p>
 <p>結構化設計 代碼結構清晰，層次分明，每段程式碼都專注於實現特定的圖形繪製功能，有助於後續的維護和修改。 透過使用 offset_x 和 offset_y，讓圖形定位以基準點為參考，使得排列與重新調整更加直觀與簡單。 多樣化形狀 示範了利用 Canvas API 繪製多種類型的幾何圖形，包括六邊形、菱形、三角形和圓形等。 使用鮮明的色彩區分不同形狀，進一步提升了視覺效果。 座標系統應用 通過繪製 X、Y 軸並標記原點，提供了明確的參考框架，方便後續進行圖形定位與設計調整。</p>
@@ -373,8 +372,8 @@ setup_canvas()
 canvas = document["my_canvas"]
 ctx = canvas.getContext("2d")
 
-# 設定座標原點 (31, 12)
-origin_x, origin_y = 31, 12
+# 設定座標原點 (31, 42)
+origin_x, origin_y = 31, 42
 
 # 繪製 X 軸
 ctx.beginPath()
@@ -393,7 +392,7 @@ ctx.stroke()
 # 標記原點
 ctx.font = "12px Arial"
 ctx.fillStyle = "black"
-ctx.fillText("(31, 12)", origin_x + 5, origin_y - 5)
+ctx.fillText("(31, 42)", origin_x + 5, origin_y - 5)
 
 # 繪製形狀
 
@@ -448,8 +447,7 @@ ctx.beginPath()
 ctx.rect(320, 90, 60, 20)
 ctx.fillStyle = "cyan"
 ctx.fill()
-</script>
-<br />HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3.html'>Next</a> >> HW 3</div>
+</script><br />HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3.html'>Next</a> >> HW 3</div>
         
     <!-- footer -->
       <div class="container">
