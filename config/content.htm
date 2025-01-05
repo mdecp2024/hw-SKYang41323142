@@ -555,22 +555,22 @@ print(sum)  # 輸出結果：5050</pre>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def addto(start, end):
     """
     計算從 start 到 end 之間所有整數的總和。
-     
+      
     參數：
     start: 開始的整數
     end: 結束的整數（包含在內）
- 
+  
     返回：
     整數總和
     """
     sum = 0  # 初始化總和為 0
-    for i in range(start, end + 1):  # 從 start 累加到 end，包含 end
-        sum += i  # 將當前數字加入總和
+    for i in range(start, end + 1):  # 使用 for 迴圈，從 start 遍歷到 end（包括 end）
+        sum += i  # 將當前數字 i 加入總和 sum
     return sum  # 返回計算的總和
- 
+  
 # 測試函式
-result = addto(1, 100)  # 計算 1 到 100 的總和
-print(result)  # 輸出結果
+result = addto(1, 100)  # 調用 addto 函式，計算從 1 到 100 的總和
+print(result)  # 使用 print 輸出函式的返回值
 </pre>
 <h4>題目三:</h4>
 <p>延伸上題, 設計一個函式 <a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/6f7be141b5e187f68758aac88b322869/raw/b4994abbee0451a8e4c781ae636ef22f51e4bb70/w15-2.py">add_only_even(1, 100)</a>, 可以完成從第一個輸入整數, 累加到第二個輸入變數的累加結果. 頁面中請以 <a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/6f7be141b5e187f68758aac88b322869/raw/b4994abbee0451a8e4c781ae636ef22f51e4bb70/w15-2.py">add_only_even</a><span> 作為連結標題.</span></p>
@@ -719,8 +719,7 @@ x2, y2, r2 = 250, 200, 100  # 圓2
 x3, y3, r3 = 200, 300, 100  # 圓3
 draw_three_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)
 </script>
-</p>
-<h1>HW 2</h1>
+</p><h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
 <hr/>
