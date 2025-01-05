@@ -59,69 +59,50 @@
 <p>2. 已知可以在網頁中利用 Brython 繪製方格與塗色, 如下連結, 請設法修改此一程式, 直接將程式存入個人的 Gist, 並利用黑色方塊圍出一個圓形區域.</p>
 <p><a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/5705fc2a67aa1db0c0d44d6d0478b08b/raw/f95909804a1f134963cade8463eeb9bd32129ea8/grid_line_and_fill_in_Brython.py">網頁上的方格與塗色</a></p>
 <p>3. 完成上列題目後, 請利用 Youtube 影片<span>簡報</span>個人的解題過程與心得.</p>
-<p><strong>1.在 10x10 的字元區域中, 以 "*" 字元列印出圓型區域</strong></p>
+<p><strong>1.在 10x10 的字元區域中, 以 "*" 字元列印出圓型區域<a href="https://gist.githubusercontent.com/SKYang41323142/f387b61a7240e67ad5b3223f163d78c9/raw/9b1e5a846edfa4d171a2999b44ce5c9c4a582da9/w11.py">(Gist)</a></strong></p>
 <p>code:</p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 列印 10x10 的圓形
-size = 10
-radius = 4
-center_x, center_y = 5, 5
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義區域大小
+width = 41  # 橫向大小（更高解析度）
+height = 21  # 縱向大小
 
-for y in range(size):
-for x in range(size):
-if (x - center_x)**2 + (y - center_y)**2 &lt;= radius**2:
-print("*", end="")
-else:
-print(" ", end="")
-print()</pre>
-<p></p>
+# 圓心位置
+center_x = width // 2  # 圓心 x 坐標，取寬度的一半
+center_y = height // 2  # 圓心 y 坐標，取高度的一半
+
+# 圓的半徑
+radius = 10  # 圓的半徑長度
+
+# 縱向縮放比例
+vertical_scale = 2.2  # 修正字元比例，使圓形看起來更接近真圓
+
+# 繪製圓形
+for y in range(height):  # 遍歷每一行
+    for x in range(width):  # 遍歷每一列
+        # 計算每個點與圓心的距離
+        dx = x - center_x  # x 軸距離
+        dy = (y - center_y) * vertical_scale  # y 軸距離，乘以縱向縮放比例
+        distance_squared = dx ** 2 + dy ** 2  # 計算與圓心的平方距離
+        
+        # 使用不同字符根據距離漸變
+        if distance_squared &lt;= radius ** 2:  # 判斷是否在圓的範圍內
+            if distance_squared &gt; (radius - 1) ** 2:  # 判斷是否在邊界區域
+                print(".", end="")  # 邊界區域用 "."
+            else:
+                print("*", end="")  # 圓內區域用 "*"
+        else:
+            print(" ", end="")  # 圓外區域留空
+    print()  # 換行，開始下一行繪製</pre>
+<p><br/><br/></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/slg37RfC3Qw?si=iox9rYXESjrwcJ75" title="YouTube video player" width="560"></iframe></p>
 <h4><span>2.使用 Brython 圍出圓形方格區域</span></h4>
 <p>code :</p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
-from browser.svg import *
-
-# 創建 SVG 以模擬方格畫布
-grid_size = 10  # 方格數
-box_size = 20   # 單格大小（像素）
-radius = 4.5    # 圓的半徑（格子為單位）
-center_x, center_y = 5, 5  # 圓心位置
-
-# 創建 SVG 容器
-svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
-svg.setAttribute("width", str(grid_size * box_size))
-svg.setAttribute("height", str(grid_size * box_size))
-svg.setAttribute("style", "border:1px solid black")
-
-# 繪製方格
-for y in range(grid_size):
-    for x in range(grid_size):
-        # 判斷該格是否在圓形內
-        if (x - center_x)**2 + (y - center_y)**2 &lt;= radius**2:
-            color = "black"  # 圓內
-        else:
-            color = "white"  # 圓外
-
-        # 創建矩形 (代表格子)
-        rect = document.createElementNS("http://www.w3.org/2000/svg", "rect")
-        rect.setAttribute("x", str(x * box_size))
-        rect.setAttribute("y", str(y * box_size))
-        rect.setAttribute("width", str(box_size))
-        rect.setAttribute("height", str(box_size))
-        rect.setAttribute("fill", color)
-        rect.setAttribute("stroke", "gray")
-        svg.appendChild(rect)
-
-# 將 SVG 添加到網頁
-document &lt;= svg
-</pre>
 <p><strong>邏輯說明</strong></p>
 <ol>
 <li>修改 Brython 程式，根據圓的公式判斷每個方格是否位於圓形區域內。</li>
 <li>使用黑色塊填充圓形的方格。</li>
 </ol>
 <p><strong><span>My gist : <a href="https://gist.githubusercontent.com/SKYang41323142/de4bb8df9f1f2bf07f8457f9b5cf1f6b/raw/35a443b5542301f4f76013595a0bd045ad1123fe/gistfile1.txt">使用 Brython 圍出圓形方格區域</a></span></strong></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/sqQt2O9nHzM?si=hwv7uEVXXkyHA4su" title="YouTube video player" width="560"></iframe></p>
-<h3>w12_hw</h3>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/sqQt2O9nHzM?si=hwv7uEVXXkyHA4su" title="YouTube video player" width="560"></iframe></p><h3>w12_hw</h3>
 <p><span>1. 請各組組員分別利用 </span><span>Brython 以及 Jupyter lab</span><span> 環境, 執行</span><a href="http://229.cycu.org/python_2025_lite.7z">可攜程式</a><span> notebook 目錄中的 </span><span>01_string_input_print.ipynb 至 10_for_search.ipynb</span><span> 筆記本程式, 完成後請將能在 Brython 執行的程式碼存入個人 </span><span>Gist</span><span> 後, 將各程式執行連結放入 w12_hw 網頁上. 最後請說明各範例中所使用的程式語法以及執行心得.</span></p>
 <p><strong><span>1.for迴圈跟print的範例程式</span></strong></p>
 <p>code<strong><span> : </span></strong></p>
@@ -787,82 +768,151 @@ ctx.fill()
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 3 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
 <h3>w16_exam2</h3>
 <p></p>
-<p>Python Canvas Demo</p>
-<!-- 引入 Brython -->
-<script src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js"></script>
-<p></p>
-<!-- 用來放置畫布的容器 -->
-<div id="brython_div1"></div>
-<!-- 引入 Python 程式碼 -->
-<script type="text/python">
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="/get_page/cmsimde/static/brython.js"></script>
+<script src="/get_page/cmsimde/static/brython_stdlib.js"></script>
+</p>
+<p>
+<script>
+window.onload=function(){ 
+ 
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']}); 
+ 
+}
+</script>
+</p>
+<p>
+<script type="text/python3">
 from browser import html
 from browser import document as doc
-
-# 創建 canvas 元素，並設置畫布的寬度和高度
-canvas = html.CANVAS(width=1000, height=250)
-brython_div = doc["brython_div1"]  # 找到 HTML 中的 div 元素
-brython_div <= canvas  # 把 canvas 元素加入到 div
-
-# 獲取 2D 渲染上下文
+import math
+ 
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=600, height=600)  # 調整畫布大小以容納圓形
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+ 
 ctx = canvas.getContext("2d")
-
-# 繪製直線的函數
-def draw_line(x1, y1, x2, y2, line_width=2, stroke_style="black"):
-    ctx.lineWidth = line_width
-    ctx.strokeStyle = stroke_style
-    ctx.beginPath()
-    ctx.moveTo(x1, y1)
-    ctx.lineTo(x2, y2)
-    ctx.stroke()
-
-# 繪製文本的函數
-def draw_text(text, x, y, font="20px Arial", fill_style="black"):
-    ctx.font = font
-    ctx.fillStyle = fill_style
-    ctx.fillText(text, x, y)
-
-# 繪製 L 形
-def draw_l_shape(x, y, length=300):
-    draw_line(x, y, x + length, y)
-    draw_line(x, y, x, y + length)
-
-# 繪製紅色短線
-def draw_red_short_lines(x, y):
-    draw_line(x, y, x, y + 1, line_width=5, stroke_style="red")
-    draw_line(x, y, x + 1, y, line_width=5, stroke_style="red")
-
-# 繪製藍色多邊形
-def draw_blue_polygon():
-    vertices = [(130, 130), (170, 130), (190, 130), (230, 130),
-                (230, 230), (190, 230), (170, 230), (130, 230)]
-    for i in range(len(vertices)):
-        x1, y1 = vertices[i]
-        x2, y2 = vertices[(i + 1) % len(vertices)]
-        draw_line(x1, y1, x2, y2, stroke_style="blue")
-
-# 繪製矩形內部的線條
-def draw_inner_lines_in_rectangle():
-    lines = [
-        (150, 150, 210, 150), (210, 150, 210, 170), (170, 150, 170, 170),
-        (170, 170, 130, 170), (190, 170, 190, 190), (190, 190, 210, 190),
-        (210, 190, 210, 230), (170, 170, 150, 170), (150, 210, 150, 190),
-        (150, 190, 190, 190), (170, 230, 170, 210), (170, 210, 190, 210)
-    ]
-    for x1, y1, x2, y2 in lines:
-        draw_line(x1, y1, x2, y2, stroke_style="blue")
-
-# 主函數
-def main():
-    draw_l_shape(31, 42)
-    draw_red_short_lines(31, 42)
-    draw_text("(31,42)", 40, 35, font="20px Arial", fill_style="red")
-    draw_blue_polygon()
-    draw_inner_lines_in_rectangle()
-
-# 執行主函數
-main()
+ctx.lineWidth = 2
+ 
+ctx.strokeStyle = 'blue'  # 設定線顏色為藍色
+ctx.beginPath()
+ctx.moveTo(31, 42)  
+ctx.lineTo(231, 42)  
+ctx.stroke()
+ctx.strokeStyle = 'blue'
+ 
+ctx.beginPath()
+ctx.moveTo(31, 42) 
+ctx.lineTo(31, 535)  
+ctx.stroke()
+ctx.strokeStyle = 'blue'
+ 
+ctx.beginPath()
+ctx.moveTo(331, 42) 
+ctx.lineTo(531, 42)  
+ctx.stroke()
+ctx.strokeStyle = 'blue'
+ 
+ctx.beginPath()
+ctx.moveTo(531, 42) 
+ctx.lineTo(531, 542)  
+ctx.stroke()
+ctx.strokeStyle = 'blue'
+ 
+ctx.beginPath()
+ctx.moveTo(531, 542) 
+ctx.lineTo(331, 542)  
+ctx.stroke()
+ctx.strokeStyle = 'blue'
+ 
+ctx.beginPath()
+ctx.moveTo(31, 542) 
+ctx.lineTo(231, 542)  
+ctx.stroke()
+ctx.strokeStyle = 'blue'
+ 
+ctx.beginPath()
+ctx.moveTo(231, 542) 
+ctx.lineTo(231, 442)  
+ctx.stroke()
+ctx.strokeStyle = 'blue'
+ 
+ctx.beginPath()
+ctx.moveTo(231, 442) 
+ctx.lineTo(331, 442)  
+ctx.stroke()
+ctx.strokeStyle = 'blue'
+ 
+ctx.beginPath()
+ctx.moveTo(431, 542) 
+ctx.lineTo(431, 342)  
+ctx.stroke()
+ctx.strokeStyle = 'blue'
+ 
+ctx.beginPath()
+ctx.moveTo(431, 342) 
+ctx.lineTo(131, 342)  
+ctx.stroke()
+ctx.strokeStyle = 'blue'
+ 
+ctx.beginPath()
+ctx.moveTo(131, 342) 
+ctx.lineTo(131, 442)  
+ctx.stroke()
+ctx.strokeStyle = 'blue'
+ 
+ctx.beginPath()
+ctx.moveTo(331, 342) 
+ctx.lineTo(331, 242)  
+ctx.stroke()
+ctx.strokeStyle = 'blue'
+ 
+ctx.beginPath()
+ctx.moveTo(31, 242) 
+ctx.lineTo(231, 242)  
+ctx.stroke()
+ctx.strokeStyle = 'blue'
+ 
+ctx.beginPath()
+ctx.moveTo(231, 242) 
+ctx.lineTo(231, 142)  
+ctx.stroke()
+ctx.strokeStyle = 'blue'
+ 
+ctx.beginPath()
+ctx.moveTo(131, 142) 
+ctx.lineTo(431, 142)  
+ctx.stroke()
+ctx.strokeStyle = 'blue'
+ 
+ctx.beginPath()
+ctx.moveTo(431, 142) 
+ctx.lineTo(431, 242)  
+ctx.stroke()
+# 使用紅色字體標示起始點
+ctx.fillStyle = 'red'  # 設定文字顏色為紅色
+ctx.font = '16px Arial'  # 設定文字大小及字型
+ctx.fillText("起始點 (31, 42)", 60, 50)  # 在座標 (31, 42) 處繪製文字
+ctx.fillStyle = 'black' 
+ctx.font = '16px Arial' 
+ctx.fillText("X", 50, 15)  
+ctx.fillStyle = 'black'
+ctx.font = '16px Arial' 
+ctx.fillText("Y", 0, 50)
+ctx.strokeStyle = 'black'
+ctx.beginPath()
+ctx.moveTo(0, 0) 
+ctx.lineTo(50, 0)  
+ctx.stroke()
+ctx.strokeStyle = 'black'
+ctx.beginPath()
+ctx.moveTo(0, 0) 
+ctx.lineTo(0, 50)  
+ctx.stroke()
 </script>
-<p><strong>程式學習收穫：</strong></p>
+<strong>程式學習收穫：</strong></p>
 <p><strong>改進方向與延伸運用：</strong><br/><strong></strong></p>
 <ol>
 <li>
