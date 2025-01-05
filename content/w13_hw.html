@@ -234,7 +234,79 @@ draw_triangle([(150, 150), (350, 150), (350, 350)], random_color())
 # 繪製藍色斜線
 draw_line((50, 50), (250, 250))
 </script>
-<br />w12_hw << <a href='w12_hw.html'>Previous</a> <a href='w14_hw.html'>Next</a> >> w14_hw</div>
+<p>code:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">&lt;script type="text/python"&gt;// &lt;![CDATA[
+from browser import html  # 匯入 HTML 元素模組
+from browser import document as doc  # 匯入文件操作模組
+import math  # 匯入數學模組，用於計算圓弧
+import random  # 匯入隨機模組，用於生成隨機顏色
+
+# 建立畫布
+canvas = html.CANVAS(width=500, height=500)  # 建立一個 500x500px 的畫布
+brython_div = doc["brython_div1"]  # 獲取 HTML 中 id 為 brython_div1 的 div
+brython_div &lt;= canvas  # 將畫布插入到指定的 div 中
+ctx = canvas.getContext("2d")  # 獲取 2D 繪圖上下文
+ctx.lineWidth = 4  # 設定筆觸寬度
+
+# 隨機顏色函數
+def random_color():
+    return f"rgb({random.randint(0, 255)}, {random.randint(0, 255)}, {random.randint(0, 255)})" 
+    # 返回隨機生成的 RGB 顏色
+
+# 畫布背景
+ctx.fillStyle = "white"  # 設定背景顏色為白色
+ctx.fillRect(0, 0, 500, 500)  # 填滿畫布
+
+# 畫分段圓形
+def draw_segmented_circle(x, y, radius, segments):
+    """繪製分段圓形"""
+    for i in range(segments):  # 根據分段數量繪製多個圓弧
+        start_angle = (i / segments) * 2 * math.pi  # 計算起始角度
+        end_angle = ((i + 1) / segments) * 2 * math.pi  # 計算結束角度
+        ctx.beginPath()  # 開始繪製路徑
+        ctx.arc(x, y, radius, start_angle, end_angle)  # 繪製圓弧
+        ctx.lineTo(x, y)  # 連線到圓心
+        ctx.closePath()  # 封閉路徑
+        ctx.fillStyle = random_color()  # 設定填充顏色為隨機顏色
+        ctx.fill()  # 填充路徑
+        ctx.strokeStyle = "black"  # 設定邊框顏色為黑色
+        ctx.stroke()  # 繪製邊框
+
+# 畫三角形
+def draw_triangle(vertices, color="red"):
+    """繪製三角形"""
+    ctx.beginPath()  # 開始繪製路徑
+    ctx.moveTo(*vertices[0])  # 移動到第一個頂點
+    for vertex in vertices[1:]:  # 遍歷剩餘頂點
+        ctx.lineTo(*vertex)  # 繪製邊
+    ctx.closePath()  # 封閉路徑
+    ctx.fillStyle = color  # 設定填充顏色
+    ctx.fill()  # 填充三角形
+    ctx.strokeStyle = "black"  # 設定邊框顏色為黑色
+    ctx.stroke()  # 繪製邊框
+
+# 畫斜線
+def draw_line(start, end, color="blue"):
+    """繪製直線"""
+    ctx.strokeStyle = color  # 設定線條顏色
+    ctx.beginPath()  # 開始繪製路徑
+    ctx.moveTo(*start)  # 移動到起點
+    ctx.lineTo(*end)  # 繪製到終點
+    ctx.stroke()  # 繪製線條
+
+# 繪製內容
+draw_segmented_circle(160, 160, 100, 6)  # 繪製第一個分段圓，中心在 (160, 160)
+draw_segmented_circle(300, 300, 100, 6)  # 繪製第二個分段圓，中心在 (300, 300)
+
+# 繪製三角形區域
+draw_triangle([(50, 50), (50, 250), (250, 250)], random_color())  # 第一個三角形
+draw_triangle([(150, 150), (350, 150), (350, 350)], random_color())  # 第二個三角形
+
+# 繪製藍色斜線
+draw_line((50, 50), (250, 250))  # 繪製從 (50, 50) 到 (250, 250) 的斜線
+// ]]&gt;
+</pre>
+<p></p><br />w12_hw << <a href='w12_hw.html'>Previous</a> <a href='w14_hw.html'>Next</a> >> w14_hw</div>
         
     <!-- footer -->
       <div class="container">

@@ -158,22 +158,22 @@ print(sum)  # 輸出結果：5050</pre>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def addto(start, end):
     """
     計算從 start 到 end 之間所有整數的總和。
-     
+      
     參數：
     start: 開始的整數
     end: 結束的整數（包含在內）
- 
+  
     返回：
     整數總和
     """
     sum = 0  # 初始化總和為 0
-    for i in range(start, end + 1):  # 從 start 累加到 end，包含 end
-        sum += i  # 將當前數字加入總和
+    for i in range(start, end + 1):  # 使用 for 迴圈，從 start 遍歷到 end（包括 end）
+        sum += i  # 將當前數字 i 加入總和 sum
     return sum  # 返回計算的總和
- 
+  
 # 測試函式
-result = addto(1, 100)  # 計算 1 到 100 的總和
-print(result)  # 輸出結果
+result = addto(1, 100)  # 調用 addto 函式，計算從 1 到 100 的總和
+print(result)  # 使用 print 輸出函式的返回值
 </pre>
 <h4>題目三:</h4>
 <p>延伸上題, 設計一個函式 <a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/6f7be141b5e187f68758aac88b322869/raw/b4994abbee0451a8e4c781ae636ef22f51e4bb70/w15-2.py">add_only_even(1, 100)</a>, 可以完成從第一個輸入整數, 累加到第二個輸入變數的累加結果. 頁面中請以 <a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/6f7be141b5e187f68758aac88b322869/raw/b4994abbee0451a8e4c781ae636ef22f51e4bb70/w15-2.py">add_only_even</a><span> 作為連結標題.</span></p>
@@ -205,35 +205,37 @@ def add_avoid_8(start, end):
     """
     total_sum = 0  # 初始化總和為 0
     # 遍歷從 start 到 end 之間的所有數字
-    for i in range(start, end + 1):
+    for i in range(start, end + 1):  # 從 start 開始迴圈到 end，包含 end
         # 將數字轉換為字符串並檢查是否包含 '8'
-        if '8' not in str(i):
-            total_sum += i  # 如果不包含 '8'，將其加到總和中
+        if '8' not in str(i):  # 如果 '8' 沒有出現在該數字的字符串表示中
+            total_sum += i  # 將當前數字加入總和
     return total_sum  # 返回最終的累加和
-
+ 
 # 呼叫 add_avoid_8 函式，計算從 1 到 100 之間不包含數字 '8' 的數字總和
-result = add_avoid_8(1, 100)
-
+result = add_avoid_8(1, 100)  # 計算結果儲存到 result 變數中
+ 
 # 輸出結果
-print(result)  # 預期輸出結果： exclude numbers containing '8'</pre>
+print(result)  # 輸出 result 變數的值
+</pre>
 <h4>延伸第四題：<a href="https://mdecp2024.github.io/hw-SKYang41323142/content/Brython.html?src=https://gist.githubusercontent.com/SKYang41323142/77736df54b7c3e6cdaa80c8887f2123e/raw/f89a86b62e0b0a8e6a2844c43cbbec935e2b4de4/w15-5(extra%2520topic).py"><span class="hljs-title function_">add_avoid_8_and_3</span><span>(1</span><span class="hljs-params">, 100</span><span>)</span></a></h4>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def add_avoid_8_and_3(start, end):
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義 add_avoid_8_and_3 函式，接受兩個參數 start 和 end
+def add_avoid_8_and_3(start, end):
     """
     計算從 start 到 end（包含 end）之間所有不包含數字 '8' 或 '3' 的數字總和
     """
     total_sum = 0  # 初始化總和為 0
     # 遍歷從 start 到 end 之間的所有數字
-    for i in range(start, end + 1):
+    for i in range(start, end + 1):  # 使用 for 迴圈，從 start 遍歷到 end（包含 end）
         # 將數字轉換為字符串並檢查是否包含 '8' 或 '3'
-        if '8' not in str(i) and '3' not in str(i):
-            total_sum += i  # 如果不包含 '8' 或 '3'，將其加到總和中
-    return total_sum  # 返回最終的累加和
-
+        if '8' not in str(i) and '3' not in str(i):  # 如果數字中不包含 '8' 和 '3'
+            total_sum += i  # 將當前數字加到總和中
+    return total_sum  # 返回計算的總和
+ 
 # 呼叫 add_avoid_8_and_3 函式，計算從 1 到 100 之間不包含數字 '8' 或 '3' 的數字總和
-result = add_avoid_8_and_3(1, 100)
-
+result = add_avoid_8_and_3(1, 100)  # 將結果儲存到 result 變數中
+ 
 # 輸出結果
-print(result)
+print(result)  # 輸出 result 的值
 </pre>
 <h4><span>心得與收穫</span></h4>
 <ul>
@@ -322,8 +324,7 @@ x2, y2, r2 = 250, 200, 100  # 圓2
 x3, y3, r3 = 200, 300, 100  # 圓3
 draw_three_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)
 </script>
-</p>
-<br />w14_hw << <a href='w14_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
+</p><br />w14_hw << <a href='w14_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
         
     <!-- footer -->
       <div class="container">
