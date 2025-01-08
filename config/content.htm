@@ -1935,9 +1935,111 @@ print(split_string("hello world", " "))  # 輸出: ['hello', 'world']
 <h3>清單排序</h3>
 <h3>字母計數器</h3>
 <p>寫一個函數 `count_letters`，接受一個字串作為參數，並返回一個字典，該字典包含字串中每個字母出現的次數。例如：`count_letters("hello")` 應返回 `{'h': 1, 'e': 1, 'l': 2, 'o': 1}`。</p>
-<p>寫一個函數 letter_positions，接受一個字串作為參數，並返回一個字典，該字典包含字串中每個字母出現的位置列表。例如：letter_positions("hello") 應返回 {'h': [0], 'e': [1], 'l': [2, 3], 'o': [4]}。<br/><br/>寫一個函數 first_last_count，接受一個字串作為參數，並返回一個字典，該字典包含字串中每個字母在首尾位置出現的次數。例如：first_last_count("hello world") 應返回 {'h': 1, 'd': 1, 'o': 2, 'w': 1, 'r': 1}。</p>
-<p>寫一個函數 count_uppercase_letters，接受一個字串作為參數，並返回一個字典，該字典包含字串中每個大寫字母出現的次數。例如：count_uppercase_letters("Hello World") 應返回 {'H': 1, 'W': 1}。<br/><br/>寫一個函數 count_vowels，接受一個字串作為參數，並返回一個字典，該字典包含字串中每個母音出現的次數。例如：count_vowels("hello world") 應返回 {'e': 1, 'o': 2}。<br/><br/>寫一個函數 count_non_letter_characters，接受一個字串作為參數，並返回一個字典，該字典包含字串中每個非字母符號出現的次數。例如：count_non_letter_characters("hello world!") 應返回 {' ': 1, '!': 1}。</p>
-<h3>Brython 繪圖</h3>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def count_letters(s):
+    letter_count = {}  # 初始化空字典用來存放字母出現次數
+    for letter in s:
+        if letter in letter_count:  # 如果字母已經在字典中，則增加其次數
+            letter_count[letter] += 1
+        else:
+            letter_count[letter] = 1  # 如果字母不在字典中，則設為1
+    return letter_count  # 返回字母及其次數的字典
+
+# 測試函數
+print(count_letters("hello"))  # 輸出: {'h': 1, 'e': 1, 'l': 2, 'o': 1}
+</pre>
+<p>寫一個函數 letter_positions，接受一個字串作為參數，並返回一個字典，該字典包含字串中每個字母出現的位置列表。例如：letter_positions("hello") 應返回 {'h': [0], 'e': [1], 'l': [2, 3], 'o': [4]}。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def letter_positions(s):
+    positions = {}  # 初始化空字典用來存放字母的位置
+    for index, letter in enumerate(s):  # 使用 enumerate() 獲取字母和其位置
+        if letter in positions:  # 如果字母已經在字典中，則將位置添加到列表中
+            positions[letter].append(index)
+        else:
+            positions[letter] = [index]  # 如果字母不在字典中，則創建位置列表
+    return positions  # 返回字母及其位置的字典
+
+# 測試函數
+print(letter_positions("hello"))  # 輸出: {'h': [0], 'e': [1], 'l': [2, 3], 'o': [4]}
+</pre>
+<p><br/><br/><br/>寫一個函數 first_last_count，接受一個字串作為參數，並返回一個字典，該字典包含字串中每個字母在首尾位置出現的次數。例如：first_last_count("hello world") 應返回 {'h': 1, 'd': 1, 'o': 2, 'w': 1, 'r': 1}。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def first_last_count(s):
+    count = {}  # 初始化空字典用來存放字母出現次數
+    if s:  # 檢查字串是否非空
+        # 確保首尾字母被計算
+        first = s[0]  # 字串的首字母
+        last = s[-1]  # 字串的尾字母
+
+        # 處理首字母
+        if first in count:
+            count[first] += 1
+        else:
+            count[first] = 1
+
+        # 處理尾字母
+        if last in count:
+            count[last] += 1
+        else:
+            count[last] = 1
+
+        # 如果首尾字母相同，則不重複計數
+        if first != last:
+            # 檢查中間部分字母
+            for letter in s[1:-1]:  # 遍歷首尾字母之間的字符
+                if letter in count:
+                    count[letter] += 1
+                else:
+                    count[letter] = 1
+
+    return count  # 返回字母出現次數的字典
+
+# 測試函數
+print(first_last_count("hello world"))  # 輸出: {'h': 1, 'd': 1, 'o': 2, 'w': 1, 'r': 1}
+</pre>
+<p>寫一個函數 count_uppercase_letters，接受一個字串作為參數，並返回一個字典，該字典包含字串中每個大寫字母出現的次數。例如：count_uppercase_letters("Hello World") 應返回 {'H': 1, 'W': 1}。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def count_uppercase_letters(s):
+    uppercase_count = {}  # 初始化空字典用來存放大寫字母出現次數
+    for letter in s:
+        if letter.isupper():  # 檢查字母是否為大寫字母
+            if letter in uppercase_count:  # 如果大寫字母已經出現過，則增加次數
+                uppercase_count[letter] += 1
+            else:
+                uppercase_count[letter] = 1  # 如果大寫字母是第一次出現，則設為1
+    return uppercase_count  # 返回包含大寫字母出現次數的字典
+
+# 測試函數
+print(count_uppercase_letters("Hello World"))  # 輸出: {'H': 1, 'W': 1}
+</pre>
+<p><br/><br/><br/>寫一個函數 count_vowels，接受一個字串作為參數，並返回一個字典，該字典包含字串中每個母音出現的次數。例如：count_vowels("hello world") 應返回 {'e': 1, 'o': 2}。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def count_vowels(s):
+    vowels = "aeiou"  # 定義母音字母
+    vowel_count = {}  # 初始化空字典用來存放母音的出現次數
+    
+    for letter in s:
+        if letter in vowels:  # 檢查字母是否是母音
+            if letter in vowel_count:  # 如果母音已經出現過，則增加次數
+                vowel_count[letter] += 1
+            else:
+                vowel_count[letter] = 1  # 如果母音是第一次出現，則設為1
+    return vowel_count  # 返回母音及其出現次數的字典
+
+# 測試函數
+print(count_vowels("hello world"))  # 輸出: {'e': 1, 'o': 2}
+</pre>
+<p><br/><br/><br/>寫一個函數 count_non_letter_characters，接受一個字串作為參數，並返回一個字典，該字典包含字串中每個非字母符號出現的次數。例如：count_non_letter_characters("hello world!") 應返回 {' ': 1, '!': 1}。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def count_non_letter_characters(s):
+    non_letters_count = {}  # 初始化空字典用來存放非字母字符的出現次數
+    
+    for char in s:
+        if not char.isalpha():  # 檢查字符是否為非字母
+            if char in non_letters_count:  # 如果字符已經在字典中，則增加次數
+                non_letters_count[char] += 1
+            else:
+                non_letters_count[char] = 1  # 如果字符是第一次出現，則設為1
+    return non_letters_count  # 返回非字母字符及其出現次數的字典
+
+# 測試函數
+print(count_non_letter_characters("hello world!"))  # 輸出: {' ': 1, '!': 1}
+</pre>
+<p></p><h3>Brython 繪圖</h3>
 <p>繪製同心圓：</p>
 <p>使用 for 迴圈和 if 條件，在畫布上繪製一組同心圓。每個圓的中心點相同，半徑隨著循環遞增。例如，繪製 10 個半徑從 10 到 100 的同心圓，每次增加 10。<br/><br/></p>
 <p>棋盤格圖案：</p>
