@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,24 +141,95 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content"> <a href='Attendance.html'>Next</a> >> Attendance<br /><h1>About</h1>
-<p>國立虎尾科技大學機械設計工程系</p>
-<p>National Formosa University</p>
-<p>Department of Mechanical Design Engineering</p>
-<p>cp2024 計算機程式</p>
-<p>課程教材:</p>
-<p style="padding-left: 30px;"><a href="https://blog.jupyter.org/introducing-learn-python-with-jupyter-11214f152159">Learn Python with Jupyter</a> (<a href="https://www.learnpythonwithjupyter.com/">site</a>, <a href="https://localhost:9445/downloads/learn_python_with_jupyter.pdf">ebook</a>)</p>
-<p style="padding-left: 30px;">教育版帳號 microsoftonline 登入點: <a href="https://login.microsoftonline.com/">https://login.microsoftonline.com/</a></p>
-<p>Teams 線上教學:</p>
-<p style="padding-left: 30px;">以 "學號@nfu.edu.tw" 登入 <a href="https://login.microsoftonline.com/">https://login.microsoftonline.com/</a> Office 365</p>
-<p style="padding-left: 30px;">Teams 團隊代碼: <span class="fui-Text ___vec8h90 fk6fouc f1pbo8a8 f1i3iumi figsok6 fpgzoln f1w7gpdv f6juhto f1mtd64y f1y7q3j9 f2jf649 foxqkq2" data-tid="join-team-code">ldodwua</span></p>
-<p>個人倉儲: <a href="https://github.com/mdecp2024/hw-SKYang41323142">https://github.com/mdecp2024/hw-SKYang41323142</a></p>
-<p>個人網站: <a href="https://mde.tw/cp2024/content/index.html">https://mde.tw/cp2024/content/index.html </a></p>
-<p>其他資訊:</p>
-<p style="padding-left: 30px;"><a href="./../downloads/cd2023_pj3ag4_zmq_football_4.7.7z">cd2023_pj3ag4_zmq_football_4.7.7z</a></p>
-<p style="padding-left: 30px;"><a href="https://localhost:9446/downloads/cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z">cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z</a></p>
-<p style="padding-left: 30px;"><a href="https://animated-fiesta-6949rp7w4vw7hxvqx-8081.app.github.dev/content/index.html">https://animated-fiesta-6949rp7w4vw7hxvqx-8081.app.github.dev/content/index.html</a></p>
-<br /> <a href='Attendance.html'>Next</a> >> Attendance</div>
+    <div id="tipue_search_content">反轉字串 << <a href='反轉字串.html'>Previous</a> <a href='清單排序.html'>Next</a> >> 清單排序<br /><h1>費氏數列</h1>
+<p>寫一個函數 `fibonacci`，接受一個整數 `n`，並返回長度為 `n` 的費氏數列。例如：`fibonacci(5)` 應返回 `[0, 1, 1, 2, 3]`。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def fibonacci(n):
+    # 初始化費氏數列，前兩個數字是 0 和 1
+    fib_sequence = [0, 1]
+    
+    # 如果 n 是 1，則只返回 [0]
+    if n == 1:
+        return [0]
+    
+    # 如果 n 是 2，則返回 [0, 1]
+    if n == 2:
+        return fib_sequence
+    
+    # 使用迴圈生成剩餘的費氏數字
+    for i in range(2, n):
+        next_fib = fib_sequence[-1] + fib_sequence[-2]  # 計算下個費氏數字
+        fib_sequence.append(next_fib)  # 將數字加入數列
+    
+    return fib_sequence
+
+# 測試函數
+result = fibonacci(5)
+print(result)  # 輸出: [0, 1, 1, 2, 3]
+</pre>
+<p>階乘計算： 寫一個函數 factorial，接受一個整數 n，並返回 n 的階乘。例如：factorial(5) 應返回 120。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def factorial(n):
+    # 初始階乘值為 1
+    result = 1
+    # 使用 for 迴圈計算階乘
+    for i in range(1, n + 1):
+        result *= i  # 將當前數字乘到結果中
+    return result
+
+# 測試函數
+result = factorial(5)
+print(result)  # 輸出: 120
+</pre>
+<p><br/><br/><br/>最小公倍數： 寫一個函數 lcm，接受兩個整數 a 和 b，並返回它們的最小公倍數。例如：lcm(6, 8) 應返回 24。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import math
+
+def lcm(a, b):
+    # 計算最大公因數（GCD）
+    gcd = math.gcd(a, b)
+    # 計算最小公倍數（LCM）
+    return abs(a * b) // gcd
+
+# 測試函數
+result = lcm(6, 8)
+print(result)  # 輸出: 24
+</pre>
+<p><br/><br/><br/>最大公因數： 寫一個函數 gcd，接受兩個整數 a 和 b，並返回它們的最大公因數。例如：gcd(48, 18) 應返回 6。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def gcd(a, b):
+    # 使用歐幾里得算法計算最大公因數
+    while b != 0:
+        a, b = b, a % b  # 將 a 更新為 b，b 更新為 a 除以 b 的餘數
+    return a
+
+# 測試函數
+result = gcd(48, 18)
+print(result)  # 輸出: 6
+</pre>
+<p><br/><br/><br/>階乘和： 寫一個函數 sum_of_factorials，接受一個整數 n，並返回從 1 到 n 的所有整數的階乘和。例如：sum_of_factorials(3) 應返回 9（1! + 2! + 3! = 1 + 2 + 6）。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import math
+
+def sum_of_factorials(n):
+    # 初始化總和為 0
+    total_sum = 0
+    # 計算從 1 到 n 的所有階乘並累加
+    for i in range(1, n + 1):
+        total_sum += math.factorial(i)  # 計算 i 的階乘並累加
+    return total_sum
+
+# 測試函數
+result = sum_of_factorials(3)
+print(result)  # 輸出: 9 (1! + 2! + 3! = 1 + 2 + 6)
+</pre>
+<p><br/><br/><br/>二項式係數： 寫一個函數 binomial_coefficient，接受兩個整數 n 和 k，並返回二項式係數 "n 選 k"（n choose k）。例如：binomial_coefficient(5, 2) 應返回 10。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import math
+
+def binomial_coefficient(n, k):
+    # 使用二項式係數公式 C(n, k) = n! / (k! * (n-k)!)
+    return math.factorial(n) // (math.factorial(k) * math.factorial(n - k))
+
+# 測試函數
+result = binomial_coefficient(5, 2)
+print(result)  # 輸出: 10
+</pre>
+<p></p><br />反轉字串 << <a href='反轉字串.html'>Previous</a> <a href='清單排序.html'>Next</a> >> 清單排序</div>
         
     <!-- footer -->
       <div class="container">

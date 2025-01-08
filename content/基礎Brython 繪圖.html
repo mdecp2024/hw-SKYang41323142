@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,24 +141,319 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content"> <a href='Attendance.html'>Next</a> >> Attendance<br /><h1>About</h1>
-<p>國立虎尾科技大學機械設計工程系</p>
-<p>National Formosa University</p>
-<p>Department of Mechanical Design Engineering</p>
-<p>cp2024 計算機程式</p>
-<p>課程教材:</p>
-<p style="padding-left: 30px;"><a href="https://blog.jupyter.org/introducing-learn-python-with-jupyter-11214f152159">Learn Python with Jupyter</a> (<a href="https://www.learnpythonwithjupyter.com/">site</a>, <a href="https://localhost:9445/downloads/learn_python_with_jupyter.pdf">ebook</a>)</p>
-<p style="padding-left: 30px;">教育版帳號 microsoftonline 登入點: <a href="https://login.microsoftonline.com/">https://login.microsoftonline.com/</a></p>
-<p>Teams 線上教學:</p>
-<p style="padding-left: 30px;">以 "學號@nfu.edu.tw" 登入 <a href="https://login.microsoftonline.com/">https://login.microsoftonline.com/</a> Office 365</p>
-<p style="padding-left: 30px;">Teams 團隊代碼: <span class="fui-Text ___vec8h90 fk6fouc f1pbo8a8 f1i3iumi figsok6 fpgzoln f1w7gpdv f6juhto f1mtd64y f1y7q3j9 f2jf649 foxqkq2" data-tid="join-team-code">ldodwua</span></p>
-<p>個人倉儲: <a href="https://github.com/mdecp2024/hw-SKYang41323142">https://github.com/mdecp2024/hw-SKYang41323142</a></p>
-<p>個人網站: <a href="https://mde.tw/cp2024/content/index.html">https://mde.tw/cp2024/content/index.html </a></p>
-<p>其他資訊:</p>
-<p style="padding-left: 30px;"><a href="./../downloads/cd2023_pj3ag4_zmq_football_4.7.7z">cd2023_pj3ag4_zmq_football_4.7.7z</a></p>
-<p style="padding-left: 30px;"><a href="https://localhost:9446/downloads/cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z">cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z</a></p>
-<p style="padding-left: 30px;"><a href="https://animated-fiesta-6949rp7w4vw7hxvqx-8081.app.github.dev/content/index.html">https://animated-fiesta-6949rp7w4vw7hxvqx-8081.app.github.dev/content/index.html</a></p>
-<br /> <a href='Attendance.html'>Next</a> >> Attendance</div>
+    <div id="tipue_search_content">進階Brython 繪圖 << <a href='進階Brython 繪圖.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython<br /><h1>基礎Brython 繪圖</h1>
+<p><span>繪製直線： 使用簡單的 for 迴圈繪製若干條平行的直線，例如從畫布的左邊到右邊，每次增加固定的間距。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import matplotlib.pyplot as plt
+
+# 設定畫布
+plt.figure(figsize=(6, 6))
+
+# 設定直線的數量與間距
+num_lines = 10  # 直線的數量
+line_spacing = 0.1  # 直線的垂直間距
+
+# 使用 for 迴圈繪製平行直線
+for i in range(num_lines):
+    y = i * line_spacing  # 計算每條直線的 y 座標
+    plt.plot([0, 1], [y, y], color='blue')  # 繪製從左到右的直線
+
+# 設定畫布顯示範圍
+plt.xlim(0, 1)
+plt.ylim(0, (num_lines - 1) * line_spacing)
+
+# 顯示繪製結果
+plt.title('Parallel Lines')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.show()
+</pre>
+<p><br/><br/><span>繪製矩形： 使用 for 迴圈在畫布上繪製若干個矩形，每次增加固定的間距和尺寸。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle  # 引入 turtle 模組
+
+# 設定畫布
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+
+# 設定 turtle
+pen = turtle.Turtle()
+pen.speed(10)  # 設定繪圖速度
+
+# 繪製矩形的函數
+def draw_rectangle(width, height):
+    for _ in range(2):  # 每個矩形有四條邊，繪製兩次來形成矩形
+        pen.forward(width)  # 向前移動指定的寬度
+        pen.left(90)  # 轉90度
+        pen.forward(height)  # 向前移動指定的高度
+        pen.left(90)  # 轉90度
+
+# 使用 for 迴圈繪製若干個矩形
+initial_width = 50  # 初始矩形寬度
+initial_height = 30  # 初始矩形高度
+spacing = 20  # 矩形間距
+num_rectangles = 5  # 矩形數量
+
+# 繪製矩形
+for i in range(num_rectangles):
+    draw_rectangle(initial_width + i * spacing, initial_height + i * spacing)  # 隨著每個迴圈增加寬度和高度
+    pen.penup()  # 抬起筆，移動到下一個起始位置
+    pen.forward(spacing)  # 向前移動間距
+    pen.pendown()  # 放下筆繼續繪製
+
+# 完成後停止
+turtle.done()
+</pre>
+<p><span><br/></span><br/><br/><span>繪製圓形： 使用 for 迴圈在畫布上繪製若干個圓形，每次增加固定的半徑和位置。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle  # 引入 turtle 模組
+
+# 設定畫布
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+
+# 設定 turtle
+pen = turtle.Turtle()
+pen.speed(10)  # 設定繪圖速度
+
+# 繪製圓形的函數
+def draw_circle(radius):
+    pen.circle(radius)  # 根據給定的半徑繪製圓形
+
+# 使用 for 迴圈繪製若干個圓形
+initial_radius = 20  # 初始圓形半徑
+radius_increase = 20  # 每次增長的半徑
+num_circles = 5  # 圓形數量
+
+# 繪製圓形
+for i in range(num_circles):
+    pen.penup()  # 抬起筆，準備移動到下一個圓形位置
+    pen.setposition(0, - (initial_radius + i * radius_increase))  # 設定圓形的中心位置
+    pen.pendown()  # 放下筆開始繪製
+    draw_circle(initial_radius + i * radius_increase)  # 隨著每次迴圈增加圓形半徑
+
+# 完成後停止
+turtle.done()
+</pre>
+<p><span><br/></span><br/><br/><span>繪製不同顏色的線條： 使用 for 迴圈在畫布上繪製若干條不同顏色的線條，每次改變顏色。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle  # 引入 turtle 模組
+
+# 設定畫布
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+
+# 設定 turtle
+pen = turtle.Turtle()
+pen.speed(10)  # 設定繪圖速度
+
+# 定義顏色列表
+colors = ['red', 'green', 'blue', 'yellow', 'purple']
+
+# 使用 for 迴圈繪製不同顏色的線條
+num_lines = len(colors)  # 線條的數量等於顏色的數量
+
+# 繪製不同顏色的線條
+for i in range(num_lines):
+    pen.penup()  # 抬起筆，準備移動到下一個起始位置
+    pen.setposition(-200 + i * 100, 0)  # 設定每條線的起始位置
+    pen.pendown()  # 放下筆開始繪製
+    pen.pencolor(colors[i])  # 設定當前線條的顏色
+    pen.forward(100)  # 繪製線條
+
+# 完成後停止
+turtle.done()
+</pre>
+<p><span><br/></span><br/><br/><span>繪製格子圖案： 使用 for 迴圈和 if 條件在畫布上繪製簡單的格子圖案，例如 4x4 的格子，每個格子是正方形。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle  # 引入 turtle 模組
+
+# 設定畫布
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+
+# 設定 turtle
+pen = turtle.Turtle()
+pen.speed(10)  # 設定繪圖速度
+
+# 定義繪製正方形的函數
+def draw_square(size):
+    for _ in range(4):  # 每個正方形有四邊
+        pen.forward(size)  # 向前畫一邊
+        pen.left(90)  # 轉90度
+
+# 設定格子的大小與間距
+square_size = 50  # 每個正方形的邊長
+spacing = 10  # 每個格子之間的間距
+grid_size = 4  # 格子的行列數（4x4）
+
+# 使用 for 迴圈繪製格子圖案
+for row in range(grid_size):
+    for col in range(grid_size):
+        pen.penup()  # 抬起筆，準備移動到格子位置
+        pen.setposition(col * (square_size + spacing), -row * (square_size + spacing))  # 設定每個格子的位置
+        pen.pendown()  # 放下筆開始繪製
+        draw_square(square_size)  # 繪製正方形
+
+# 完成後停止
+turtle.done()
+</pre>
+<p><span><br/></span><br/><br/><span>繪製對角線： 使用 for 迴圈在畫布上繪製從左上角到右下角的對角線。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle  # 引入 turtle 模組
+
+# 設定畫布
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+
+# 設定 turtle
+pen = turtle.Turtle()
+pen.speed(10)  # 設定繪圖速度
+
+# 定義繪製對角線的函數
+def draw_diagonal(length):
+    for _ in range(length):  # 循環繪製對角線
+        pen.forward(1)  # 向前移動1個單位
+        pen.left(90)  # 轉90度
+
+# 設定對角線的長度
+line_length = 200  # 設定對角線的長度
+
+# 使用 for 迴圈繪製對角線
+pen.penup()  # 抬起筆，準備移動到左上角
+pen.setposition(-line_length // 2, line_length // 2)  # 設定起始位置（左上角）
+pen.pendown()  # 放下筆開始繪製
+pen.setposition(line_length // 2, -line_length // 2)  # 繪製線條到右下角
+
+# 完成後停止
+turtle.done()
+</pre>
+<p><span><br/></span><br/><br/><span>繪製交錯矩形： 使用 for 迴圈在畫布上繪製若干個交錯排列的矩形，形成交錯圖案。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle  # 引入 turtle 模組
+
+# 設定畫布
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+
+# 設定 turtle
+pen = turtle.Turtle()
+pen.speed(10)  # 設定繪圖速度
+
+# 定義繪製矩形的函數
+def draw_rectangle(width, height):
+    for _ in range(2):  # 每個矩形有四邊，繪製兩次
+        pen.forward(width)  # 向前移動寬度
+        pen.left(90)  # 轉90度
+        pen.forward(height)  # 向前移動高度
+        pen.left(90)  # 轉90度
+
+# 設定矩形的大小與間距
+rect_width = 100  # 矩形的寬度
+rect_height = 50  # 矩形的高度
+num_rectangles = 5  # 繪製的矩形數量
+
+# 使用 for 迴圈繪製交錯排列的矩形
+for i in range(num_rectangles):
+    pen.penup()  # 抬起筆，準備移動到下一個矩形位置
+    pen.setposition(-200 + i * 40, 200 - i * 20)  # 設定每個矩形的起始位置，改變位置實現交錯
+    pen.pendown()  # 放下筆開始繪製
+    if i % 2 == 0:
+        pen.setheading(0)  # 偶數索引的矩形保持水平
+    else:
+        pen.setheading(45)  # 奇數索引的矩形旋轉45度，實現交錯排列
+    draw_rectangle(rect_width, rect_height)  # 繪製矩形
+
+# 完成後停止
+turtle.done()
+</pre>
+<p><span><br/></span><br/><br/><span>繪製同心圓： 使用 for 迴圈在畫布上繪製若干個同心圓，每次增加固定的半徑。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle  # 引入 turtle 模組
+
+# 設定畫布
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+
+# 設定 turtle
+pen = turtle.Turtle()
+pen.speed(10)  # 設定繪圖速度
+
+# 定義繪製圓形的函數
+def draw_circle(radius):
+    pen.circle(radius)  # 根據給定的半徑繪製圓形
+
+# 設定圓形的初始半徑與增長值
+initial_radius = 20  # 初始圓形半徑
+radius_increase = 20  # 每次增長的半徑
+num_circles = 5  # 圓形數量
+
+# 使用 for 迴圈繪製同心圓
+for i in range(num_circles):
+    pen.penup()  # 抬起筆，準備移動到圓形中心
+    pen.setposition(0, - (initial_radius + i * radius_increase))  # 設定圓形的中心位置
+    pen.pendown()  # 放下筆開始繪製
+    draw_circle(initial_radius + i * radius_increase)  # 繪製每個同心圓，隨著每次迴圈增加半徑
+
+# 完成後停止
+turtle.done()
+</pre>
+<p><span><br/></span><br/><br/><span>繪製同心方形： 使用 for 迴圈在畫布上繪製若干個同心方形，每次增加固定的邊長。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle  # 引入 turtle 模組
+
+# 設定畫布
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+
+# 設定 turtle
+pen = turtle.Turtle()
+pen.speed(10)  # 設定繪圖速度
+
+# 定義繪製方形的函數
+def draw_square(side_length):
+    for _ in range(4):  # 每個方形有四條邊
+        pen.forward(side_length)  # 向前移動邊長
+        pen.left(90)  # 轉90度
+
+# 設定方形的初始邊長與增長值
+initial_side_length = 50  # 初始方形邊長
+side_length_increase = 20  # 每次增長的邊長
+num_squares = 5  # 方形數量
+
+# 使用 for 迴圈繪製同心方形
+for i in range(num_squares):
+    pen.penup()  # 抬起筆，準備移動到方形的位置
+    pen.setposition(- (initial_side_length + i * side_length_increase) / 2, (initial_side_length + i * side_length_increase) / 2)  # 設定方形的起始位置
+    pen.pendown()  # 放下筆開始繪製
+    draw_square(initial_side_length + i * side_length_increase)  # 繪製每個同心方形，隨著每次迴圈增加邊長
+
+# 完成後停止
+turtle.done()
+</pre>
+<p><span><br/></span><br/><br/><span>繪製簡單的線條圖： 使用 for 迴圈在畫布上繪製若干條從畫布中心向外輻射的線條。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle  # 引入 turtle 模組
+
+# 設定畫布
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+
+# 設定 turtle
+pen = turtle.Turtle()
+pen.speed(10)  # 設定繪圖速度
+
+# 定義繪製線條的函數
+def draw_line(length):
+    pen.forward(length)  # 向前繪製一條線條
+
+# 設定線條的長度與數量
+line_length = 200  # 每條線條的長度
+num_lines = 12  # 線條的數量（從中心向外輻射）
+
+# 使用 for 迴圈繪製從畫布中心向外輻射的線條
+pen.penup()  # 抬起筆，準備移動到畫布中心
+pen.setposition(0, 0)  # 設定畫布的中心位置
+pen.pendown()  # 放下筆開始繪製
+
+for i in range(num_lines):
+    pen.setheading(i * (360 / num_lines))  # 設定每條線條的角度，使其均勻分布
+    draw_line(line_length)  # 繪製線條
+
+# 完成後停止
+turtle.done()
+</pre>
+<p><span><br/></span><span></span></p><br />進階Brython 繪圖 << <a href='進階Brython 繪圖.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython</div>
         
     <!-- footer -->
       <div class="container">

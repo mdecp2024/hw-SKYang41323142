@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,24 +141,52 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content"> <a href='Attendance.html'>Next</a> >> Attendance<br /><h1>About</h1>
-<p>國立虎尾科技大學機械設計工程系</p>
-<p>National Formosa University</p>
-<p>Department of Mechanical Design Engineering</p>
-<p>cp2024 計算機程式</p>
-<p>課程教材:</p>
-<p style="padding-left: 30px;"><a href="https://blog.jupyter.org/introducing-learn-python-with-jupyter-11214f152159">Learn Python with Jupyter</a> (<a href="https://www.learnpythonwithjupyter.com/">site</a>, <a href="https://localhost:9445/downloads/learn_python_with_jupyter.pdf">ebook</a>)</p>
-<p style="padding-left: 30px;">教育版帳號 microsoftonline 登入點: <a href="https://login.microsoftonline.com/">https://login.microsoftonline.com/</a></p>
-<p>Teams 線上教學:</p>
-<p style="padding-left: 30px;">以 "學號@nfu.edu.tw" 登入 <a href="https://login.microsoftonline.com/">https://login.microsoftonline.com/</a> Office 365</p>
-<p style="padding-left: 30px;">Teams 團隊代碼: <span class="fui-Text ___vec8h90 fk6fouc f1pbo8a8 f1i3iumi figsok6 fpgzoln f1w7gpdv f6juhto f1mtd64y f1y7q3j9 f2jf649 foxqkq2" data-tid="join-team-code">ldodwua</span></p>
-<p>個人倉儲: <a href="https://github.com/mdecp2024/hw-SKYang41323142">https://github.com/mdecp2024/hw-SKYang41323142</a></p>
-<p>個人網站: <a href="https://mde.tw/cp2024/content/index.html">https://mde.tw/cp2024/content/index.html </a></p>
-<p>其他資訊:</p>
-<p style="padding-left: 30px;"><a href="./../downloads/cd2023_pj3ag4_zmq_football_4.7.7z">cd2023_pj3ag4_zmq_football_4.7.7z</a></p>
-<p style="padding-left: 30px;"><a href="https://localhost:9446/downloads/cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z">cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z</a></p>
-<p style="padding-left: 30px;"><a href="https://animated-fiesta-6949rp7w4vw7hxvqx-8081.app.github.dev/content/index.html">https://animated-fiesta-6949rp7w4vw7hxvqx-8081.app.github.dev/content/index.html</a></p>
-<br /> <a href='Attendance.html'>Next</a> >> Attendance</div>
+    <div id="tipue_search_content">簡單的數學計算器 << <a href='簡單的數學計算器.html'>Previous</a> <a href='費氏數列.html'>Next</a> >> 費氏數列<br /><h1>反轉字串</h1>
+<p>寫一個函數 `reverse_string`，接受一個字串作為參數，並返回該字串的反轉版本。例如：`reverse_string("hello")` 應返回 `olleh`。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def reverse_string(s):
+    return s[::-1]  # 使用切片方法反轉字串
+
+# 測試函數
+print(reverse_string("hello"))  # 輸出: olleh
+</pre>
+<p>寫一個函數 string_length，接受一個字串作為參數，並返回該字串的長度。例如：string_length("hello") 應返回 5。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def string_length(s):
+    return len(s)  # 使用內建的 len() 函數來計算字串的長度
+
+# 測試函數
+print(string_length("hello"))  # 輸出: 5
+</pre>
+<p><br/><br/><br/>寫一個函數 toggle_case，接受一個字串作為參數，並返回該字串中每個字母大小寫互換後的版本。例如：toggle_case("Hello") 應返回 hELLO。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def toggle_case(s):
+    return s.swapcase()  # 使用內建的 swapcase() 函數來互換字母的大小寫
+
+# 測試函數
+print(toggle_case("Hello"))  # 輸出: hELLO
+</pre>
+<p><br/><br/><br/>寫一個函數 word_count，接受一個字串作為參數，並返回該字串中單詞的數量。例如：word_count("Hello world") 應返回 2。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def word_count(s):
+    words = s.split()  # 使用 split() 函數將字串分割為單詞
+    return len(words)  # 返回單詞的數量
+
+# 測試函數
+print(word_count("Hello world"))  # 輸出: 2
+</pre>
+<p><br/><br/><br/>寫一個函數 is_palindrome，接受一個字串作為參數，並返回該字串是否為迴文（正反讀都相同）。例如：is_palindrome("madam") 應返回 True。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def is_palindrome(s):
+    return s == s[::-1]  # 檢查字串是否等於它的反轉版本
+
+# 測試函數
+print(is_palindrome("madam"))  # 輸出: True
+print(is_palindrome("hello"))  # 輸出: False
+</pre>
+<p><br/><br/><br/>寫一個函數 split_string，接受一個字串和一個分隔符作為參數，並返回一個包含切割後子字串的清單。例如：split_string("hello world", " ") 應返回 ['hello', 'world']。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def split_string(s, delimiter):
+    return s.split(delimiter)  # 使用 split() 函數根據分隔符切割字串
+
+# 測試函數
+print(split_string("hello world", " "))  # 輸出: ['hello', 'world']
+</pre>
+<p></p><br />簡單的數學計算器 << <a href='簡單的數學計算器.html'>Previous</a> <a href='費氏數列.html'>Next</a> >> 費氏數列</div>
         
     <!-- footer -->
       <div class="container">
