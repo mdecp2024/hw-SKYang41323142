@@ -1883,9 +1883,50 @@ if __name__ == "__main__":
 </li>
 </ul><h3>反轉字串</h3>
 <p>寫一個函數 `reverse_string`，接受一個字串作為參數，並返回該字串的反轉版本。例如：`reverse_string("hello")` 應返回 `olleh`。</p>
-<p>寫一個函數 string_length，接受一個字串作為參數，並返回該字串的長度。例如：string_length("hello") 應返回 5。<br/><br/>寫一個函數 toggle_case，接受一個字串作為參數，並返回該字串中每個字母大小寫互換後的版本。例如：toggle_case("Hello") 應返回 hELLO。<br/><br/>寫一個函數 word_count，接受一個字串作為參數，並返回該字串中單詞的數量。例如：word_count("Hello world") 應返回 2。<br/><br/>寫一個函數 is_palindrome，接受一個字串作為參數，並返回該字串是否為迴文（正反讀都相同）。例如：is_palindrome("madam") 應返回 True。<br/><br/>寫一個函數 split_string，接受一個字串和一個分隔符作為參數，並返回一個包含切割後子字串的清單。例如：split_string("hello world", " ") 應返回 ['hello', 'world']。</p>
-<p></p>
-<h3>費氏數列</h3>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def reverse_string(s):
+    return s[::-1]  # 使用切片方法反轉字串
+
+# 測試函數
+print(reverse_string("hello"))  # 輸出: olleh
+</pre>
+<p>寫一個函數 string_length，接受一個字串作為參數，並返回該字串的長度。例如：string_length("hello") 應返回 5。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def string_length(s):
+    return len(s)  # 使用內建的 len() 函數來計算字串的長度
+
+# 測試函數
+print(string_length("hello"))  # 輸出: 5
+</pre>
+<p><br/><br/><br/>寫一個函數 toggle_case，接受一個字串作為參數，並返回該字串中每個字母大小寫互換後的版本。例如：toggle_case("Hello") 應返回 hELLO。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def toggle_case(s):
+    return s.swapcase()  # 使用內建的 swapcase() 函數來互換字母的大小寫
+
+# 測試函數
+print(toggle_case("Hello"))  # 輸出: hELLO
+</pre>
+<p><br/><br/><br/>寫一個函數 word_count，接受一個字串作為參數，並返回該字串中單詞的數量。例如：word_count("Hello world") 應返回 2。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def word_count(s):
+    words = s.split()  # 使用 split() 函數將字串分割為單詞
+    return len(words)  # 返回單詞的數量
+
+# 測試函數
+print(word_count("Hello world"))  # 輸出: 2
+</pre>
+<p><br/><br/><br/>寫一個函數 is_palindrome，接受一個字串作為參數，並返回該字串是否為迴文（正反讀都相同）。例如：is_palindrome("madam") 應返回 True。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def is_palindrome(s):
+    return s == s[::-1]  # 檢查字串是否等於它的反轉版本
+
+# 測試函數
+print(is_palindrome("madam"))  # 輸出: True
+print(is_palindrome("hello"))  # 輸出: False
+</pre>
+<p><br/><br/><br/>寫一個函數 split_string，接受一個字串和一個分隔符作為參數，並返回一個包含切割後子字串的清單。例如：split_string("hello world", " ") 應返回 ['hello', 'world']。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def split_string(s, delimiter):
+    return s.split(delimiter)  # 使用 split() 函數根據分隔符切割字串
+
+# 測試函數
+print(split_string("hello world", " "))  # 輸出: ['hello', 'world']
+</pre>
+<p></p><h3>費氏數列</h3>
 <p>寫一個函數 `fibonacci`，接受一個整數 `n`，並返回長度為 `n` 的費氏數列。例如：`fibonacci(5)` 應返回 `[0, 1, 1, 2, 3]`。</p>
 <p>階乘計算： 寫一個函數 factorial，接受一個整數 n，並返回 n 的階乘。例如：factorial(5) 應返回 120。<br/><br/>最小公倍數： 寫一個函數 lcm，接受兩個整數 a 和 b，並返回它們的最小公倍數。例如：lcm(6, 8) 應返回 24。<br/><br/>最大公因數： 寫一個函數 gcd，接受兩個整數 a 和 b，並返回它們的最大公因數。例如：gcd(48, 18) 應返回 6。<br/><br/>階乘和： 寫一個函數 sum_of_factorials，接受一個整數 n，並返回從 1 到 n 的所有整數的階乘和。例如：sum_of_factorials(3) 應返回 9（1! + 2! + 3! = 1 + 2 + 6）。<br/><br/>二項式係數： 寫一個函數 binomial_coefficient，接受兩個整數 n 和 k，並返回二項式係數 "n 選 k"（n choose k）。例如：binomial_coefficient(5, 2) 應返回 10。</p>
 <p>清單排序：</p>

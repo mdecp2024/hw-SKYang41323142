@@ -1883,14 +1883,33 @@ if __name__ == "__main__":
 </li>
 </ul><h3>反轉字串</h3>
 <p>寫一個函數 `reverse_string`，接受一個字串作為參數，並返回該字串的反轉版本。例如：`reverse_string("hello")` 應返回 `olleh`。</p>
-<p>寫一個函數 string_length，接受一個字串作為參數，並返回該字串的長度。例如：string_length("hello") 應返回 5。<br/><br/>寫一個函數 toggle_case，接受一個字串作為參數，並返回該字串中每個字母大小寫互換後的版本。例如：toggle_case("Hello") 應返回 hELLO。<br/><br/>寫一個函數 word_count，接受一個字串作為參數，並返回該字串中單詞的數量。例如：word_count("Hello world") 應返回 2。<br/><br/>寫一個函數 is_palindrome，接受一個字串作為參數，並返回該字串是否為迴文（正反讀都相同）。例如：is_palindrome("madam") 應返回 True。<br/><br/>寫一個函數 split_string，接受一個字串和一個分隔符作為參數，並返回一個包含切割後子字串的清單。例如：split_string("hello world", " ") 應返回 ['hello', 'world']。</p>
-<p></p>
-<h3>費氏數列</h3>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def reverse_string(s):
+    return s[::-1]  # 使用切片方法反轉字串
+
+# 測試函數
+print(reverse_string("hello"))  # 輸出: olleh
+</pre>
+<p>寫一個函數 string_length，接受一個字串作為參數，並返回該字串的長度。例如：string_length("hello") 應返回 5。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def string_length(s):
+    return len(s)  # 使用內建的 len() 函數來計算字串的長度
+
+# 測試函數
+print(string_length("hello"))  # 輸出: 5
+</pre>
+<p><br/><br/><br/>寫一個函數 toggle_case，接受一個字串作為參數，並返回該字串中每個字母大小寫互換後的版本。例如：toggle_case("Hello") 應返回 hELLO。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def toggle_case(s):
+    return s.swapcase()  # 使用內建的 swapcase() 函數來互換字母的大小寫
+
+# 測試函數
+print(toggle_case("Hello"))  # 輸出: hELLO
+</pre>
+<p><br/><br/><br/>寫一個函數 word_count，接受一個字串作為參數，並返回該字串中單詞的數量。例如：word_count("Hello world") 應返回 2。<br/><br/>寫一個函數 is_palindrome，接受一個字串作為參數，並返回該字串是否為迴文（正反讀都相同）。例如：is_palindrome("madam") 應返回 True。<br/><br/>寫一個函數 split_string，接受一個字串和一個分隔符作為參數，並返回一個包含切割後子字串的清單。例如：split_string("hello world", " ") 應返回 ['hello', 'world']。</p>
+<p></p><h3>費氏數列</h3>
 <p>寫一個函數 `fibonacci`，接受一個整數 `n`，並返回長度為 `n` 的費氏數列。例如：`fibonacci(5)` 應返回 `[0, 1, 1, 2, 3]`。</p>
 <p>階乘計算： 寫一個函數 factorial，接受一個整數 n，並返回 n 的階乘。例如：factorial(5) 應返回 120。<br/><br/>最小公倍數： 寫一個函數 lcm，接受兩個整數 a 和 b，並返回它們的最小公倍數。例如：lcm(6, 8) 應返回 24。<br/><br/>最大公因數： 寫一個函數 gcd，接受兩個整數 a 和 b，並返回它們的最大公因數。例如：gcd(48, 18) 應返回 6。<br/><br/>階乘和： 寫一個函數 sum_of_factorials，接受一個整數 n，並返回從 1 到 n 的所有整數的階乘和。例如：sum_of_factorials(3) 應返回 9（1! + 2! + 3! = 1 + 2 + 6）。<br/><br/>二項式係數： 寫一個函數 binomial_coefficient，接受兩個整數 n 和 k，並返回二項式係數 "n 選 k"（n choose k）。例如：binomial_coefficient(5, 2) 應返回 10。</p>
 <p>清單排序：</p>
 <p>寫一個函數 `sort_list`，接受一個包含整數的清單作為參數，並返回該清單的排序版本（從小到大）。例如：`sort_list([3, 1, 4, 1, 5])` 應返回 `[1, 1, 3, 4, 5]`。</p>
-<p>寫一個函數 remove_duplicates，接受一個包含整數的清單作為參數，並返回去除重複元素後的清單。例如：remove_duplicates([1, 2, 2, 3, 4, 4, 5]) 應返回 [1, 2, 3, 4, 5]。<br/><br/>寫一個函數 reverse_list，接受一個包含整數的清單作為參數，並返回該清單的反轉版本。例如：reverse_list([1, 2, 3, 4, 5]) 應返回 [5, 4, 3, 2, 1]。<br/><br/>寫一個函數 find_max_min，接受一個包含整數的清單作為參數，並返回一個包含最大值和最小值的元組。例如：find_max_min([3, 1, 4, 1, 5]) 應返回 (5, 1)。<br/><br/>寫一個函數 cumulative_sum，接受一個包含整數的清單作為參數，並返回該清單的累積和清單。例如：cumulative_sum([1, 2, 3, 4]) 應返回 [1, 3, 6, 10]。<br/><br/>寫一個函數 count_elements，接受一個包含整數的清單作為參數，並返回一個字典，該字典包含清單中每個元素出現的次數。例如：count_elements([1, 2, 2, 3, 3, 3]) 應返回 {1: 1, 2: 2, 3: 3}。</p>
+<p>寫一個函數 remove_duplicates，接受一個包含整數的清單作為參數，並返回去除重複元素後的清單。例如：remove_duplicates([1, 2, 2, 3, 4, 4, 5]) 應返回 [1, 2, 3, 4, 5]。<br/><br/>寫一個函數 reverse_list，接受一個包含整數的清單作為參數，並返回該清單的反轉版本。例如：reverse_list([1, 2, 3, 4, 5]) 應返回 [5, 4, 3, 2, 1]。<br/><br/>寫一個函數 find_max_min，接受一個包含整數的清單作為參數，並返回一個包含最大值和最小值的元組。例如：find_max_min([3, 1, 4, 1, 5]) 應返回 (5, 1)。<br/><br/>寫一個函數 cumulative_sum，接受一個包含整數的清單作為參數，並返回該清單的累積和清單。例如：cumulative_sum([1, 2, 3, 4]) 應返回 [1, 3, 6, 10]。<br><br>寫一個函數 count_elements，接受一個包含整數的清單作為參數，並返回一個字典，該字典包含清單中每個元素出現的次數。例如：count_elements([1, 2, 2, 3, 3, 3]) 應返回 {1: 1, 2: 2, 3: 3}。</br></br></p>
 <h3>清單排序</h3>
 <h3>字母計數器</h3>
 <p>寫一個函數 `count_letters`，接受一個字串作為參數，並返回一個字典，該字典包含字串中每個字母出現的次數。例如：`count_letters("hello")` 應返回 `{'h': 1, 'e': 1, 'l': 2, 'o': 1}`。</p>
@@ -1910,9 +1929,318 @@ if __name__ == "__main__":
 <p>使用 for 迴圈和 if 條件，在畫布上繪製一組星星圖案。每次迴圈在隨機位置繪製一個五角星，星星的大小也可以隨機變化。<br/><br/>曼陀羅圖案：</p>
 <p>使用 for 迴圈和基本數列，在畫布上繪製一個簡單的曼陀羅圖案。曼陀羅圖案是一種對稱的幾何圖案，可以由多個同心圓和圓周上的線條組成，每個線條從中心點向外對稱分佈。</p>
 <h3>基礎Brython 繪圖</h3>
-<p><span>繪製直線： 使用簡單的 for 迴圈繪製若干條平行的直線，例如從畫布的左邊到右邊，每次增加固定的間距。</span><br/><br/><span>繪製矩形： 使用 for 迴圈在畫布上繪製若干個矩形，每次增加固定的間距和尺寸。</span><br/><br/><span>繪製圓形： 使用 for 迴圈在畫布上繪製若干個圓形，每次增加固定的半徑和位置。</span><br/><br/><span>繪製不同顏色的線條： 使用 for 迴圈在畫布上繪製若干條不同顏色的線條，每次改變顏色。</span><br/><br/><span>繪製格子圖案： 使用 for 迴圈和 if 條件在畫布上繪製簡單的格子圖案，例如 4x4 的格子，每個格子是正方形。</span><br/><br/><span>繪製對角線： 使用 for 迴圈在畫布上繪製從左上角到右下角的對角線。</span><br/><br/><span>繪製交錯矩形： 使用 for 迴圈在畫布上繪製若干個交錯排列的矩形，形成交錯圖案。</span><br/><br/><span>繪製同心圓： 使用 for 迴圈在畫布上繪製若干個同心圓，每次增加固定的半徑。</span><br/><br/><span>繪製同心方形： 使用 for 迴圈在畫布上繪製若干個同心方形，每次增加固定的邊長。</span><br/><br/><span>繪製簡單的線條圖： 使用 for 迴圈在畫布上繪製若干條從畫布中心向外輻射的線條。</span></p>
-<p><span></span></p>
-<h1>Brython</h1>
+<p><span>繪製直線： 使用簡單的 for 迴圈繪製若干條平行的直線，例如從畫布的左邊到右邊，每次增加固定的間距。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import matplotlib.pyplot as plt
+
+# 設定畫布
+plt.figure(figsize=(6, 6))
+
+# 設定直線的數量與間距
+num_lines = 10  # 直線的數量
+line_spacing = 0.1  # 直線的垂直間距
+
+# 使用 for 迴圈繪製平行直線
+for i in range(num_lines):
+    y = i * line_spacing  # 計算每條直線的 y 座標
+    plt.plot([0, 1], [y, y], color='blue')  # 繪製從左到右的直線
+
+# 設定畫布顯示範圍
+plt.xlim(0, 1)
+plt.ylim(0, (num_lines - 1) * line_spacing)
+
+# 顯示繪製結果
+plt.title('Parallel Lines')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.show()
+</pre>
+<p><br/><br/><span>繪製矩形： 使用 for 迴圈在畫布上繪製若干個矩形，每次增加固定的間距和尺寸。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle  # 引入 turtle 模組
+
+# 設定畫布
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+
+# 設定 turtle
+pen = turtle.Turtle()
+pen.speed(10)  # 設定繪圖速度
+
+# 繪製矩形的函數
+def draw_rectangle(width, height):
+    for _ in range(2):  # 每個矩形有四條邊，繪製兩次來形成矩形
+        pen.forward(width)  # 向前移動指定的寬度
+        pen.left(90)  # 轉90度
+        pen.forward(height)  # 向前移動指定的高度
+        pen.left(90)  # 轉90度
+
+# 使用 for 迴圈繪製若干個矩形
+initial_width = 50  # 初始矩形寬度
+initial_height = 30  # 初始矩形高度
+spacing = 20  # 矩形間距
+num_rectangles = 5  # 矩形數量
+
+# 繪製矩形
+for i in range(num_rectangles):
+    draw_rectangle(initial_width + i * spacing, initial_height + i * spacing)  # 隨著每個迴圈增加寬度和高度
+    pen.penup()  # 抬起筆，移動到下一個起始位置
+    pen.forward(spacing)  # 向前移動間距
+    pen.pendown()  # 放下筆繼續繪製
+
+# 完成後停止
+turtle.done()
+</pre>
+<p><span><br/></span><br/><br/><span>繪製圓形： 使用 for 迴圈在畫布上繪製若干個圓形，每次增加固定的半徑和位置。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle  # 引入 turtle 模組
+
+# 設定畫布
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+
+# 設定 turtle
+pen = turtle.Turtle()
+pen.speed(10)  # 設定繪圖速度
+
+# 繪製圓形的函數
+def draw_circle(radius):
+    pen.circle(radius)  # 根據給定的半徑繪製圓形
+
+# 使用 for 迴圈繪製若干個圓形
+initial_radius = 20  # 初始圓形半徑
+radius_increase = 20  # 每次增長的半徑
+num_circles = 5  # 圓形數量
+
+# 繪製圓形
+for i in range(num_circles):
+    pen.penup()  # 抬起筆，準備移動到下一個圓形位置
+    pen.setposition(0, - (initial_radius + i * radius_increase))  # 設定圓形的中心位置
+    pen.pendown()  # 放下筆開始繪製
+    draw_circle(initial_radius + i * radius_increase)  # 隨著每次迴圈增加圓形半徑
+
+# 完成後停止
+turtle.done()
+</pre>
+<p><span><br/></span><br/><br/><span>繪製不同顏色的線條： 使用 for 迴圈在畫布上繪製若干條不同顏色的線條，每次改變顏色。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle  # 引入 turtle 模組
+
+# 設定畫布
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+
+# 設定 turtle
+pen = turtle.Turtle()
+pen.speed(10)  # 設定繪圖速度
+
+# 定義顏色列表
+colors = ['red', 'green', 'blue', 'yellow', 'purple']
+
+# 使用 for 迴圈繪製不同顏色的線條
+num_lines = len(colors)  # 線條的數量等於顏色的數量
+
+# 繪製不同顏色的線條
+for i in range(num_lines):
+    pen.penup()  # 抬起筆，準備移動到下一個起始位置
+    pen.setposition(-200 + i * 100, 0)  # 設定每條線的起始位置
+    pen.pendown()  # 放下筆開始繪製
+    pen.pencolor(colors[i])  # 設定當前線條的顏色
+    pen.forward(100)  # 繪製線條
+
+# 完成後停止
+turtle.done()
+</pre>
+<p><span><br/></span><br/><br/><span>繪製格子圖案： 使用 for 迴圈和 if 條件在畫布上繪製簡單的格子圖案，例如 4x4 的格子，每個格子是正方形。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle  # 引入 turtle 模組
+
+# 設定畫布
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+
+# 設定 turtle
+pen = turtle.Turtle()
+pen.speed(10)  # 設定繪圖速度
+
+# 定義繪製正方形的函數
+def draw_square(size):
+    for _ in range(4):  # 每個正方形有四邊
+        pen.forward(size)  # 向前畫一邊
+        pen.left(90)  # 轉90度
+
+# 設定格子的大小與間距
+square_size = 50  # 每個正方形的邊長
+spacing = 10  # 每個格子之間的間距
+grid_size = 4  # 格子的行列數（4x4）
+
+# 使用 for 迴圈繪製格子圖案
+for row in range(grid_size):
+    for col in range(grid_size):
+        pen.penup()  # 抬起筆，準備移動到格子位置
+        pen.setposition(col * (square_size + spacing), -row * (square_size + spacing))  # 設定每個格子的位置
+        pen.pendown()  # 放下筆開始繪製
+        draw_square(square_size)  # 繪製正方形
+
+# 完成後停止
+turtle.done()
+</pre>
+<p><span><br/></span><br/><br/><span>繪製對角線： 使用 for 迴圈在畫布上繪製從左上角到右下角的對角線。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle  # 引入 turtle 模組
+
+# 設定畫布
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+
+# 設定 turtle
+pen = turtle.Turtle()
+pen.speed(10)  # 設定繪圖速度
+
+# 定義繪製對角線的函數
+def draw_diagonal(length):
+    for _ in range(length):  # 循環繪製對角線
+        pen.forward(1)  # 向前移動1個單位
+        pen.left(90)  # 轉90度
+
+# 設定對角線的長度
+line_length = 200  # 設定對角線的長度
+
+# 使用 for 迴圈繪製對角線
+pen.penup()  # 抬起筆，準備移動到左上角
+pen.setposition(-line_length // 2, line_length // 2)  # 設定起始位置（左上角）
+pen.pendown()  # 放下筆開始繪製
+pen.setposition(line_length // 2, -line_length // 2)  # 繪製線條到右下角
+
+# 完成後停止
+turtle.done()
+</pre>
+<p><span><br/></span><br/><br/><span>繪製交錯矩形： 使用 for 迴圈在畫布上繪製若干個交錯排列的矩形，形成交錯圖案。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle  # 引入 turtle 模組
+
+# 設定畫布
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+
+# 設定 turtle
+pen = turtle.Turtle()
+pen.speed(10)  # 設定繪圖速度
+
+# 定義繪製矩形的函數
+def draw_rectangle(width, height):
+    for _ in range(2):  # 每個矩形有四邊，繪製兩次
+        pen.forward(width)  # 向前移動寬度
+        pen.left(90)  # 轉90度
+        pen.forward(height)  # 向前移動高度
+        pen.left(90)  # 轉90度
+
+# 設定矩形的大小與間距
+rect_width = 100  # 矩形的寬度
+rect_height = 50  # 矩形的高度
+num_rectangles = 5  # 繪製的矩形數量
+
+# 使用 for 迴圈繪製交錯排列的矩形
+for i in range(num_rectangles):
+    pen.penup()  # 抬起筆，準備移動到下一個矩形位置
+    pen.setposition(-200 + i * 40, 200 - i * 20)  # 設定每個矩形的起始位置，改變位置實現交錯
+    pen.pendown()  # 放下筆開始繪製
+    if i % 2 == 0:
+        pen.setheading(0)  # 偶數索引的矩形保持水平
+    else:
+        pen.setheading(45)  # 奇數索引的矩形旋轉45度，實現交錯排列
+    draw_rectangle(rect_width, rect_height)  # 繪製矩形
+
+# 完成後停止
+turtle.done()
+</pre>
+<p><span><br/></span><br/><br/><span>繪製同心圓： 使用 for 迴圈在畫布上繪製若干個同心圓，每次增加固定的半徑。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle  # 引入 turtle 模組
+
+# 設定畫布
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+
+# 設定 turtle
+pen = turtle.Turtle()
+pen.speed(10)  # 設定繪圖速度
+
+# 定義繪製圓形的函數
+def draw_circle(radius):
+    pen.circle(radius)  # 根據給定的半徑繪製圓形
+
+# 設定圓形的初始半徑與增長值
+initial_radius = 20  # 初始圓形半徑
+radius_increase = 20  # 每次增長的半徑
+num_circles = 5  # 圓形數量
+
+# 使用 for 迴圈繪製同心圓
+for i in range(num_circles):
+    pen.penup()  # 抬起筆，準備移動到圓形中心
+    pen.setposition(0, - (initial_radius + i * radius_increase))  # 設定圓形的中心位置
+    pen.pendown()  # 放下筆開始繪製
+    draw_circle(initial_radius + i * radius_increase)  # 繪製每個同心圓，隨著每次迴圈增加半徑
+
+# 完成後停止
+turtle.done()
+</pre>
+<p><span><br/></span><br/><br/><span>繪製同心方形： 使用 for 迴圈在畫布上繪製若干個同心方形，每次增加固定的邊長。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle  # 引入 turtle 模組
+
+# 設定畫布
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+
+# 設定 turtle
+pen = turtle.Turtle()
+pen.speed(10)  # 設定繪圖速度
+
+# 定義繪製方形的函數
+def draw_square(side_length):
+    for _ in range(4):  # 每個方形有四條邊
+        pen.forward(side_length)  # 向前移動邊長
+        pen.left(90)  # 轉90度
+
+# 設定方形的初始邊長與增長值
+initial_side_length = 50  # 初始方形邊長
+side_length_increase = 20  # 每次增長的邊長
+num_squares = 5  # 方形數量
+
+# 使用 for 迴圈繪製同心方形
+for i in range(num_squares):
+    pen.penup()  # 抬起筆，準備移動到方形的位置
+    pen.setposition(- (initial_side_length + i * side_length_increase) / 2, (initial_side_length + i * side_length_increase) / 2)  # 設定方形的起始位置
+    pen.pendown()  # 放下筆開始繪製
+    draw_square(initial_side_length + i * side_length_increase)  # 繪製每個同心方形，隨著每次迴圈增加邊長
+
+# 完成後停止
+turtle.done()
+</pre>
+<p><span><br/></span><br/><br/><span>繪製簡單的線條圖： 使用 for 迴圈在畫布上繪製若干條從畫布中心向外輻射的線條。</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle  # 引入 turtle 模組
+
+# 設定畫布
+screen = turtle.Screen()
+screen.setup(width=600, height=600)
+
+# 設定 turtle
+pen = turtle.Turtle()
+pen.speed(10)  # 設定繪圖速度
+
+# 定義繪製線條的函數
+def draw_line(length):
+    pen.forward(length)  # 向前繪製一條線條
+
+# 設定線條的長度與數量
+line_length = 200  # 每條線條的長度
+num_lines = 12  # 線條的數量（從中心向外輻射）
+
+# 使用 for 迴圈繪製從畫布中心向外輻射的線條
+pen.penup()  # 抬起筆，準備移動到畫布中心
+pen.setposition(0, 0)  # 設定畫布的中心位置
+pen.pendown()  # 放下筆開始繪製
+
+for i in range(num_lines):
+    pen.setheading(i * (360 / num_lines))  # 設定每條線條的角度，使其均勻分布
+    draw_line(line_length)  # 繪製線條
+
+# 完成後停止
+turtle.done()
+</pre>
+<p><span><br/></span><span></span></p><h1>Brython</h1>
 <p>從 1 累加到 100:</p>
 <p><button id="add1to100">1 add to 100</button></p>
 <!-- 導入 brython 程式庫 -->
