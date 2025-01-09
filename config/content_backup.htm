@@ -2377,8 +2377,9 @@ def draw_rotating_squares():
 # 呼叫函數來繪製旋轉的方形
 draw_rotating_squares()
 </pre>
-<p><br/><br/><br/>漸變色矩形：</p>
+<p><br/><br/><br/>備註：漸變色矩形要使用IDE(<span>該環境不支持圖形界面</span>)</p>
 <p>使用 for 迴圈和基本數列，在畫布上繪製一組漸變色的矩形。每個矩形的顏色隨著循環變化，例如從紅色逐漸變為藍色。</p>
+<p><em><code>turtle.Screen()._colorstr</code> 這個方法是內部私有方法，不適合直接使用來獲取顏色的 RGB 值</em></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle
 
 # 顏色漸變的計算函數
@@ -2426,7 +2427,7 @@ def draw_gradient_rectangles():
 # 呼叫函數來繪製漸變色矩形
 draw_gradient_rectangles()
 </pre>
-<p><br/><br/><br/>星星圖案：</p>
+<p>修正後程式：<br/><br/><br/>星星圖案：</p>
 <p>使用 for 迴圈和 if 條件，在畫布上繪製一組星星圖案。每次迴圈在隨機位置繪製一個五角星，星星的大小也可以隨機變化。</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import turtle
 import random
@@ -2799,7 +2800,7 @@ for i in range(num_lines):
 # 完成後停止
 turtle.done()
 </pre>
-<p><span><br/></span><span></span></p><h1>Brython</h1>
+<br/><span>Other</span><span></span><h1>Brython</h1>
 <p>從 1 累加到 100:</p>
 <p><button id="add1to100">1 add to 100</button></p>
 <!-- 導入 brython 程式庫 -->
