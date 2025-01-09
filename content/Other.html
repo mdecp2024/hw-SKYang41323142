@@ -1,0 +1,590 @@
+<!DOCTYPE html><html>
+        <head>
+        <title>cp_hw</title>
+        <meta charset="utf-8">
+<meta property="head" content="H3">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <!-- for Wink3 客製化關閉 -->
+        <!--
+        <link rel="stylesheet" type="text/css" href="./../cmsimde/static/winkPlayer.css" />
+        <script type="text/javascript" src="./../cmsimde/static/winkPlayer.js"></script>
+        -->
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushRust.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container">
+                <div class="row align-items-center">
+                <h1>41323142 - cp2024 作業網站</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">41323142 - cp2024 作業網站</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">SMap</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li class='has-children'><a href='HW 1 Exam.html'>HW 1 Exam</a><ul class='dropdown'><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a><li><a href='w11.html'>w11</a><li><a href='w11_hw.html'>w11_hw</a><li><a href='w12_hw.html'>w12_hw</a><li><a href='w13_hw.html'>w13_hw</a><li><a href='w14_hw.html'>w14_hw</a><li><a href='w15.html'>w15</a></li></li></ul></ul><li class='has-children'><a href='HW 2.html'>HW 2</a><ul class='dropdown'><li class='has-children'><a href='HW 2 Exam.html'>HW 2 Exam</a><ul class='dropdown'><li><a href='w16_exam1.html'>w16_exam1</a></li></li></ul></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li class='has-children'><a href='HW 3 Exam.html'>HW 3 Exam</a><ul class='dropdown'><li><a href='w16_exam2.html'>w16_exam2</a></li></li></ul></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li class='has-children'><a href='HW 4 Exam.html'>HW 4 Exam</a><ul class='dropdown'><li><a href='w16_exam3.html'>w16_exam3</a></li></li></ul></ul><li><a href='Final Report.html'>Final Report</a><li class='has-children'><a href='Final Program Library.html'>Final Program Library</a><ul class='dropdown'><li class='has-children'><a href='程式庫.html'>程式庫</a><ul class='dropdown'><li><a href='簡單的數學計算器.html'>簡單的數學計算器</a><li><a href='反轉字串.html'>反轉字串</a><li><a href='費氏數列.html'>費氏數列</a><li><a href='清單排序.html'>清單排序</a><li><a href='字母計數器.html'>字母計數器</a><li><a href='進階Brython 繪圖.html'>進階Brython 繪圖</a><li><a href='基礎Brython 繪圖.html'>基礎Brython 繪圖</a><li><a href='Other.html'>Other</a></li></li></ul></ul><li><a href='Brython.html'>Brython</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
+
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">基礎Brython 繪圖 << <a href='基礎Brython 繪圖.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython<br /><h1>Other</h1>
+<p><span>從 1 累加到 100</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># sum 初始值設為 0
+sum = 0
+init = 1
+upto = 100
+# 利用 for 重複迴圈與變數加法進行累加
+for i in range(init, upto+1):
+    sum = sum + i
+print("從" + str(init) + "累加到" + str(upto) + "=" + str(sum))</pre>
+<p>中華民國國旗</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 從 browser 導入 document 物件且設其名稱為 doc
+from browser import document as doc
+# 導入 html 物件
+from browser import html
+# 導入 math 函式庫
+import math
+# 利用 html 物件中的 CANVAS() 建立畫布標註
+canvas = html.CANVAS(width = 600, height = 400)
+#canvas.style = {"width": "100%"}
+# 將畫布 id 設為 "canvas"
+canvas.id = "canvas"
+# 網頁中已經存在 id 為 "brython_div1" 的標註
+# 將此標註設定與變數 brython_div 進行對應
+brython_div = doc["brython_div1"]
+# 利用 Brython 特殊的 &lt;= 符號將 canvas 標註插在 brython_div 對應的標註後面
+brython_div &lt;= canvas
+# 利用 canvas 畫布的 getContext() 方法設定其 2d 繪圖的對應變數為 ctx
+ctx = canvas.getContext("2d")
+# 進行座標轉換, x 軸不變, y 軸反向且移動 canvas.height 單位光點
+# ctx.setTransform(1, 0, 0, -1, 0, canvas.height)
+# 以下採用 canvas 原始座標繪圖
+flag_w = canvas.width
+flag_h = canvas.height
+circle_x = flag_w/4
+circle_y = flag_h/4
+# 設定 ctx 繪圖的填色樣式為紅色
+ctx.fillStyle='rgb(255, 0, 0)'
+# 從座標最左上方塗到最右下方, 全部塗上紅色
+ctx.fillRect(0,0,flag_w,flag_h)
+# 將塗色改為青色
+ctx.fillStyle='rgb(0, 0, 150)'
+# 塗上畫布的 1/4 長方形
+ctx.fillRect(0,0,flag_w/2,flag_h/2)
+# 畫十二道光芒白日
+ctx.beginPath()
+star_radius = flag_w/8
+angle = 0
+for i in range(24):
+    angle += 5*math.pi*2/12
+    toX = circle_x + math.cos(angle)*star_radius
+    toY = circle_y + math.sin(angle)*star_radius
+    # 只有 i 為 0 時移動到 toX, toY, 其餘都進行 lineTo
+    if (i):
+        ctx.lineTo(toX, toY)
+    else:
+        ctx.moveTo(toX, toY)
+ctx.closePath()
+# 將填色設為白色
+ctx.fillStyle = '#fff'
+ctx.fill()
+# 白日:藍圈
+ctx.beginPath()
+ctx.arc(circle_x, circle_y, flag_w*17/240, 0, math.pi*2, True)
+ctx.closePath()
+# 填色設為藍色
+ctx.fillStyle = 'rgb(0, 0, 149)'
+ctx.fill()
+# 白日:白心
+ctx.beginPath()
+ctx.arc(circle_x, circle_y, flag_w/16, 0, math.pi*2, True)
+ctx.closePath()
+# 填色設為白色
+ctx.fillStyle = '#fff'
+ctx.fill()
+</pre>
+<p>中華人民共和國國旗</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 畫中華人民共和國國旗
+# 根據 https://en.wikipedia.org/wiki/Flag_of_China 規格繪圖
+# 導入 doc
+from browser import document as doc
+# 以下將利用 html 產生所需的繪圖畫布
+from browser import html
+# 利用 math 函式庫執行三角函數運算
+import math
+canvas = html.CANVAS(width = 600, height = 400)
+#canvas.style = {"width": "100%"}
+canvas.id = "taiwan_flag"
+# 將圖畫至 id 為 brython_div 的 cnavas 標註
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
+# 準備繪圖畫布
+canvas = doc["taiwan_flag"]
+ctx = canvas.getContext("2d")
+
+# 進行座標轉換, x 軸不變, y 軸反向且移動 canvas.height 單位光點
+# ctx.setTransform(1, 0, 0, -1, 0, canvas.height)
+
+# 以下採用 canvas 原始座標繪圖
+flag_w = canvas.width
+flag_h = canvas.height
+
+# 先畫滿地紅
+ctx.fillStyle='rgb(255, 0, 0)'
+ctx.fillRect(0,0,flag_w,flag_h)
+
+# 建立畫直線函式
+def draw_line(x1, y1, x2, y2, color="#ff0000"):
+    ctx.beginPath()
+    ctx.moveTo(x1, y1)
+    ctx.lineTo(x2, y2)
+    ctx.strokeStyle = color
+    ctx.stroke()
+
+# 測試畫直線函式功能
+#draw_line(10, 10, 100, 100)
+
+# 定義角度轉換為徑度變數
+deg = math.pi/180.
+
+# 建立五星繪圖函式
+#x, y 為中心, r 為半徑, angle 旋轉角, solid 空心或實心, color 顏色
+def star(x, y, r, angle=0, solid=False, color="#ff0000"):
+    #以 x, y 為圓心, 計算五個外點
+    # 圓心到水平線距離
+    a = r*math.cos(72*deg)
+    # a 頂點向右到內點距離
+    b = (r*math.cos(72*deg)/math.cos(36*deg))*math.sin(36*deg)
+    # 利用畢氏定理求內點半徑
+    rin = math.sqrt(a*a + b*b)
+    # 查驗 a, b 與 rin
+    #print(a, b, rin)
+    if solid:
+        ctx.beginPath()
+    # angle 角度先轉 360/10, 讓五星對正
+    angle = angle + 360/10
+    for i in range(5):
+        xout = (x + r*math.sin((360/5)*deg*i+angle*deg))
+        yout = (y + r*math.cos((360/5)*deg*i+angle*deg))
+        # 外點增量 + 1
+        xout2 = x + r*math.sin((360/5)*deg*(i+1)+angle*deg)
+        yout2 = y + r*math.cos((360/5)*deg*(i+1)+angle*deg)
+        xin = x + rin*math.sin((360/5)*deg*i+36*deg+angle*deg)
+        yin = y + rin*math.cos((360/5)*deg*i+36*deg+angle*deg)
+        # 查驗外點與內點座標
+        #print(xout, yout, xin, yin)
+        if solid:
+            # 填色
+            if i==0:
+                ctx.moveTo(xout, yout)
+                ctx.lineTo(xin, yin)
+                ctx.lineTo(xout2, yout2)
+            else:
+                ctx.lineTo(xin, yin)
+                ctx.lineTo(xout2, yout2)
+        else:
+            # 空心
+            draw_line(xout, yout, xin, yin, color)
+            # 畫空心五芒星, 無關畫線次序, 若實心則與畫線次序有關
+            draw_line(xout2, yout2, xin, yin, color)
+    if solid:
+        ctx.fillStyle = color
+        ctx.fill()
+
+yellow = "#FFFF00"
+# 大五星位於 (5x20, 5x20) 半徑為 3x20
+star(100, 100, 60, solid=True, color=yellow)
+unit = int(canvas.width/30)
+# 計算各小五星座標與轉角
+x1 = 10*unit
+y1 = 2*unit
+x2 = 12*unit
+y2 = 4*unit
+x3 = 12*unit
+y3 = 7*unit
+x4 = 10*unit
+y4 = 9*unit
+angle1 = 90 + math.atan(3/5)/deg
+angle2 = 90 + math.atan(1/7)/deg
+angle3 = 90 - math.atan(2/7)/deg
+angle4 = 90 - math.atan(4/5)/deg
+radius = 20
+star(x1, y1, radius , angle=angle1, solid=True, color=yellow)
+star(x2, y2, radius, angle=angle2, solid=True, color=yellow)
+star(x3, y3, radius, angle=angle3, solid=True, color=yellow)
+star(x4, y4, radius, angle=angle4, solid=True, color=yellow)
+</pre>
+<p>美國國旗</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 畫美國國旗
+# 根據 https://en.wikipedia.org/wiki/Flag_of_the_United_States#Specifications 規格繪圖
+# 導入 doc
+from browser import document as doc
+# 以下將利用 html 產生所需的繪圖畫布
+from browser import html
+# 利用 math 函式庫執行三角函數運算
+import math
+# height = 1, width = 1.9
+width = 600
+height = int(600/1.9)
+canvas = html.CANVAS(width = width, height = height)
+#canvas.style = {"width": "100%"}
+canvas.id = "taiwan_flag"
+# 將圖畫至 id 為 brython_div 的 cnavas 標註
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
+# 準備繪圖畫布
+canvas = doc["taiwan_flag"]
+ctx = canvas.getContext("2d")
+
+# 進行座標轉換, x 軸不變, y 軸反向且移動 canvas.height 單位光點
+# ctx.setTransform(1, 0, 0, -1, 0, canvas.height)
+
+# 以下採用 canvas 原始座標繪圖
+flag_w = canvas.width
+flag_h = canvas.height
+
+# 先畫滿地紅
+ctx.fillStyle='#B31942'
+ctx.fillRect(0,0,flag_w,flag_h)
+
+# 6 條白色長方形
+# 每條高度 height/13
+ctx.fillStyle ='#FFFFFF'
+white_height = int(height/13)
+whitex = 0
+whitey = white_height
+white_width = width
+for i in range(6):
+    ctx.fillRect(whitex, whitey+i*2*white_height, white_width, white_height)
+
+# 藍色區域
+blue_height = int(height*7/13)
+blue_width = int(width*2/5)
+bluex = 0
+bluey = 0
+ctx.fillStyle ='#0A3161'
+ctx.fillRect(bluex, bluey, blue_width, blue_height)
+
+# 建立畫直線函式
+def draw_line(x1, y1, x2, y2, color="#ff0000"):
+    ctx.beginPath()
+    ctx.moveTo(x1, y1)
+    ctx.lineTo(x2, y2)
+    ctx.strokeStyle = color
+    ctx.stroke()
+
+# 測試畫直線函式功能
+#draw_line(10, 10, 100, 100)
+
+# 定義角度轉換為徑度變數
+deg = math.pi/180.
+
+# 建立五星繪圖函式
+#x, y 為中心, r 為半徑, angle 旋轉角, solid 空心或實心, color 顏色
+def star(x, y, r, angle=0, solid=False, color="#ff0000"):
+    #以 x, y 為圓心, 計算五個外點
+    # 圓心到水平線距離
+    a = r*math.cos(72*deg)
+    # a 頂點向右到內點距離
+    b = (r*math.cos(72*deg)/math.cos(36*deg))*math.sin(36*deg)
+    # 利用畢氏定理求內點半徑
+    rin = math.sqrt(a*a + b*b)
+    # 查驗 a, b 與 rin
+    #print(a, b, rin)
+    if solid:
+        ctx.beginPath()
+    # angle 角度先轉 360/10, 讓五星對正
+    angle = angle + 360/10
+    for i in range(5):
+        xout = (x + r*math.sin((360/5)*deg*i+angle*deg))
+        yout = (y + r*math.cos((360/5)*deg*i+angle*deg))
+        # 外點增量 + 1
+        xout2 = x + r*math.sin((360/5)*deg*(i+1)+angle*deg)
+        yout2 = y + r*math.cos((360/5)*deg*(i+1)+angle*deg)
+        xin = x + rin*math.sin((360/5)*deg*i+36*deg+angle*deg)
+        yin = y + rin*math.cos((360/5)*deg*i+36*deg+angle*deg)
+        # 查驗外點與內點座標
+        #print(xout, yout, xin, yin)
+        if solid:
+            # 填色
+            if i==0:
+                ctx.moveTo(xout, yout)
+                ctx.lineTo(xin, yin)
+                ctx.lineTo(xout2, yout2)
+            else:
+                ctx.lineTo(xin, yin)
+                ctx.lineTo(xout2, yout2)
+        else:
+            # 空心
+            draw_line(xout, yout, xin, yin, color)
+            # 畫空心五芒星, 無關畫線次序, 若實心則與畫線次序有關
+            draw_line(xout2, yout2, xin, yin, color)
+    if solid:
+        ctx.fillStyle = color
+        ctx.fill()
+
+# 白色五星
+white = "#FFFFFF"
+# 單數排白色五星
+star1x = int(blue_width/12)
+star1y = int(blue_height/10)
+star_radius = int(white_height*4/5/2)
+# 沿 x 方向有 6 顆白色五星
+# 沿 y 方向有 5 顆白色五星
+inc1x = int(2*blue_width/12)
+inc1y = int(2*blue_height/10)
+for i in range(6):
+    for j in range(5):
+        star(star1x+i*inc1x, star1y+j*inc1y, star_radius, solid=True, color=white)
+# 雙數排白色五星
+star2x = int(blue_width/12 + blue_width/12)
+star2y = int(blue_height/10 + blue_height/10)
+# 沿 x 方向有 5 顆白色五星
+# 沿 y 方向有 4 顆白色五星
+for i in range(5):
+    for j in range(4):
+        star(star2x+i*inc1x, star2y+j*inc1y, star_radius, solid=True, color=white)
+</pre>
+<p>GD in Brython</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document as doc
+from browser import html
+import math
+
+width = 800
+height = 600
+
+img = html.IMG(width=width, height=height)
+img.id = "hellogd_image"
+brython_div = doc["brython_div1"]
+brython_div &lt;= img
+
+canvas = html.CANVAS(width=width, height=height)
+canvas.style = {"border": "1px solid #000"}
+canvas.id = "hellogd_canvas"
+brython_div &lt;= canvas
+
+ctx = canvas.getContext("2d")
+
+red = (255, 0, 0)
+blue = (0, 0, 255)
+black = (0, 0, 0)
+white = (255, 255, 255)
+
+# 長方形塗色
+ctx.fillStyle = f'rgb({white[0]}, {white[1]}, {white[2]})'
+ctx.fillRect(0, 0, width, height)
+
+ctx.fillStyle = f'rgb({blue[0]}, {blue[1]}, {blue[2]})'
+ctx.fillRect(0, 0, width // 4, height // 4)
+
+# 橢圓形塗色
+ctx.fillStyle = f'rgb({red[0]}, {red[1]}, {red[2]})'
+ctx.beginPath()
+ctx.ellipse(width * 3 / 4, height / 4, width / 4, width / 4, 0, 0, 2 * math.pi)
+ctx.fill()
+
+# 橢圓形畫線
+ctx.strokeStyle = f'rgb({red[0]}, {red[1]}, {red[2]})'
+ctx.beginPath()
+ctx.ellipse(width * 3 / 4, height * 3 / 4, width / 4, width / 4, 0, 0, 2 * math.pi)
+ctx.stroke()
+
+# 畫直線
+ctx.beginPath()
+ctx.moveTo(width / 2, height / 2)
+ctx.lineTo(width / 2, height / 2 + 100)
+ctx.strokeStyle = f'rgb({blue[0]}, {blue[1]}, {blue[2]})'
+ctx.stroke()
+
+# 多邊形畫線
+points = [(width / 4, height * 3 / 4), (width / 4 + 100, height * 3 / 4), (width / 4 + 100, height * 3 / 4 + 100),
+          (width / 4, height * 3 / 4 + 100)]
+ctx.beginPath()
+for i, point in enumerate(points):
+    if i == 0:
+        ctx.moveTo(point[0], point[1])
+    else:
+        ctx.lineTo(point[0], point[1])
+ctx.strokeStyle = f'rgb({black[0]}, {black[1]}, {black[2]})'
+ctx.stroke()
+
+# 多邊形塗色
+points2 = [(width / 3, height / 2), (width / 3 + 100, height / 2), (width / 3 + 100, height / 2 + 100),
+           (width / 3 - 150, height / 2 + 100)]
+ctx.beginPath()
+for i, point in enumerate(points2):
+    if i == 0:
+        ctx.moveTo(point[0], point[1])
+    else:
+        ctx.lineTo(point[0], point[1])
+ctx.fillStyle = f'rgb({red[0]}, {red[1]}, {red[2]})'
+ctx.fill()
+
+# 將 Canvas 轉為圖片
+img.src = canvas.toDataURL("image/png")
+</pre>
+<p></p><br />基礎Brython 繪圖 << <a href='基礎Brython 繪圖.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        
